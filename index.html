@@ -4,13 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Garment Malik</title>
-<meta name="description" content="Run a Gazipur T-shirt factory for a year, set the minimum wage, and see what the buyer would have to pay.">
+<meta name="description" content="One T-shirt from Gazipur, three people with a stake in it. Run a worker's month, own the factory for a year, and see what the brand would have to pay.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="canonical" href="https://garmentmalik.com/">
-<meta property="og:title" content="Garment Malik">
-<meta property="og:description" content="Run a Gazipur T-shirt factory for a year, set the minimum wage, and see what the buyer would have to pay.">
-<meta property="og:url" content="https://garmentmalik.com/">
-<meta property="og:type" content="website">
 <meta name="theme-color" content="#123c32">
 <style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style>
 </head>
@@ -135,6 +130,37 @@ body.bn .lab b,body.bn .doc-h,body.bn .fact b,body.bn .rs small{font-size:10.5px
 .t-note .doc-h{justify-content:center;background:var(--ink);color:var(--paper);letter-spacing:.2em}
 .t-note h2{font-weight:900;font-size:25px}
 
+/* type: household notebook (khata) */
+.t-khata{background-color:#fdfbf4;background-image:linear-gradient(90deg,transparent 30px,rgba(197,38,27,.45) 30px 31.5px,transparent 31.5px),repeating-linear-gradient(0deg,transparent 0 23px,rgba(53,80,108,.2) 23px 24px)}
+.t-khata .doc-h{border-bottom-color:#35506c;color:#22384d;padding-left:40px}
+.t-khata .doc-b{padding-left:40px}
+.meter{display:grid;gap:4px}
+.mbar{position:relative;height:30px;background:repeating-linear-gradient(-45deg,#efe7d3 0 6px,#e6dcc4 6px 12px);border:1.5px solid var(--ink);display:flex;overflow:hidden}
+.mbar i{display:block;height:100%;transition:width .45s cubic-bezier(.3,1.2,.5,1);border-right:1.5px solid var(--ink)}
+.mbar i:empty{border:0}
+.mbar .a{background:var(--c-wages)}.mbar .b{background:#f1d27a}.mbar .c{background:#7aa7c7}
+.mlab{display:flex;justify-content:space-between;font:400 11px/1.3 var(--f-mono);color:var(--ink-2)}
+.mlab b{color:var(--ink);font-weight:600}
+.tog{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.tog button{border:1.5px solid var(--ink);border-radius:3px;padding:8px 9px;min-height:50px;text-align:left;font:600 12.5px/1.25 var(--f-body);background:#fff;display:grid;grid-template-columns:18px 1fr;gap:6px;align-items:center}
+.tog button::before{content:"";width:16px;height:16px;border:1.5px solid var(--ink);border-radius:2px;background:#fff}
+.tog button[aria-pressed="true"]{background:#fff7da}
+.tog button[aria-pressed="true"]::before{background:var(--ink);box-shadow:inset 0 0 0 3px #fff}
+.tog small{display:block;font:400 10.5px/1.2 var(--f-mono);color:var(--ink-2);margin-top:2px}
+.chair{font:600 9px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--tape)}
+.chairs{list-style:none;margin:0;padding:0;display:grid;gap:7px;position:relative}
+.chairs li{display:grid;grid-template-columns:28px 1fr;gap:9px;align-items:start;font-size:13.5px;line-height:1.35}
+.chairs li b{display:block;font:600 10px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tape);margin-bottom:2px}
+.chairs svg{width:28px;height:28px}
+.whole{display:grid;gap:7px}
+.wrow{display:grid;grid-template-columns:30px 1fr;gap:9px;align-items:start;border-top:1px dashed var(--rule);padding-top:7px}
+.wrow:first-child{border-top:0;padding-top:0}
+.wrow svg{width:30px;height:30px}
+.wrow b{display:block;font:600 9.5px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-bottom:2px}
+.wrow p{font-size:13px;line-height:1.4}
+.wrow em{font-style:normal;font-weight:600;font-family:var(--f-mono);font-size:12.5px}
+.closing{font:600 15px/1.4 var(--f-display);border-left:4px solid var(--ink);padding-left:10px}
+
 /* stamp impression */
 .stamp{position:absolute;right:12px;top:44px;font:700 17px/1.05 var(--f-stamp);letter-spacing:.04em;text-transform:uppercase;color:var(--stamp-red);
   border:3.5px solid currentColor;border-radius:4px;padding:7px 9px 5px;transform:rotate(-9deg);opacity:.9;filter:url(#ink);mix-blend-mode:multiply;max-width:122px;
@@ -202,8 +228,6 @@ input[type=range]::-moz-range-thumb{width:28px;height:38px;border-radius:3px;bac
 .title h1{margin:0;font:900 clamp(44px,13.5vw,62px)/.92 var(--f-display);letter-spacing:-.02em;position:relative}
 .title h1 span{display:block;font:700 24px/1.2 'Hind Siliguri',sans-serif;letter-spacing:0;color:var(--tape);margin-bottom:8px}
 .title p{margin:0;font-size:16px;line-height:1.45;max-width:27ch;position:relative}
-.title ul{list-style:none;margin:0;padding:0;display:grid;gap:5px;font:400 12px/1.35 var(--f-mono);color:var(--chalk-dim);position:relative}
-.title li::before{content:"✂ ";color:var(--tape)}
 .title .fine{font:400 11px/1.4 var(--f-body);color:var(--chalk-dim)}
 
 /* ledger */
@@ -301,6 +325,8 @@ const SRC={
  gas:['BERC, via The Business Standard, 13 Apr 2025','https://www.tbsnews.net/bangladesh/energy/gas-prices-new-existing-captive-power-plants-industrial-consumers-hiked-1114921'],
  bgmea:['BGMEA, via The Financial Express, 2 Sep 2026','https://thefinancialexpress.com.bd/trade/400-garment-factories-shut-in-three-years-bgmea'],
  unit:['US import figures cited in The Daily Star, 2026','https://online92.thedailystar.net/opinion/views/rmg-notes/news/how-falling-real-prices-threaten-bangladeshs-apparel-sector-4197941'],
+ ank25:['Anker Research Institute, 2025 update for Dhaka and satellite cities','https://www.globallivingwage.org/living-wage-benchmarks/urban-bangladesh-surrounding-dhaka/'],
+ palo:['Helal Mohiuddin, Prothom Alo, 3 Nov 2026','https://en.prothomalo.com/opinion/2nuq171a7l'],
  strike:['The Business Standard, 2 and 9 Nov 2026','https://www.tbsnews.net/economy/rmg/rmg-workers-propose-tk32000-minimum-wage-owners-get-4-days-submit-counterproposal'],
  fob:['TAEEN buying house, FOB cost guide, 20 Jun 2026','https://taeen.com.bd/blog/garment-pricing-bangladesh-buyer-guide-2026'],
  infl:['BBS, via Waadaa, 2 Nov 2026','https://www.dailywaadaa.com/analysis/2026/11/02/what-is-a-realistic-minimum-wage-for-the-garment-workers'],
@@ -330,6 +356,10 @@ function legend(e,price,short){
   return `<div class="leg">${row('wages',t(T.wages),e.labour,'w')}${short?'':row('ovh',t(T.ovh),e.ovh)+row('freight',t(T.freight),B.freight)+row('trims',t(T.trims),B.trims)+row('fabric',t(T.fabric),B.fabric)}
    <div class="m ${m<0?'neg':'pos'}"><i style="background:${m<0?'var(--bad)':'var(--c-margin)'}"></i><span>${t(m<0?T.loss:T.margin)}</span><span>${dg((m<0?'−':'+')+'$'+Math.abs(m).toFixed(2))}</span></div></div>`;
 }
+const IC={
+ worker:`<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="8.5" r="4.5" fill="var(--c-wages)" stroke="currentColor" stroke-width="1.6"/><path d="M6 29c0-7 4.5-11.5 10-11.5S26 22 26 29" fill="var(--c-wages)" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 6.5c2-4 9-4 11 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>`,
+ owner:`<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 29V15l7 4v-4l7 4v-4l7 4V6h5v23z" fill="#b6aa88" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 24h3M14 24h3M20 24h3" stroke="currentColor" stroke-width="1.6"/></svg>`,
+ buyer:`<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M17 3h11v11L15 27 4 16z" fill="#fff" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="23" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 16l6 6M13 13l6 6" stroke="currentColor" stroke-width="1.4"/></svg>`};
 const PATTERN=`<svg class="pat" viewBox="0 0 250 330" aria-hidden="true" fill="none" stroke="#f4f0e3" stroke-linecap="round" stroke-linejoin="round">
  <path d="M70 18 Q125 62 180 18 L238 52 L214 118 L186 104 L190 312 L60 312 L64 104 L36 118 L12 52 Z" stroke-width="2"/>
  <path d="M78 28 Q125 66 172 28 M22 58 L44 108 M228 58 L206 108 M70 300 H180 M74 110 L70 300 M176 110 L180 300" stroke-width="1" stroke-dasharray="5 5" opacity=".8"/>
@@ -410,21 +440,41 @@ function chrome(on){$('#tape').hidden=!on;$('#hud').hidden=!on;if(on)hud()}
 function render(){
   document.documentElement.lang=lang;document.body.classList.toggle('bn',lang==='bn');
   $('#brand').textContent=t(T.brand);$('#l-en').setAttribute('aria-pressed',lang==='en');$('#l-bn').setAttribute('aria-pressed',lang==='bn');
-  ({title:vTitle,slip:vSlip,doc:vDoc,ledger:vLedger,end:vEnd,buyer:vBuyer})[step]();
+  ({title:vTitle,her:vHer,whole:vWhole,slip:vSlip,doc:vDoc,ledger:vLedger,end:vEnd,buyer:vBuyer})[step]();
 }
 function vTitle(){chrome(false);
   desk.innerHTML=`<div class="title">${PATTERN}<h1><span>${lang==='bn'?'Garment Malik':'গার্মেন্ট মালিক'}</span>${lang==='bn'?'গার্মেন্ট<br>মালিক':'Garment<br>Malik'}</h1>
-   <p>${t({en:'You own a T-shirt factory in Gazipur. A thousand people work for you. Your buyer pays $3.00 a shirt.',bn:'গাজীপুরে আপনার একটি টি-শার্ট কারখানা। সেখানে কাজ করেন এক হাজার মানুষ। ক্রেতা প্রতি শার্টে দেন $৩.০০।'})}</p>
-   <ul><li>${t({en:'Twelve months. Five letters on your desk.',bn:'বারো মাস। টেবিলে পাঁচটি চিঠি।'})}</li><li>${t({en:'Every figure on them is on the public record.',bn:'চিঠির প্রতিটি সংখ্যা প্রকাশিত তথ্য থেকে নেওয়া।'})}</li></ul>
-   <div class="fine">${t({en:'A simulation. Sources and the rules of the game are under SRC.',bn:'এটি একটি সিমুলেশন। সূত্র ও খেলার নিয়ম SRC-তে।'})}</div></div>`;
+   <p>${t({en:'One T-shirt from Gazipur. Three people with a stake in it. Each of them is right about their own numbers.',bn:'গাজীপুরের একটি টি-শার্ট। তাতে তিনজনের ভাগ। প্রত্যেকেই নিজের হিসাবে ঠিক।'})}</p>
+   <ol class="chairs"><li>${IC.worker}<span><b>${t({en:'Her month',bn:'তাঁর মাস'})}</b>${t({en:'Run a sewing operator’s household budget.',bn:'একজন অপারেটরের সংসারের হিসাব চালান।'})}</span></li>
+   <li>${IC.owner}<span><b>${t({en:'Your year',bn:'আপনার বছর'})}</b>${t({en:'Own the factory for twelve months and set the wage.',bn:'বারো মাস কারখানার মালিক হন, মজুরি ঠিক করুন।'})}</span></li>
+   <li>${IC.buyer}<span><b>${t({en:'The price',bn:'দাম'})}</b>${t({en:'See what the brand would have to pay.',bn:'দেখুন ব্র্যান্ডকে কত দিতে হতো।'})}</span></li></ol>
+   <div class="fine">${t({en:'Every figure on the desk is on the public record. Sources and the rules of the game are under SRC.',bn:'টেবিলের প্রতিটি সংখ্যা প্রকাশিত তথ্য থেকে। সূত্র ও খেলার নিয়ম SRC-তে।'})}</div></div>`;
   setAct(btn('start',t({en:'Boshen, sir',bn:'বসেন, স্যার'}),'go'),1);
 }
+let her={ot:false,two:false};
+function vHer(){chrome(false);
+  const NEED=39762,base=B.wage,ot=her.ot?2500:0,sp=her.two?B.wage:0,tot=base+ot+sp,pc=tot/NEED*100,w=v=>(v/NEED*100).toFixed(1)+'%';
+  desk.innerHTML=`<article class="doc t-khata" style="--tilt:-.5deg"><div class="doc-h"><span class="chair" style="color:#22384d">${t({en:'1 of 3 · Her month',bn:'৩-এর ১ · তাঁর মাস'})}</span><span>${t({en:'Ashulia',bn:'আশুলিয়া'})}</span></div><div class="doc-b">
+   <h2>${t({en:'Shathi sews sleeves. Make her family’s month add up.',bn:'সাথী হাতা সেলাই করেন। তাঁর পরিবারের মাসের হিসাব মেলান।'})}</h2>
+   <div class="meter"><div class="mlab"><span>${t({en:'Family of four, a basic but decent month',bn:'চারজনের পরিবার, সাধারণ কিন্তু মর্যাদাপূর্ণ এক মাস'})}</span><b>${tk(NEED)}</b></div>
+    <div class="mbar" role="img" aria-label="${pct(pc)}"><i class="a" style="width:${w(base)}"></i><i class="b" style="width:${w(ot)}"></i><i class="c" style="width:${w(sp)}"></i></div>
+    <div class="mlab"><span>${t({en:'Coming in',bn:'আয়'})} <b>${tk(tot)}</b></span><b class="${pc<100?'neg':'pos'}">${pct(pc)}</b></div></div>
+   <div class="tog">
+    <button data-a="h-ot" aria-pressed="${her.ot}"><span>${t({en:'She works overtime',bn:'তিনি ওভারটাইম করেন'})}<small>+${tk(2500)}</small></span></button>
+    <button data-a="h-two" aria-pressed="${her.two}"><span>${t({en:'Her husband takes a line job too',bn:'স্বামীও লাইনে কাজ নেন'})}<small>+${tk(B.wage)}</small></span></button></div>
+   <p>${!her.ot&&!her.two?t({en:`Her minimum wage is ${tk(B.wage)}. On its own it covers ${pct(pc)} of the month. Try everything the family can do.`,bn:`তাঁর ন্যূনতম মজুরি ${tk(B.wage)}। একা এতে মাসের ${pct(pc)} মেটে। পরিবার যা যা পারে, চেষ্টা করুন।`})
+     :her.ot&&her.two?t({en:`Two full-time jobs and her overtime still leave ${tk(NEED-tot)} short. The gap is filled with debt, skipped meals or a child sent to the village.`,bn:`দুজনের পূর্ণকালীন চাকরি আর তাঁর ওভারটাইমের পরও ঘাটতি ${tk(NEED-tot)}। সেই ফাঁক ভরে ঋণে, কম খেয়ে বা সন্তানকে গ্রামে পাঠিয়ে।`})
+     :t({en:`Still ${tk(NEED-tot)} short.`,bn:`এখনো ঘাটতি ${tk(NEED-tot)}।`})}</p>
+   <div class="fact"><b>${t(T.fact)}</b>${t({en:`A basic but decent life for a family of four costs Tk 39,762 a month in the towns around Dhaka (June 2025). ${cite('ank25')}. In one researcher’s fieldwork a worker’s pay with overtime came to Tk 15,000 in January 2026. ${cite('palo')}. Prices rose 8.34% in the year to September 2026. ${cite('infl')}. Shathi is a composite.`,bn:`ঢাকার আশপাশের শিল্পাঞ্চলে চারজনের পরিবারের সাধারণ কিন্তু মর্যাদাপূর্ণ জীবনের খরচ মাসে ৩৯,৭৬২ টাকা (জুন ২০২৫)। ${cite('ank25')}। এক গবেষকের মাঠ-অনুসন্ধানে জানুয়ারি ২০২৬-এ একজন শ্রমিকের ওভারটাইমসহ আয় ছিল ১৫,০০০ টাকা। ${cite('palo')}। সেপ্টেম্বর ২০২৬ পর্যন্ত এক বছরে দাম বেড়েছে ৮.৩৪%। ${cite('infl')}। সাথী একটি সম্মিলিত চরিত্র।`})}</div></div></article>`;
+  setAct(btn('own',t({en:'Now own the factory',bn:'এবার কারখানার মালিক হন'}),'go',t({en:'Chair 2 of 3',bn:'চেয়ার ৩-এর ২'})),1);
+}
 function vSlip(){chrome(true);
-  desk.innerHTML=`<article class="doc t-slip"><div class="doc-h"><span>${t({en:'Pay slip',bn:'বেতন রসিদ'})}</span><span>${t({en:'November',bn:'নভেম্বর'})}</span></div><div class="doc-b">
-   <h2>${t({en:'This is what your newest operator takes home.',bn:'আপনার সবচেয়ে নতুন অপারেটর মাসে এটুকুই পান।'})}</h2>
-   <div class="grid2"><div>${t({en:'Gross minimum wage',bn:'মোট ন্যূনতম মজুরি'})}</div><div>${tk(12500)}</div><div>${t({en:'In dollars',bn:'ডলারে'})}</div><div>${dg('$102')}</div><div>${t({en:'Living wage, towns around Dhaka',bn:'জীবনধারণ মজুরি, ঢাকার আশপাশের শিল্পাঞ্চল'})}</div><div>${tk(25166)}</div><div>${t({en:'The slip covers',bn:'রসিদে মেটে'})}</div><div>${pct(50)}</div></div>
-   <p>${t({en:'Your thousand workers make 200,000 shirts a month. Sixty cents of each $3.00 shirt goes to wages.',bn:'আপনার এক হাজার শ্রমিক মাসে ২ লাখ শার্ট বানান। $৩.০০ দামের প্রতিটি শার্টের ৬০ সেন্ট যায় মজুরিতে।'})}</p>
-   <div class="fact"><b>${t(T.fact)}</b>${t({en:`The minimum has been Tk 12,500 since 1 December 2023. The living-wage estimate assumes a family of four with 1.58 earners. ${cite('anker')}. Cost shares follow a published buyer guide: ${cite('fob')}.`,bn:`১ ডিসেম্বর ২০২৩ থেকে ন্যূনতম মজুরি ১২,৫০০ টাকা। জীবনধারণ মজুরির হিসাবে ধরা হয়েছে চারজনের পরিবার, উপার্জনকারী ১.৫৮ জন। ${cite('anker')}। খরচের ভাগ একটি প্রকাশিত ক্রেতা-নির্দেশিকা থেকে: ${cite('fob')}।`})}</div></div></article>`;
+  const e=eco();
+  desk.innerHTML=`<article class="doc" style="--tilt:.4deg"><div class="doc-h"><span>${t({en:'2 of 3 · Your factory',bn:'৩-এর ২ · আপনার কারখানা'})}</span><span>${t({en:'Gazipur',bn:'গাজীপুর'})}</span></div><div class="doc-b">
+   <h2>${t({en:'Shathi works for you. So do 999 others.',bn:'সাথী আপনার কারখানায় কাজ করেন। আরও ৯৯৯ জনও।'})}</h2>
+   <div class="shirtrow">${shirt(e,B.price)}${legend(e,B.price)}</div>
+   <p>${t({en:'Your buyer pays $3.00 a shirt. You make 200,000 a month. After every cost, 24 cents a shirt is yours. The bank expects its loan back from that.',bn:'ক্রেতা প্রতি শার্টে দেন $৩.০০। মাসে বানান ২ লাখ শার্ট। সব খরচের পর প্রতি শার্টে আপনার থাকে ২৪ সেন্ট। ব্যাংকের ঋণও শোধ করতে হয় সেখান থেকেই।'})}</p>
+   <div class="fact"><b>${t(T.fact)}</b>${t({en:`Cost shares sit inside a published buyer guide for a basic tee: ${cite('fob')}. The exact split is a rule of the game.`,bn:`খরচের ভাগ বেসিক টি-শার্টের একটি প্রকাশিত ক্রেতা-নির্দেশিকার সীমার ভেতরে: ${cite('fob')}। নির্দিষ্ট ভাগটি খেলার নিয়ম।`})}</div></div></article>`;
   setAct(btn('mail',t({en:'Open the mail',bn:'চিঠিগুলো খুলুন'}),'go'),1);
 }
 let di=0;
@@ -504,13 +554,13 @@ function vEnd(){chrome(true);
      <div class="grid2"><div>${t({en:'Gross minimum wage',bn:'মোট ন্যূনতম মজুরি'})}</div><div>${tk(S.wage)}</div><div>${t({en:'Living wage, towns around Dhaka',bn:'জীবনধারণ মজুরি'})}</div><div>${tk(B.living)}</div><div>${t({en:'The slip covers',bn:'রসিদে মেটে'})}</div><div>${pct(c)}</div><div>${t({en:'Cash left in the factory',bn:'কারখানার তহবিলে আছে'})}</div><div>${lk(S.cash)}</div></div>
      <p>${e.lakh<0?t({en:`The factory is losing ${lk(-e.lakh)} a month. It will not last a second year.`,bn:`কারখানার মাসে লোকসান ${lk(-e.lakh)}। দ্বিতীয় বছর টিকবে না।`}):t({en:'You kept a thousand jobs by keeping the wage where the price allowed.',bn:'দাম যতটুকু দেয়, মজুরি ততটুকুতে রেখে আপনি এক হাজার চাকরি বাঁচিয়েছেন।'})}</p></div></article>`}
   desk.innerHTML=h;
-  setAct(btn('buyer',t({en:"Now sit in the buyer's chair",bn:'এবার ক্রেতার চেয়ারে বসুন'}),'go',t({en:'One number you never controlled',bn:'যে সংখ্যাটি আপনার হাতে ছিল না'})),1);
+  setAct(btn('buyer',t({en:"Now sit in the buyer's chair",bn:'এবার ক্রেতার চেয়ারে বসুন'}),'go',t({en:'Chair 3 of 3',bn:'চেয়ার ৩-এর ৩'})),1);
 }
 let bw=0;
 function vBuyer(){chrome(false);
   if(!bw)bw=S.wage;
   const pos=w=>((w-B.wage)/(B.ask-B.wage)*100).toFixed(1);
-  desk.innerHTML=`<article class="doc" style="--tilt:.5deg"><div class="doc-h"><span>${t({en:"The buyer's chair",bn:'ক্রেতার চেয়ার'})}</span><span>${t({en:'basic tee',bn:'বেসিক টি-শার্ট'})}</span></div><div class="doc-b">
+  desk.innerHTML=`<article class="doc" style="--tilt:.5deg"><div class="doc-h"><span>${t({en:"3 of 3 · The buyer's chair",bn:'৩-এর ৩ · ক্রেতার চেয়ার'})}</span><span>${t({en:'basic tee',bn:'বেসিক টি-শার্ট'})}</span></div><div class="doc-b">
    <h2>${t({en:'What would the buyer have to pay?',bn:'ক্রেতাকে কত দিতে হতো?'})}</h2>
    <div class="shirtrow"><div id="b-svg"></div><div style="display:grid;gap:8px"><div class="tag"><small>${t({en:'Factory price',bn:'কারখানার দাম'})}</small><div class="big" id="b-val"></div><small id="b-dif" style="margin-top:5px"></small><div class="bars"></div></div><div id="b-leg"></div></div></div>
    <div class="sl"><div class="sl-top"><span class="big" id="b-w" style="font-size:22px"></span><small id="b-cov"></small></div>
@@ -527,7 +577,21 @@ function vBuyer(){chrome(false);
      :t({en:`To pay ${tk(bw)} and leave the factory the 24¢ it started with, the buyer pays ${usd(P)} a shirt. That is ${ct(d).slice(1)} more, or ${pc.toFixed(0)}%.`,bn:`${tk(bw)} মজুরি দিয়ে কারখানার হাতে শুরুর 24¢ রাখতে হলে ক্রেতাকে প্রতি শার্টে দিতে হবে ${usd(P)}। অর্থাৎ ${ct(d).slice(1)} বেশি, বা ${pc.toFixed(0)}%।`});
     $('#b-how').textContent=' '+t({en:`The shirt you started with: $3.00, wages 60¢. Wages in the shirt rise in step with the minimum, about 4.8¢ for every Tk 1,000. Only to cover costs, with nothing left for the factory, the price is ${usd(Math.max(P-.24,B.price-.24))}. Fuel, discounts and lost orders from your year are left out.`,bn:`শুরুর শার্ট: $3.00, মজুরি 60¢। ন্যূনতম মজুরি যে হারে বাড়ে, শার্টে মজুরির অংশও সে হারে বাড়ে: প্রতি 1,000 টাকায় প্রায় 4.8¢। কারখানার জন্য কিছু না রেখে শুধু খরচ তুলতে দাম লাগে ${usd(Math.max(P-.24,B.price-.24))}। আপনার বছরের জ্বালানি, ছাড় ও হারানো অর্ডার এখানে ধরা হয়নি।`})};
   inp.addEventListener('input',up);up();
-  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+btn('copy',t({en:'Copy my result',bn:'ফলাফল কপি করুন'}),'go'));
+  setAct(btn('whole',t({en:'See the whole shirt',bn:'পুরো শার্টের হিসাব দেখুন'}),'go'),1);
+}
+
+function vWhole(){chrome(false);
+  const w=S.wage,P=needPrice(w),d=P-B.price,pc=d/B.price*100,fam=2*w+2500,fpc=fam/39762*100,e3=eco({wage:w,price:B.price,vol:1,ovh:B.ovh});
+  desk.innerHTML=`<article class="doc t-note" style="--tilt:-.3deg"><div class="doc-h"><span>${t({en:'The whole shirt',bn:'পুরো শার্টের হিসাব'})}</span></div><div class="doc-b">
+   <h2>${t({en:`At a minimum wage of ${tk(w)}:`,bn:`ন্যূনতম মজুরি ${tk(w)} হলে:`})}</h2>
+   <div class="whole">
+    <div class="wrow">${IC.worker}<div><b>${t({en:'Shathi',bn:'সাথী'})}</b><p>${(cover(w)>=100?t({en:`Her wage reaches <em>${pct(cover(w))}</em> of a living wage. Her family can cover a basic but decent month.`,bn:`তাঁর মজুরি জীবনধারণ মজুরির <em>${pct(cover(w))}</em>। পরিবার একটি সাধারণ মর্যাদাপূর্ণ মাস চালাতে পারে।`}):t({en:`Her wage reaches <em>${pct(cover(w))}</em> of a living wage. Her family is still short every month.`,bn:`তাঁর মজুরি জীবনধারণ মজুরির <em>${pct(cover(w))}</em>। পরিবারের প্রতি মাসেই ঘাটতি থাকে।`}))}</p></div></div>
+    <div class="wrow">${IC.owner}<div><b>${t({en:'The factory',bn:'কারখানা'})}</b><p>${e3.margin<0?t({en:`At $3.00 every shirt loses <em>${usd(-e3.margin)}</em>. The factory cannot pay this wage at today’s price.`,bn:`$3.00 দামে প্রতি শার্টে লোকসান <em>${usd(-e3.margin)}</em>। আজকের দামে কারখানা এই মজুরি দিতে পারে না।`}):t({en:`At $3.00 it keeps <em>${ct(e3.margin).slice(1)}</em> a shirt.`,bn:`$3.00 দামে প্রতি শার্টে থাকে <em>${ct(e3.margin).slice(1)}</em>।`})} ${t({en:'Its costs rose about 40% in three years while the real price it is paid fell.',bn:'তিন বছরে খরচ বেড়েছে প্রায় ৪০%, অথচ প্রকৃত দাম কমেছে।'})}</p></div></div>
+    <div class="wrow">${IC.buyer}<div><b>${t({en:'The brand',bn:'ব্র্যান্ড'})}</b><p>${d<.005?t({en:'Pays $3.00 and nothing needs to change.',bn:'$3.00 দেয়, কিছু বদলাতে হয় না।'}):t({en:`Pays <em>${ct(d).slice(1)} more</em> a shirt (${pc.toFixed(0)}%): <em>${usd(P)}</em> instead of $3.00. Then the wage and the factory both hold.`,bn:`প্রতি শার্টে <em>${ct(d).slice(1)} বেশি</em> দেয় (${pc.toFixed(0)}%): $3.00-এর বদলে <em>${usd(P)}</em>। তাহলে মজুরি আর কারখানা দুটোই টেকে।`})}</p></div></div>
+   </div>
+   <p class="closing">${t({en:'The wage is set in Dhaka. The price is set in Stockholm, London and New York. The argument is happening in only one of those places.',bn:'মজুরি ঠিক হয় ঢাকায়। দাম ঠিক হয় স্টকহোম, লন্ডন আর নিউইয়র্কে। তর্ক চলছে শুধু এক জায়গায়।'})}</p>
+   <div class="fact"><b>${t(T.fact)}</b>${t({en:`Costs: ${cite('bgmea')}. Prices: ${cite('unit')}. Living cost: ${cite('ank25')}.`,bn:`খরচ: ${cite('bgmea')}। দাম: ${cite('unit')}। জীবনযাত্রার খরচ: ${cite('ank25')}।`})}</div></div></article>`;
+  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+btn('copy',t({en:'Copy and share',bn:'কপি করে শেয়ার করুন'}),'go'));
 }
 
 /* ---------- sources sheet ---------- */
@@ -538,6 +602,8 @@ function sheet(){
   <h4>${t({en:'Facts',bn:'তথ্য'})}</h4><ul>
   ${li('strike','Minimum wage Tk 12,500 since 1 Dec 2023. 690 factories halted on 2 Nov 2026. Workers proposed Tk 32,000 on 9 Nov 2026.','ন্যূনতম মজুরি ১ ডিসেম্বর ২০২৩ থেকে ১২,৫০০ টাকা। ২ নভেম্বর ২০২৬-এ ৬৯০ কারখানা বন্ধ। ৯ নভেম্বর শ্রমিকপক্ষের প্রস্তাব ৩২,০০০ টাকা।')}
   ${li('anker','Living wage Tk 25,166 a month in the industrial towns around Dhaka, Tk 30,459 in Dhaka city (2025).','জীবনধারণ মজুরি: ঢাকার আশপাশের শিল্পাঞ্চলে মাসে ২৫,১৬৬ টাকা, ঢাকা শহরে ৩০,৪৫৯ টাকা (২০২৫)।')}
+  ${li('ank25','Cost of a basic but decent living for a family of four: Tk 39,762 a month in the satellite cities, Tk 48,022 in Dhaka city (June 2025).','চারজনের পরিবারের সাধারণ মর্যাদাপূর্ণ জীবনের খরচ: শিল্পাঞ্চলে মাসে ৩৯,৭৬২ টাকা, ঢাকা শহরে ৪৮,০২২ টাকা (জুন ২০২৫)।')}
+  ${li('palo','One researcher’s fieldwork: a worker’s pay with overtime was Tk 15,000 in January 2026, so the game counts overtime as Tk 2,500.','এক গবেষকের মাঠ-অনুসন্ধান: জানুয়ারি ২০২৬-এ একজন শ্রমিকের ওভারটাইমসহ আয় ছিল ১৫,০০০ টাকা; তাই খেলায় ওভারটাইম ২,৫০০ টাকা ধরা হয়েছে।')}
   ${li('infl','Inflation 8.34% in Sept 2026, above wage growth for 56 months. Tk 123 to the dollar.','সেপ্টেম্বর ২০২৬-এ মূল্যস্ফীতি ৮.৩৪%, টানা ৫৬ মাস মজুরি বৃদ্ধির ওপরে। ডলার ১২৩ টাকা।')}
   ${li('gas','Industrial gas: up to +179% in Feb 2023; Tk 30 to Tk 40 (+33%) for new load in Apr 2025.','শিল্প গ্যাস: ফেব্রুয়ারি ২০২৩-এ ১৭৯% পর্যন্ত বৃদ্ধি; এপ্রিল ২০২৫-এ নতুন লোডে ৩০ থেকে ৪০ টাকা (+৩৩%)।')}
   ${li('bgmea','BGMEA: nearly 400 factories closed in three years; production costs up nearly 40%; most factories below half capacity.','বিজিএমইএ: তিন বছরে প্রায় ৪০০ কারখানা বন্ধ; উৎপাদন খরচ প্রায় ৪০% বেড়েছে; বেশির ভাগ কারখানা অর্ধেকের কম সক্ষমতায়।')}
@@ -547,6 +613,7 @@ function sheet(){
   <h4>${t({en:'Rules of the game (not data)',bn:'খেলার নিয়ম (তথ্য নয়)'})}</h4><ul>
   <li>${t({en:'The shirt: fabric $1.20, trims $0.27, wages $0.60, overhead $0.42, transport and papers $0.27, margin $0.24. Each sits inside the published range; the exact split is ours.',bn:'শার্টের হিসাব: কাপড় $১.২০, ট্রিমস $০.২৭, মজুরি $০.৬০, পরিচালন $০.৪২, পরিবহন ও কাগজ $০.২৭, মার্জিন $০.২৪। প্রতিটি প্রকাশিত সীমার ভেতরে; নির্দিষ্ট ভাগ আমাদের ঠিক করা।'})}</li>
   <li>${t({en:'When the minimum rises, every grade rises by the same proportion, so wages in each shirt rise in step.',bn:'ন্যূনতম মজুরি বাড়লে সব গ্রেড একই অনুপাতে বাড়ে; ফলে প্রতি শার্টে মজুরির অংশও সেই হারে বাড়ে।'})}</li>
+  <li>${t({en:'Shathi and her family are a composite. Her husband is assumed to earn the same minimum wage.',bn:'সাথী ও তাঁর পরিবার একটি সম্মিলিত চরিত্র। ধরা হয়েছে, স্বামীও একই ন্যূনতম মজুরি পান।'})}</li>
   <li>${t({en:'The factory has 1,000 workers, makes 200,000 shirts a month and starts with Tk 300 lakh in cash. Wages and overhead are paid even when output falls.',bn:'কারখানায় ১,০০০ শ্রমিক, মাসে ২ লাখ শার্ট, শুরুতে তহবিল ৩০০ লাখ টাকা। উৎপাদন কমলেও মজুরি ও পরিচালন ব্যয় দিতে হয়।'})}</li>
   <li>${t({en:'The size of each consequence (5 cents for fuel, 15% lost output, a Tk 3,000 allowance, a buyer moving 25% or 40% of an order, a $2.85 target price) is a rule. The buyer and both of its letters are invented.',bn:'প্রতিটি পরিণতির মাপ (জ্বালানিতে ৫ সেন্ট, ১৫% কম উৎপাদন, ৩,০০০ টাকা ভাতা, অর্ডারের ২৫% বা ৪০% সরে যাওয়া, $২.৮৫ লক্ষ্য দর) খেলার নিয়ম। ক্রেতা ও তার দুটি চিঠিই কাল্পনিক।'})}</li>
   <li>${t({en:"The buyer's chair uses the shirt as it was at the start ($3.00, wages 60 cents, 24 cents left for the factory) and asks what price keeps those 24 cents at the wage you choose. At Tk 32,000 that is $3.94, 31% more.",bn:'ক্রেতার চেয়ারে ধরা হয়েছে শুরুর শার্ট ($৩.০০, মজুরি ৬০ সেন্ট, কারখানার থাকে ২৪ সেন্ট); প্রশ্ন হলো, আপনার বেছে নেওয়া মজুরিতে ওই ২৪ সেন্ট রাখতে দাম কত লাগে। ৩২,০০০ টাকায় তা $৩.৯৪, অর্থাৎ ৩১% বেশি।'})}</li>
@@ -556,20 +623,24 @@ function sheet(){
 }
 function toast(m){const d=document.createElement('div');d.className='toast';d.textContent=m;document.body.append(d);setTimeout(()=>d.remove(),1800)}
 function result(){
-  const P=needPrice(S.wage),d=P-B.price,pc=(d/B.price*100).toFixed(0);
-  return t({en:`Garment Malik. I set the garment minimum wage at ${tk(S.wage)}. ${S.closedAt?`My factory closed in month ${S.closedAt}.`:'My factory stayed open.'} To pay that wage, a $3.00 T-shirt would have to leave the factory at ${usd(P)}: ${pc}% more.`,
-   bn:`গার্মেন্ট মালিক। আমি ন্যূনতম মজুরি ঠিক করেছি ${tk(S.wage)}। ${S.closedAt?`আমার কারখানা ${dg(S.closedAt)} নম্বর মাসে বন্ধ হয়েছে।`:'আমার কারখানা চালু ছিল।'} এই মজুরি দিতে $3.00 দামের টি-শার্টের কারখানা-দাম হতে হতো ${usd(P)}: ${pc}% বেশি।`});
+  const P=needPrice(S.wage),d=P-B.price,pc=(d/B.price*100).toFixed(0),fam=Math.round(cover(S.wage));
+  return t({en:`Garment Malik. At a garment minimum wage of ${tk(S.wage)}, a worker earns ${fam}% of a living wage, and a $3.00 T-shirt has to leave the factory at ${usd(P)} (${pc}% more) for the factory to survive. The wage is set in Dhaka; the price is set by the brands. garmentmalik.com`,
+   bn:`গার্মেন্ট মালিক। ন্যূনতম মজুরি ${tk(S.wage)} হলে একজন শ্রমিক পান জীবনধারণ মজুরির ${fam}%, আর কারখানা টিকিয়ে রাখতে $3.00 দামের টি-শার্টের দাম হতে হয় ${usd(P)} (${pc}% বেশি)। মজুরি ঠিক হয় ঢাকায়; দাম ঠিক করে ব্র্যান্ড। garmentmalik.com`});
 }
 
 /* ---------- actions ---------- */
 function go(a){
-  if(a==='start'){reset();step='slip'}
+  if(a==='start'){reset();her={ot:false,two:false};step='her'}
+  else if(a==='h-ot'){her.ot=!her.ot}
+  else if(a==='h-two'){her.two=!her.two}
+  else if(a==='own'){step='slip'}
+  else if(a==='whole'){step='whole'}
   else if(a==='mail'){step='doc';di=0;picked=null}
   else if(a.startsWith('pick')){picked=+a.slice(4);const o=DOCS[di].opts[picked];o.fx(S);closeMonth(o.day||1);render();hud(o.bump);navigator.vibrate?.(12);return}
   else if(a==='gazette'){S.wage=wv;S.cashAtWage=S.cash;picked=0;closeMonth();render();hud(['w','m','c']);navigator.vibrate?.(12);return}
   else if(a==='next'){if(S.closedAt){step='end'}else if(di<DOCS.length-1){di++;picked=null}else{step='ledger'}}
   else if(a==='buyer'){step='buyer';bw=0}
-  else if(a==='again'){reset();wv=0;bw=0;di=0;picked=null;step='slip'}
+  else if(a==='again'){reset();wv=0;bw=0;di=0;picked=null;her={ot:false,two:false};step='her'}
   else if(a==='copy'){const tx=result();(navigator.clipboard?.writeText(tx)||Promise.reject()).then(()=>toast(t({en:'Copied',bn:'কপি হয়েছে'}))).catch(()=>{const d=$('#desk .verdict');if(d){d.textContent=tx;d.style.userSelect='text';d.style.webkitUserSelect='text'}});return}
   else if(a==='close'){$('#sheet').hidden=true;return}
   render();
@@ -578,6 +649,11 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)
 $('#src-btn').onclick=sheet;
 const setLang=l=>{lang=l;try{localStorage.setItem('wd-lang',l)}catch(e){}clearTimeout(ledTimer);const led=step==='ledger';render();if(!$('#sheet').hidden)sheet()};
 $('#l-en').onclick=()=>setLang('en');$('#l-bn').onclick=()=>setLang('bn');
+function fit(){const a=$('#app'),W=innerWidth,H=innerHeight;let z=1;
+  if(W>=860&&H>=700)z=Math.min(1.55,Math.max(1,Math.min(W/640,H/660)));
+  a.style.zoom=z===1?'':String(z);a.style.height='';if(z===1)return;
+  const h0=H/z;a.style.height=h0+'px';const r=a.getBoundingClientRect().height;if(r&&Math.abs(r-H)>2)a.style.height=(h0*H/r)+'px';}
+addEventListener('resize',fit);fit();
 reset();render();
 window.__wd={get S(){return S},eco,go,get step(){return step}};
 })();
