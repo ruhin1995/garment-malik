@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -278,6 +278,27 @@ input[type=range]::-moz-range-thumb{width:28px;height:38px;border-radius:3px;bac
 .pr input[type=range]::-moz-range-thumb{background:var(--stamp-blue);border-color:#0f2c55}
 .nat .verdict{font-size:12.5px}.nat .fact{font-size:11px;line-height:1.35}
 @media (max-height:690px){.nat h2{font-size:18px}.nst span{font-size:15px}.sl.c .big{font-size:18px}.sl.c input[type=range]{height:30px}.nat .fact{font-size:10.5px}}
+.ngrid.hit{animation:jolt .5s cubic-bezier(.3,.7,.4,1);box-shadow:inset 0 0 0 1px rgba(0,0,0,.5),inset 0 0 40px rgba(255,60,40,.55)}
+.ngrid.big{animation:jolt .8s cubic-bezier(.3,.7,.4,1)}
+@keyframes jolt{0%,100%{transform:none}10%{transform:translate(-4px,2px) rotate(-.4deg)}25%{transform:translate(4px,-2px) rotate(.4deg)}40%{transform:translate(-3px,1px)}60%{transform:translate(2px,-1px)}80%{transform:translate(-1px,0)}}
+.res{height:100%;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:0}
+.res-c{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;width:100%}
+.res-c img{max-height:100%;max-width:100%;aspect-ratio:1080/1350;object-fit:contain;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.55);opacity:0;transform:translateY(40px) rotate(2deg) scale(.96);transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.3,1.15)}
+.res-c.in img{opacity:1;transform:rotate(-.8deg)}
+.res-load{position:absolute;font:600 12px/1 var(--f-mono);letter-spacing:.08em;color:var(--chalk-dim)}.res-c.in .res-load{display:none}
+.soc{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;flex:none}
+.soc a{font:600 11.5px/1 var(--f-mono);color:var(--chalk);text-decoration:none;border:1px solid var(--chalk-dim);border-radius:20px;padding:8px 12px}
+.ibtn svg{display:block;margin:auto}.ibtn .sun{display:none}:root[data-theme=dark] .ibtn .sun{display:inline}:root[data-theme=dark] .ibtn .moon{display:none}
+:root[data-theme=dark]{--mat:#101715;--mat-deep:#090d0c;--mat-line:rgba(255,255,255,.03);--mat-line-2:rgba(255,255,255,.065);--paper:#1d1b16;--newsprint:#23201a;--ink:#ece6d6;--ink-2:#a8a190;--rule:#3c382e;--c-trims:#7b8597}
+:root[data-theme=dark] .doc{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 10px 28px rgba(0,0,0,.7)}
+:root[data-theme=dark] .rcpt,:root[data-theme=dark] .tag,:root[data-theme=dark] .tog button,:root[data-theme=dark] .rbook,:root[data-theme=dark] .tog button::before{background:#26231c}
+:root[data-theme=dark] .tog button[aria-pressed="true"]{background:#3a3120}:root[data-theme=dark] .tog button[aria-pressed="true"]::before{background:var(--tape);box-shadow:inset 0 0 0 3px #26231c}
+:root[data-theme=dark] .t-khata{background-color:#1c1b17;background-image:linear-gradient(90deg,transparent 30px,rgba(220,70,55,.45) 30px 31.5px,transparent 31.5px),repeating-linear-gradient(0deg,transparent 0 23px,rgba(140,175,210,.13) 23px 24px)}
+:root[data-theme=dark] .t-khata .doc-h,:root[data-theme=dark] .t-bill .doc-h{color:#a9c2da;border-bottom-color:#4b6886}:root[data-theme=dark] .t-bill .doc-h{background:#1d2731}
+:root[data-theme=dark] .t-visit .doc-h{background:#2c2618}:root[data-theme=dark] .rb-amt{color:#93abff}:root[data-theme=dark] .rb-h{color:#c2b697}
+:root[data-theme=dark] .mbar{background:repeating-linear-gradient(-45deg,#2b281f 0 6px,#24211a 6px 12px)}
+:root[data-theme=dark] .lab{background:#1d1b16;color:var(--ink);outline-color:rgba(236,230,214,.25)}
+:root[data-theme=dark] .ngrid{background:#0b0a07}
 .be{position:absolute;top:-13px;transform:translateX(-50%);white-space:nowrap;color:var(--ink);font-weight:600;padding-top:9px}
 .be::before{content:"";position:absolute;left:50%;top:0;width:1.5px;height:8px;background:var(--ink)}
 .verdict{font:600 13px/1.35 var(--f-body);padding:7px 9px;border-left:4px solid var(--ink)}
@@ -345,7 +366,8 @@ input[type=range]::-moz-range-thumb{width:28px;height:38px;border-radius:3px;bac
   <header class="bar">
     <div class="brand" id="brand">Garment Malik</div>
     <div class="bar-r">
-      <div class="lang" role="group" aria-label="Language"><button id="l-en" aria-pressed="true">EN</button><button id="l-bn" class="bn" aria-pressed="false">বাংলা</button></div>
+      <div class="lang" role="group" aria-label="Language"><button id="l-bn" class="bn" aria-pressed="true">বাংলা</button><button id="l-en" aria-pressed="false">EN</button></div>
+      <button class="ibtn" id="th-btn" aria-label="Dark mode" aria-pressed="false"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/><g class="sun" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
       <button class="ibtn" id="src-btn" aria-label="Sources and method">SRC</button>
     </div>
   </header>
@@ -363,8 +385,8 @@ const $=s=>document.querySelector(s);
 /* ---------- numbers: every constant the game uses ---------- */
 const B={fabric:1.35,trims:.30,freight:.27,labour:.45,ovh:.48,price:3.00,shirts:200000,rate:123,wage:12500,living:25166,ask:32000,cash:300,workers:1000};
 const VAR=B.fabric+B.trims+B.freight;
-let lang='en';
-try{lang=localStorage.getItem('wd-lang')||'en'}catch(e){}
+let lang='bn';
+try{const q=new URLSearchParams(location.search).get('lang');lang=q==='en'||q==='bn'?q:(localStorage.getItem('gm-lang')||'bn')}catch(e){}
 const t=o=>{const s=typeof o==='string'?o:(o[lang]??o.en);return lang==='bn'?s.replace(/[০-৯]/g,d=>'০১২৩৪৫৬৭৮৯'.indexOf(d)):s};
 const dg=s=>String(s);
 const n0=n=>dg(Math.round(n).toLocaleString('en-US'));
@@ -594,7 +616,7 @@ function chrome(on){$('#tape').hidden=!on;$('#hud').hidden=!on;if(on)hud()}
 function render(){
   document.documentElement.lang=lang;document.body.classList.toggle('bn',lang==='bn');
   $('#brand').textContent=t(T.brand);$('#l-en').setAttribute('aria-pressed',lang==='en');$('#l-bn').setAttribute('aria-pressed',lang==='bn');
-  ({title:vTitle,her:vHer,whole:vWhole,slip:vSlip,doc:vDoc,ledger:vLedger,end:vEnd,nation:vNation})[step]();
+  ({title:vTitle,her:vHer,result:vResult,slip:vSlip,doc:vDoc,ledger:vLedger,end:vEnd,nation:vNation,result:vResult})[step]();
 }
 function vTitle(){chrome(false);
   desk.innerHTML=`<div class="title">${PATTERN}<h1><span>${lang==='bn'?'Garment Malik':'গার্মেন্ট মালিক'}</span>${lang==='bn'?'গার্মেন্ট<br>মালিক':'Garment<br>Malik'}</h1>
@@ -712,6 +734,7 @@ function vEnd(){chrome(true);
   setAct(btn('nation',t({en:'Now zoom out to the country',bn:'এবার পুরো দেশ দেখুন'}),'go',t({en:'Chair 3 of 3',bn:'চেয়ার ৩-এর ৩'})),1);
 }
 let nw=0,np=0;
+function roll(el,to,fmt){const from=+(el.dataset.v||0);el.dataset.v=to;cancelAnimationFrame(el._r);const t1=performance.now(),d=Math.abs(to-from)>0?750:0;const f=n=>{const p=d?Math.min(1,(n-t1)/d):1,e=1-Math.pow(1-p,3);el.textContent=fmt(from+(to-from)*e);if(p<1)el._r=requestAnimationFrame(f)};f(t1)}
 function vNation(){chrome(false);
   if(!nw)nw=S.wage;if(!np)np=B.price;
   const bm=BANDS[S.bi][1];
@@ -728,8 +751,8 @@ function vNation(){chrome(false);
   const up=()=>{nw=+iw.value;np=+(+ip.value).toFixed(2);const I=ind2(nw,np),sv=saveAll(nw),c=cover(nw),pc=(np/B.price-1)*100;
     $('#n-wv').textContent=tk(nw);$('#n-wc').innerHTML=`${pct(c)} ${t(T.ofliving)}`;
     $('#n-pv').textContent=usd(np);$('#n-pc').innerHTML=`${t({en:'Buyer pays a shirt',bn:'ক্রেতা প্রতি শার্টে দেন'})}${pc>.05?' · +'+pc.toFixed(pc<10?1:0)+'%':''}`;
-    $('#n-f').textContent=`${n0(I.factories)}`;$('#n-f').className=I.factories?'neg':'';
-    $('#n-j').textContent=lang==='bn'?`${n0(I.jobs)} লাখ`:`${n0(I.jobs)} lakh`;$('#n-j').className=I.factories?'neg':'';
+    roll($('#n-f'),I.factories,v=>n0(v));$('#n-f').className=I.factories?'neg':'';
+    roll($('#n-j'),I.jobs,v=>lang==='bn'?`${n0(v)} লাখ`:`${n0(v)} lakh`);$('#n-j').className=I.factories?'neg':'';
     const ydead=I.dead[S.bi];$('#n-y').textContent=ydead?t({en:'Shut',bn:'বন্ধ'}):t({en:'Open',bn:'চালু'});$('#n-y').className=ydead?'neg':'pos';
     const v=$('#n-ver'),sp=((sv/B.price-1)*100).toFixed(1);
     if(I.factories){v.className='verdict bad';v.textContent=t({en:`At ${usd(np)}, ${n0(I.factories)} factories can’t pay ${tk(nw)}. At ${usd(sv)} (+${sp}%) all stay open.${np<=B.price?` Without it: Tk ${I.fx.toFixed(0)} to the dollar.`:''}`,bn:`${usd(np)} দামে ${n0(I.factories)}টি কারখানা ${tk(nw)} দিতে পারে না। ${usd(sv)} (+${sp}%) হলে সবাই চালু।${np<=B.price?` তা না হলে: ডলারপ্রতি ${I.fx.toFixed(0)} টাকা।`:''}`})}
@@ -739,47 +762,109 @@ function vNation(){chrome(false);
   grid.mount($('#n-cv'));grid.set(BANDS.map(()=>false));
   const onIn=()=>{clearTimeout(grid.hold);up()};iw.addEventListener('input',onIn);ip.addEventListener('input',onIn);
   up();if(!grid.seen){grid.seen=1;const dead=ind2(nw,np).dead;grid.set(BANDS.map(()=>false),1);clearTimeout(grid.hold);grid.hold=setTimeout(()=>grid.set(dead),900)}
-  setAct(btn('whole',t({en:'See the whole shirt',bn:'পুরো শার্টের হিসাব দেখুন'}),'go'),1);
+  setAct(btn('whole',t({en:'See my result',bn:'আমার ফলাফল দেখুন'}),'go'),1);
 }
-/* the country: 100 x 30 lit windows, one per factory, grouped by margin band */
-const grid=(()=>{const COLS=100,ROWS=BANDS.map(b=>b[0]/COLS),N=3000;
-  const band=new Uint8Array(N),cur=new Float32Array(N).fill(1),from=new Float32Array(N).fill(1),tgt=new Float32Array(N).fill(1),t0=new Float64Array(N);
-  {let i=0;BANDS.forEach((b,k)=>{for(let j=0;j<b[0];j++)band[i++]=k})}
-  let cv,ctx,W=0,H=0,cell=0,rh=0,G=26,raf=0,dpr=1;
+/* the country: 100 x 30 lit windows, one per factory, grouped by margin band. Blackouts roll across a band like a failing grid. */
+const grid=(()=>{const COLS=100,ROWS=BANDS.map(b=>b[0]/COLS),N=3000,DIE=900,LIVE=420;
+  const band=new Uint8Array(N),col=new Uint8Array(N),row=new Uint8Array(N),cur=new Float32Array(N).fill(1),from=new Float32Array(N).fill(1),tgt=new Float32Array(N).fill(1),t0=new Float64Array(N),rnd=new Float32Array(N);
+  {let i=0;BANDS.forEach((b,k)=>{for(let j=0;j<b[0];j++){band[i]=k;col[i]=j%COLS;row[i]=Math.floor(j/COLS);rnd[i]=Math.random();i++}})}
+  const R0=BANDS.map((b,k)=>ROWS.slice(0,k).reduce((a,c)=>a+c,0)),S0=BANDS.map((b,k)=>BANDS.slice(0,k).reduce((a,c)=>a+c[0],0));
+  let cv,ctx,W=0,H=0,cell=0,rh=0,G=26,raf=0,dpr=1,fx=0;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const pos=i=>{const k=band[i];let r0=0;for(let q=0;q<k;q++)r0+=ROWS[q];const local=i-BANDS.slice(0,k).reduce((a,b)=>a+b[0],0);return[G+(local%COLS)*cell,(r0+Math.floor(local/COLS))*rh+k*4+2]};
-  const you=()=>{const k=S.bi;let base=0;for(let q=0;q<k;q++)base+=BANDS[q][0];return base+S.dot.r*COLS+S.dot.c};
+  const xy=i=>[G+col[i]*cell,(R0[band[i]]+row[i])*rh+band[i]*4+2];
+  const you=()=>S0[S.bi]+S.dot.r*COLS+S.dot.c;
   function size(){if(!cv)return;const w=cv.parentElement.clientWidth-16;if(!w)return;W=w;cell=(W-G)/COLS;rh=cell*1.2;H=Math.ceil(30*rh+6*4+4);dpr=Math.min(3,(devicePixelRatio||1)*(parseFloat($('#app').style.zoom)||1));
-    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cv.style.height=H+'px';ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
-  function draw(){if(!ctx)return;ctx.clearRect(0,0,W,H);const s=Math.max(1.2,cell*.66),sh=Math.max(1.2,rh*.62);
-    ctx.font=`600 9px ${getComputedStyle(document.body).getPropertyValue('--f-mono')||'monospace'}`;ctx.textBaseline='middle';ctx.textAlign='left';
-    let r0=0;BANDS.forEach((b,k)=>{const y=r0*rh+k*4+2,h=ROWS[k]*rh;ctx.fillStyle=tgt[BANDS.slice(0,k).reduce((a,c)=>a+c[0],0)]?'rgba(244,240,227,.7)':'rgba(197,38,27,.95)';ctx.fillText(b[1]+'%',0,y+h/2);r0+=ROWS[k]});
-    for(let i=0;i<N;i++){const [x,y]=pos(i),a=cur[i];
-      ctx.fillStyle='rgba(244,240,227,.13)';ctx.fillRect(x,y,s,sh);
-      if(a>0.01){const fl=tgt[i]<from[i]?4*a*(1-a):0;ctx.fillStyle=fl>.05?`rgba(255,${Math.round(90+120*a)},${Math.round(40*a)},${Math.min(1,a+fl)})`:`rgba(241,192,46,${a})`;ctx.fillRect(x,y,s,sh)}}
-    const yi=you(),[yx,yy]=pos(yi),dead=tgt[yi]<.5;ctx.strokeStyle=dead?'#ff5a4a':'#fbf7ec';ctx.lineWidth=1.5;ctx.strokeRect(yx-2.5,yy-2.5,s+5,sh+5);
-    ctx.fillStyle=dead?'#ff5a4a':'#fbf7ec';ctx.textAlign=yx>W-60?'right':'left';ctx.fillText(t({en:'you',bn:'আপনি'}),yx>W-60?yx-5:yx+s+6,yy+sh/2)}
-  function tick(now){let busy=false;for(let i=0;i<N;i++){if(cur[i]===tgt[i])continue;const d=tgt[i]<from[i]?380:260,p=(now-t0[i])/d;
-      if(p<=0){busy=true;continue}if(p>=1){cur[i]=tgt[i];continue}busy=true;cur[i]=from[i]+(tgt[i]-from[i])*(1-Math.pow(1-p,2))}
-    draw();raf=busy?requestAnimationFrame(tick):0}
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cv.style.height=H+'px';ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);draw(performance.now())}
+  function draw(now){if(!ctx)return;ctx.clearRect(0,0,W,H);const s=Math.max(1.2,cell*.68),sh=Math.max(1.2,rh*.64);
+    const mono=getComputedStyle(document.body).getPropertyValue('--f-mono')||'monospace';ctx.textBaseline='middle';
+    for(let i=0;i<N;i++){const [x,y]=xy(i),a=cur[i];ctx.fillStyle='rgba(244,240,227,.12)';ctx.fillRect(x,y,s,sh);
+      if(tgt[i]<from[i]&&a<1&&a>0){/* dying: spark, flicker, ember */const p=1-a;
+        if(p<.12){ctx.fillStyle='#fffbe8';ctx.fillRect(x-.6,y-.6,s+1.2,sh+1.2)}
+        else if(p<.62){const on=Math.sin(i*12.9898+now*.045)*43758.5453%1;if(Math.abs(on)>p*.9){ctx.fillStyle=`rgba(255,${Math.round(220-160*p)},${Math.round(90-80*p)},1)`;ctx.fillRect(x,y,s,sh)}}
+        else{ctx.fillStyle=`rgba(210,40,20,${(1-p)/.38*.9})`;ctx.fillRect(x,y,s,sh)}}
+      else if(tgt[i]>from[i]&&a<1&&a>0){ctx.fillStyle=a<.35?'#ffffff':`rgba(241,192,46,${a})`;ctx.fillRect(x,y,s,sh)}
+      else if(a>.01){ctx.fillStyle=`rgba(241,192,46,${a})`;ctx.fillRect(x,y,s,sh)}}
+    BANDS.forEach((b,k)=>{const y=R0[k]*rh+k*4+2,h=ROWS[k]*rh,dead=tgt[S0[k]]<.5;let alive=0;for(let i=S0[k];i<S0[k]+b[0];i+=7)alive+=cur[i];const gone=dead&&alive<1;
+      ctx.font=`600 9px ${mono}`;ctx.textAlign='left';ctx.fillStyle=dead?'#ff5a4a':'rgba(244,240,227,.72)';ctx.fillText(b[1]+'%',0,y+h/2);
+      if(dead){ctx.strokeStyle='rgba(255,90,74,.9)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,y+h/2);ctx.lineTo(16,y+h/2);ctx.stroke()}
+      if(gone&&h>9){ctx.font=`700 ${Math.min(11,h*.8)}px ${mono}`;ctx.textAlign='center';const tx=`${n0(b[0])} ${t({en:'SHUT',bn:'বন্ধ'})}`,tw=ctx.measureText(tx).width+10;ctx.fillStyle='rgba(23,21,15,.85)';ctx.fillRect(G+(W-G)/2-tw/2,y+h/2-6.5,tw,13);ctx.fillStyle='#ff5a4a';ctx.fillText(tx,G+(W-G)/2,y+h/2+.5)}});
+    const yi=you(),[yx,yy]=xy(yi),dead=tgt[yi]<.5;ctx.strokeStyle=dead?'#ff5a4a':'#fbf7ec';ctx.lineWidth=1.5;ctx.strokeRect(yx-2.5,yy-2.5,s+5,sh+5);
+    ctx.font=`600 9px ${mono}`;ctx.fillStyle=dead?'#ff5a4a':'#fbf7ec';const right=yx>W-60;ctx.textAlign=right?'right':'left';ctx.fillText(t({en:'you',bn:'আপনি'}),right?yx-5:yx+s+6,yy+sh/2)}
+  function tick(now){let busy=false;for(let i=0;i<N;i++){if(cur[i]===tgt[i])continue;const d=tgt[i]<from[i]?DIE:LIVE,p=(now-t0[i])/d;
+      if(p<=0){busy=true;continue}if(p>=1){cur[i]=tgt[i];continue}busy=true;cur[i]=from[i]+(tgt[i]-from[i])*p}
+    draw(now);raf=busy?requestAnimationFrame(tick):0}
+  function jolt(n){const g=cv&&cv.parentElement;if(!g||reduce)return;g.classList.remove('hit');void g.offsetWidth;g.classList.add('hit');if(n>=900)g.classList.add('big');setTimeout(()=>g.classList.remove('hit','big'),900);try{navigator.vibrate?.(n>=900?[40,60,40,60,80]:[30,50,30])}catch(e){}}
   return{mount(c){cv=c;size();if(!this._r){this._r=1;addEventListener('resize',()=>{if(step==='nation')requestAnimationFrame(size)})}},
-    set(dead,now0){const now=performance.now();let ch=false;for(let i=0;i<N;i++){const v=dead[band[i]]?0:1;if(tgt[i]!==v){from[i]=cur[i];tgt[i]=v;t0[i]=now+Math.random()*(v?220:520);ch=true;if(reduce||now0)cur[i]=v}}if(now0){draw();return}
-      if(reduce){draw();return}if(ch&&!raf)raf=requestAnimationFrame(tick);if(!ch)draw()},
+    set(dead,instant){const now=performance.now();let died=0,ch=false;
+      for(let i=0;i<N;i++){const v=dead[band[i]]?0:1;if(tgt[i]===v)continue;from[i]=cur[i]<.999&&cur[i]>.001?cur[i]:1-v;tgt[i]=v;ch=true;
+        const c=col[i]/COLS;t0[i]=now+(v?(1-c)*380+rnd[i]*90:c*650+row[i]*22+rnd[i]*160);if(!v)died++;if(reduce||instant)cur[i]=v,from[i]=v}
+      if(instant||reduce){draw(now);return}if(died>=300)setTimeout(()=>jolt(died),260);if(ch&&!raf)raf=requestAnimationFrame(tick);if(!ch)draw(now)},
+    paint(c2,W2,dead,yi,ratio=1.2){/* static copy for the share card */const x=c2,cl=W2/COLS,rr=cl*ratio;BANDS.forEach((b,k)=>{for(let j=0;j<b[0];j++){const i=S0[k]+j,X=col[i]*cl,Y=(R0[k]+row[i])*rr+k*8;x.fillStyle=dead[k]?'rgba(244,240,227,.12)':'#f1c02e';x.fillRect(X,Y,cl*.68,rr*.64)}});
+      const i=yi??you(),X=col[i]*cl,Y=(R0[band[i]]+row[i])*rr+band[i]*8;x.strokeStyle=dead[band[i]]?'#ff5a4a':'#fbf7ec';x.lineWidth=3;x.strokeRect(X-5,Y-5,cl*.68+10,rr*.64+10);return{x:X,y:Y,h:30*rr+6*8}},
     reset(){cur.fill(1);from.fill(1);tgt.fill(1);this.seen=0;clearTimeout(this.hold)}}})();
 
-function vWhole(){chrome(false);
-  const w=nw||S.wage,P=np||B.price,I=ind2(w,P),sv=saveAll(w),d=P-B.price,pc=d/B.price*100,sp=((sv/B.price-1)*100).toFixed(1);
-  desk.innerHTML=`<article class="doc t-note" style="--tilt:-.3deg"><div class="doc-h"><span>${t({en:'The whole shirt',bn:'পুরো শার্টের হিসাব'})}</span></div><div class="doc-b">
-   <h2>${t({en:`At ${tk(w)} and ${usd(P)} a shirt:`,bn:`${tk(w)} মজুরি আর শার্টপ্রতি ${usd(P)} হলে:`})}</h2>
-   <div class="whole">
-    <div class="wrow">${IC.worker}<div><b>${t({en:'Shathi',bn:'সাথী'})}</b><p>${(cover(w)>=100?t({en:`Her wage reaches <em>${pct(cover(w))}</em> of a living wage. Her family can cover a basic but decent month.`,bn:`তাঁর মজুরি জীবনধারণ মজুরির <em>${pct(cover(w))}</em>। পরিবার একটি সাধারণ মর্যাদাপূর্ণ মাস চালাতে পারে।`}):t({en:`Her wage reaches <em>${pct(cover(w))}</em> of a living wage. Her family is still short every month.`,bn:`তাঁর মজুরি জীবনধারণ মজুরির <em>${pct(cover(w))}</em>। পরিবারের প্রতি মাসেই ঘাটতি থাকে।`}))}</p></div></div>
-    <div class="wrow">${IC.owner}<div><b>${t({en:'The factories',bn:'কারখানা'})}</b><p>${I.factories?t({en:`<em>${n0(I.factories)} of 3,000</em> shut and <em>${n0(I.jobs)} lakh</em> jobs go, yours ${I.dead[S.bi]?'among them':'not yet'}.`,bn:`৩,০০০-এর মধ্যে <em>${n0(I.factories)}টি</em> বন্ধ, <em>${n0(I.jobs)} লাখ</em> চাকরি যায়; আপনারটি ${I.dead[S.bi]?'তার মধ্যে':'এখনো নয়'}।`}):t({en:'All 3,000 stay open, yours included.',bn:'৩,০০০ কারখানাই চালু থাকে, আপনারটিও।'})} ${t({en:'Their costs rose about 40% in three years while the real price they are paid fell.',bn:'তিন বছরে খরচ বেড়েছে প্রায় ৪০%, অথচ প্রকৃত দাম কমেছে।'})}</p></div></div>
-    <div class="wrow">${IC.buyer}<div><b>${t({en:'The brand',bn:'ব্র্যান্ড'})}</b><p>${d>=.005?t({en:`Pays <em>${ct(d).slice(1)} more</em> a shirt (${pc.toFixed(pc<10?1:0)}%). `,bn:`প্রতি শার্টে <em>${ct(d).slice(1)} বেশি</em> দেয় (${pc.toFixed(pc<10?1:0)}%)। `}):t({en:'Pays $3.00. ',bn:'$3.00 দেয়। '})}${I.factories?t({en:`At <em>${usd(sv)}</em> (+${sp}%) every factory could pay this wage.`,bn:`<em>${usd(sv)}</em> (+${sp}%) হলে সব কারখানা এই মজুরি দিতে পারত।`}):w>B.wage?t({en:'Every factory can pay this wage.',bn:'সব কারখানা এই মজুরি দিতে পারে।'}):t({en:'Nothing needs to change, for the brand.',bn:'ব্র্যান্ডের কিছু বদলাতে হয় না।'})}</p></div></div>
-   </div>
-   <p class="closing">${t({en:'The wage is set in Dhaka. The price is set in Stockholm, London and New York. The argument is happening in only one of those places.',bn:'মজুরি ঠিক হয় ঢাকায়। দাম ঠিক হয় স্টকহোম, লন্ডন আর নিউইয়র্কে। তর্ক চলছে শুধু এক জায়গায়।'})}</p>
-   <div class="fact"><b>${t(T.fact)}</b>${t({en:`Factories: ${cite('bgw')}. Prices: ${cite('unit')}; ${cite('ppe')}. Living cost: ${cite('ank25')}.`,bn:`কারখানা: ${cite('bgw')}। দাম: ${cite('unit')}; ${cite('ppe')}। জীবনযাত্রার খরচ: ${cite('ank25')}।`})}</div></div></article>`;
-  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+btn('copy',t({en:'Copy and share',bn:'কপি করে শেয়ার করুন'}),'go'));
+/* ---------- result: a card made to be shared ---------- */
+function outcome(){const w=nw||S.wage,P=np||B.price,I=ind2(w,P),sv=saveAll(w),c=cover(w),bm=BANDS[S.bi][1],yd=I.dead[S.bi];
+  let k;if(I.factories>=3000)k='black';else if(I.factories)k='half';else if(w<=B.wage)k='still';else if(c>=100)k='fair';else k='deal';
+  const TT={black:{en:'The Blackout Malik',bn:'ব্ল্যাকআউট মালিক'},half:{en:'The Half-Dark Malik',bn:'আধা-অন্ধকার মালিক'},still:{en:'The Status-Quo Malik',bn:'স্থিতাবস্থার মালিক'},deal:{en:'The Dealmaker Malik',bn:'দর-কষাকষির মালিক'},fair:{en:'The Malik Who Billed the Brand',bn:'ব্র্যান্ডকে বিল ধরানো মালিক'}};
+  return{w,P,I,sv,c,bm,yd,k,title:TT[k],add:P-B.price,need:sv-B.price}}
+const cents=v=>Math.round(v*100)+'¢';
+function cardCopy(o){const F=n0(o.I.factories),J=n0(o.I.jobs);
+  const hero={black:'3,000',half:F,still:pct(o.c),deal:'+'+cents(o.add),fair:'+'+cents(o.add)}[o.k];
+  const heroCol={black:'#ff5a4a',half:'#ff5a4a',still:'#fbf7ec',deal:'#f1c02e',fair:'#f1c02e'}[o.k];
+  const sub={black:{en:`factories shut. ${J} lakh jobs gone.`,bn:`কারখানা বন্ধ। ${J} লাখ চাকরি শেষ।`},half:{en:`of 3,000 factories shut. ${J} lakh jobs gone.`,bn:`কারখানা বন্ধ, ৩,০০০-এর মধ্যে। ${J} লাখ চাকরি শেষ।`},
+    still:{en:'of a living wage. Every factory survives. Shathi doesn’t.',bn:'জীবনধারণ মজুরির। সব কারখানা টেকে। সাথী টেকেন না।'},
+    deal:{en:`a shirt, and all 3,000 factories pay Tk ${n0(o.w)}.`,bn:`শার্টপ্রতি। তাতেই ৩,০০০ কারখানা দেয় ${n0(o.w)} টাকা।`},fair:{en:`a shirt. A living wage, and all 3,000 factories stay open.`,bn:`শার্টপ্রতি। জীবনধারণ মজুরি, আর ৩,০০০ কারখানাই চালু।`}}[o.k];
+  const punch=o.I.factories?{en:`${cents(o.need)} more on a $3 shirt would have kept every one open. The same tee sells for €29 in Europe.`,bn:`$3-এর শার্টে আর ${cents(o.need)} দিলেই সব কারখানা চালু থাকত। ইউরোপে সেই টি-শার্টের দাম €29।`}
+    :o.w<=B.wage?{en:'Nobody pays more. Shathi pays the difference, every month.',bn:'কেউ বেশি দেয় না। ঘাটতিটা প্রতি মাসে মেটান সাথী।'}
+    :{en:`${cents(o.add)} on a tee that sells for €29 in Europe. The argument is in the wrong city.`,bn:`ইউরোপে €29-এ বিক্রি হওয়া টি-শার্টে ${cents(o.add)}। তর্কটা চলছে ভুল শহরে।`};
+  const ask=o.k==='fair'||o.k==='deal'?{en:'Can you do it cheaper?',bn:'আপনি কি আরও কমে পারবেন?'}:{en:'Can you keep all 3,000 open?',bn:'আপনি কি ৩,০০০ কারখানাই বাঁচাতে পারবেন?'};
+  return{hero,heroCol,sub,punch,ask}}
+async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
+  const BN=lang==='bn',body=`"IBM Plex Sans","Hind Siliguri",sans-serif`,disp=`"Fraunces","Hind Siliguri",serif`,mono=`"IBM Plex Mono","Hind Siliguri",monospace`;
+  try{await Promise.all(['900 60px Fraunces','600 30px "IBM Plex Mono"','600 30px "IBM Plex Sans"','700 30px "Hind Siliguri"','600 30px "Hind Siliguri"'].map(f=>document.fonts.load(f,'Aঅ0')))}catch(e){}
+  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1b5647');g.addColorStop(1,'#0c2a23');x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(255,255,255,.05)';x.lineWidth=1;for(let i=0;i<=W;i+=27){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke()}for(let i=0;i<=H;i+=27){x.beginPath();x.moveTo(0,i);x.lineTo(W,i);x.stroke()}
+  const wrap=(s,f,max,y,lh,col,al='left',X=60)=>{x.font=f;x.fillStyle=col;x.textAlign=al;const words=s.split(' ');let line='';for(const wd of words){const tt=line?line+' '+wd:wd;if(x.measureText(tt).width>max&&line){x.fillText(line,X,y);y+=lh;line=wd}else line=tt}x.fillText(line,X,y);return y+lh};
+  x.textBaseline='alphabetic';
+  x.font=`900 44px ${disp}`;x.fillStyle='#f4f0e3';x.textAlign='left';x.fillText('Garment Malik',60,96);x.font=`700 38px ${body}`;x.textAlign='right';x.fillText('গার্মেন্ট মালিক',W-60,94);
+  /* title on tape */
+  x.save();x.translate(W/2,186);x.rotate(-.025);x.fillStyle='#f1c02e';x.shadowColor='rgba(0,0,0,.35)';x.shadowBlur=14;x.shadowOffsetY=6;x.fillRect(-W/2+30,-50,W-60,96);x.shadowColor='transparent';
+  x.fillStyle='rgba(34,28,5,.9)';for(let i=-W/2+30;i<W/2-30;i+=W/60)x.fillRect(i,-50,2,(Math.round((i+W)/(W/60))%5===0)?18:10);
+  x.font=`600 22px ${mono}`;x.fillStyle='#221c05';x.textAlign='left';x.fillText(t({en:'MY RESULT',bn:'আমার ফলাফল'}),-W/2+60,-10);x.font=`900 46px ${disp}`;x.fillText(t(o.title),-W/2+60,34);x.restore();
+  /* hero */
+  x.textAlign='left';x.font=`900 ${C.hero.length>6?160:190}px ${disp}`;x.fillStyle=C.heroCol;x.fillText(C.hero,52,425);
+  let y=wrap(t(C.sub),`600 40px ${body}`,W-120,505,52,'#f4f0e3');
+  /* the country */
+  const gy=Math.max(y-6,545),gh=290;x.fillStyle='#17150f';x.fillRect(60,gy,W-120,gh+56);
+  x.save();x.translate(96,gy+46);grid.paint(x,W-192,o.I.dead,undefined,.86);x.restore();
+  x.font=`600 20px ${mono}`;x.fillStyle='rgba(244,240,227,.7)';x.textAlign='left';x.fillText(t({en:'3,000 FACTORIES · ONE SQUARE EACH',bn:'৩,০০০ কারখানা · প্রতিটি একটি বর্গ'}),96,gy+30);
+  x.textAlign='right';x.fillStyle=o.yd?'#ff5a4a':'#fbf7ec';x.fillText(t({en:`MINE (${o.bm}%): ${o.yd?'SHUT':'OPEN'}`,bn:`আমারটি (${o.bm}%): ${o.yd?'বন্ধ':'চালু'}`}),W-96,gy+30);
+  /* stats */
+  const sy=gy+gh+108,cw=(W-120)/3;[[t({en:'Minimum wage',bn:'ন্যূনতম মজুরি'}),'Tk '+n0(o.w)],[t({en:'Living wage covered',bn:'জীবনধারণ মজুরির'}),pct(o.c)],[t({en:'Brand pays a shirt',bn:'ব্র্যান্ড দেয় শার্টপ্রতি'}),usd(o.P)]].forEach(([l,v],i)=>{const X=60+i*cw;
+    x.strokeStyle='rgba(244,240,227,.25)';x.lineWidth=2;if(i)x.beginPath(),x.moveTo(X,sy-30),x.lineTo(X,sy+60),x.stroke();
+    x.textAlign='left';x.font=`600 22px ${body}`;x.fillStyle='rgba(244,240,227,.7)';x.fillText(l,X+(i?24:0),sy-2);x.font=`600 50px ${mono}`;x.fillStyle='#fbf7ec';x.fillText(v,X+(i?24:0),sy+52)});
+  /* punch */
+  const py=sy+138,pe=wrap(t(C.punch),`600 36px ${BN?body:disp}`,W-150,py,48,'#f4f0e3','left',84);x.fillStyle='#f1c02e';x.fillRect(60,py-36,6,pe-py+4);
+  if(pe<H-180){x.font=`400 26px ${BN?body:disp}`;x.fillStyle='rgba(244,240,227,.6)';x.textAlign='left';x.fillText(t({en:'Wage set in Dhaka. Price set in Stockholm, London, New York.',bn:'মজুরি ঠিক হয় ঢাকায়। দাম ঠিক হয় স্টকহোম, লন্ডন, নিউইয়র্কে।'}),60,H-150)}
+  /* footer */
+  x.fillStyle='#f1c02e';x.fillRect(0,H-118,W,118);x.fillStyle='#221c05';x.textAlign='right';x.font=`600 32px ${mono}`;x.fillText('garmentmalik.com →',W-60,H-46);const uw=x.measureText('garmentmalik.com →').width;let fs=38;x.textAlign='left';do{x.font=`700 ${fs}px ${body}`;fs-=2}while(x.measureText(t(C.ask)).width>W-170-uw&&fs>22);x.fillText(t(C.ask),60,H-46);
+  return{cv,o,C}}
+function caption(o,C){return t({en:`I played Garment Malik and got: ${o.title.en}. ${C.hero} ${C.sub.en} ${C.punch.en} ${C.ask.en} garmentmalik.com #GarmentMalik`,bn:`গার্মেন্ট মালিক খেললাম। আমার ফলাফল: ${o.title.bn}। ${C.hero} ${C.sub.bn} ${C.punch.bn} ${C.ask.bn} garmentmalik.com #GarmentMalik`})}
+let cardBlob=null,cardCap='';
+function vResult(){chrome(false);
+  desk.innerHTML=`<div class="res"><div class="res-c"><img id="r-img" alt=""><div class="res-load">${t({en:'Printing your result…',bn:'ফলাফল ছাপা হচ্ছে…'})}</div></div>
+   <div class="soc"><a data-s="wa" href="#">WhatsApp</a><a data-s="fb" href="#">Facebook</a><a data-s="x" href="#">X</a><a data-s="copy" href="#">${t({en:'Copy text',bn:'লেখা কপি'})}</a></div></div>`;
+  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+btn('share',t({en:'Share my result',bn:'ফলাফল শেয়ার করুন'}),'go'));
+  makeCard().then(({cv,o,C})=>{cardCap=caption(o,C);const im=$('#r-img');if(!im)return;im.alt=cardCap;cv.toBlob(b=>{cardBlob=b;im.src=URL.createObjectURL(b);im.onload=()=>{im.parentElement.classList.add('in')}},'image/png')});
+  desk.querySelectorAll('.soc a').forEach(a=>a.onclick=e=>{e.preventDefault();const s=a.dataset.s,u=encodeURIComponent('https://garmentmalik.com/'),tx=encodeURIComponent(cardCap);track('share_'+s);
+    if(s==='copy'){(navigator.clipboard?.writeText(cardCap)||Promise.reject()).then(()=>toast(t({en:'Copied',bn:'কপি হয়েছে'}))).catch(()=>{});return}
+    open(s==='wa'?`https://wa.me/?text=${tx}`:s==='fb'?`https://www.facebook.com/sharer/sharer.php?u=${u}`:`https://twitter.com/intent/tweet?text=${tx}`,'_blank','noopener')});
 }
+async function shareCard(){if(!cardBlob)return;track('share_image');const f=new File([cardBlob],'garment-malik.png',{type:'image/png'});
+  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:cardCap});return}}catch(e){if(e&&e.name==='AbortError')return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(cardBlob);a.download='garment-malik.png';document.body.append(a);a.click();a.remove();
+  try{await navigator.clipboard.writeText(cardCap)}catch(e){}toast(t({en:'Image saved, caption copied',bn:'ছবি সেভ হয়েছে, লেখা কপি হয়েছে'}))}
 
 /* ---------- sources sheet ---------- */
 function sheet(){
@@ -828,7 +913,8 @@ function go(a){
   else if(a==='h-ot'){her.ot=!her.ot}
   else if(a==='h-two'){her.two=!her.two}
   else if(a==='own'){step='slip';track('chair_owner')}
-  else if(a==='whole'){step='whole';track('whole_shirt',{wage:nw||S.wage,price:np||B.price})}
+  else if(a==='whole'){step='result';track('result',{wage:nw||S.wage,price:np||B.price,k:outcome().k})}
+  else if(a==='share'){shareCard();return}
   else if(a==='mail'){step='doc';di=0;picked=null}
   else if(a.startsWith('pick')){picked=+a.slice(4);const o=DOCS[di].opts[picked];o.fx(S);closeMonth(o.day||1);render();hud(o.bump);navigator.vibrate?.(12);return}
   else if(a==='gazette'){S.wage=wv;track('wage_set',{wage:wv});S.cashAtWage=S.cash;picked=0;closeMonth();render();hud(['w','m','c']);navigator.vibrate?.(12);return}
@@ -842,8 +928,11 @@ function go(a){
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)go(b.dataset.a);else if(e.target.id==='sheet')$('#sheet').hidden=true});
 $('#src-btn').onclick=sheet;
-const setLang=l=>{lang=l;try{localStorage.setItem('wd-lang',l)}catch(e){}clearTimeout(ledTimer);const led=step==='ledger';render();if(!$('#sheet').hidden)sheet()};
-$('#l-en').onclick=()=>setLang('en');$('#l-bn').onclick=()=>setLang('bn');
+const setLang=l=>{lang=l;try{localStorage.setItem('gm-lang',l)}catch(e){}clearTimeout(ledTimer);const led=step==='ledger';render();if(!$('#sheet').hidden)sheet()};
+$('#l-en').onclick=()=>setLang('en');
+const setTheme=(m,save)=>{document.documentElement.dataset.theme=m;$('#th-btn').setAttribute('aria-pressed',m==='dark');$('#th-btn').setAttribute('aria-label',m==='dark'?'Light mode':'Dark mode');if(save)try{localStorage.setItem('gm-theme',m)}catch(e){};if(step==='nation')grid.mount($('#n-cv'))};
+{let m='';try{m=localStorage.getItem('gm-theme')||''}catch(e){}setTheme(m||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))}
+$('#th-btn').onclick=()=>{setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark',1);track('theme',{m:document.documentElement.dataset.theme})};$('#l-bn').onclick=()=>setLang('bn');
 function track(name,props){try{window.gtag&&gtag('event',name,props||{})}catch(e){}}
 function fit(){const a=$('#app'),W=innerWidth,H=innerHeight;let z=1;
   if(W>=860&&H>=700)z=Math.min(1.55,Math.max(1,Math.min(W/640,H/685)));
