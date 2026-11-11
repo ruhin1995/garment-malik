@@ -802,7 +802,7 @@ const grid=(()=>{const COLS=100,ROWS=BANDS.map(b=>b[0]/COLS),N=3000,DIE=900,LIVE
       for(let i=0;i<N;i++){const v=dead[band[i]]?0:1;if(tgt[i]===v)continue;from[i]=cur[i]<.999&&cur[i]>.001?cur[i]:1-v;tgt[i]=v;ch=true;
         const c=col[i]/COLS;t0[i]=now+(v?(1-c)*380+rnd[i]*90:c*650+row[i]*22+rnd[i]*160);if(!v)died++;if(reduce||instant)cur[i]=v,from[i]=v}
       if(instant||reduce){draw(now);return}if(died>=300)setTimeout(()=>jolt(died),260);if(ch&&!raf)raf=requestAnimationFrame(tick);if(!ch)draw(now)},
-    paint(c2,W2,dead,yi,ratio=1.2){/* static copy for the share card */const x=c2,cl=W2/COLS,rr=cl*ratio;BANDS.forEach((b,k)=>{for(let j=0;j<b[0];j++){const i=S0[k]+j,X=col[i]*cl,Y=(R0[k]+row[i])*rr+k*8;x.fillStyle=dead[k]?'rgba(244,240,227,.12)':'#f1c02e';x.fillRect(X,Y,cl*.68,rr*.64)}});
+    paint(c2,W2,dead,yi,ratio=1.2,on='#f1c02e',off='rgba(244,240,227,.12)'){/* static copy for the share card */const x=c2,cl=W2/COLS,rr=cl*ratio;BANDS.forEach((b,k)=>{for(let j=0;j<b[0];j++){const i=S0[k]+j,X=col[i]*cl,Y=(R0[k]+row[i])*rr+k*8;x.fillStyle=dead[k]?off:on;x.fillRect(X,Y,cl*.68,rr*.64)}});
       const i=yi??you(),X=col[i]*cl,Y=(R0[band[i]]+row[i])*rr+band[i]*8;x.strokeStyle=dead[band[i]]?'#ff5a4a':'#fbf7ec';x.lineWidth=3;x.strokeRect(X-5,Y-5,cl*.68+10,rr*.64+10);return{x:X,y:Y,h:30*rr+6*8}},
     reset(){cur.fill(1);from.fill(1);tgt.fill(1);this.seen=0;clearTimeout(this.hold)}}})();
 
@@ -832,34 +832,43 @@ function cardCopy(o){const F=n0(o.I.factories),J=n0(o.I.jobs),gridNow={dead:o.I.
   return{hero,heroCol,sub,punch,ask,grid:gridNow,stats}}
 async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
   const BN=lang==='bn',body=`"IBM Plex Sans","Hind Siliguri",sans-serif`,disp=`"Fraunces","Hind Siliguri",serif`,mono=`"IBM Plex Mono","Hind Siliguri",monospace`;
-  try{await Promise.all(['900 60px Fraunces','600 30px "IBM Plex Mono"','600 30px "IBM Plex Sans"','700 30px "Hind Siliguri"','600 30px "Hind Siliguri"'].map(f=>document.fonts.load(f,'Aঅ0')))}catch(e){}
-  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1b5647');g.addColorStop(1,'#0c2a23');x.fillStyle=g;x.fillRect(0,0,W,H);
-  x.strokeStyle='rgba(255,255,255,.05)';x.lineWidth=1;for(let i=0;i<=W;i+=27){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke()}for(let i=0;i<=H;i+=27){x.beginPath();x.moveTo(0,i);x.lineTo(W,i);x.stroke()}
-  const wrap=(s,f,max,y,lh,col,al='left',X=60)=>{x.font=f;x.fillStyle=col;x.textAlign=al;const words=s.split(' ');let line='';for(const wd of words){const tt=line?line+' '+wd:wd;if(x.measureText(tt).width>max&&line){x.fillText(line,X,y);y+=lh;line=wd}else line=tt}x.fillText(line,X,y);return y+lh};
+  const PAPER='#f1ece2',INK='#1b1a17',INK2='#4a463d',QUIET='#857f71',RULE='#cfc7b6',RED='#b8321f',NIGHT='#191813',LIT='#f2dca4';
+  try{await Promise.all(['900 60px Fraunces','600 60px Fraunces','600 30px "IBM Plex Mono"','600 30px "IBM Plex Sans"','400 30px "IBM Plex Sans"','700 30px "Hind Siliguri"','600 30px "Hind Siliguri"','400 30px "Hind Siliguri"'].map(f=>document.fonts.load(f,'Aঅ0')))}catch(e){}
+  x.fillStyle=PAPER;x.fillRect(0,0,W,H);
+  /* paper grain */
+  for(let n=0;n<9000;n++){const gx=(n*7919)%W,gy=(n*104729)%H;x.fillStyle=n%3?'rgba(60,50,30,.035)':'rgba(255,255,255,.25)';x.fillRect(gx,gy,1.4,1.4)}
+  const M=72,wrap=(s,f,max,y,lh,col,X=M)=>{x.font=f;x.fillStyle=col;x.textAlign='left';let line='';for(const wd of s.split(' ')){const tt=line?line+' '+wd:wd;if(x.measureText(tt).width>max&&line){x.fillText(line,X,y);y+=lh;line=wd}else line=tt}x.fillText(line,X,y);return y+lh};
+  const rule=(y,w=2,c=INK)=>{x.fillStyle=c;x.fillRect(M,y,W-2*M,w)};
   x.textBaseline='alphabetic';
-  x.font=`900 44px ${disp}`;x.fillStyle='#f4f0e3';x.textAlign='left';x.fillText('Garment Malik',60,96);x.font=`700 38px ${body}`;x.textAlign='right';x.fillText('গার্মেন্ট মালিক',W-60,94);
-  /* title on tape */
-  x.save();x.translate(W/2,186);x.rotate(-.025);x.fillStyle='#f1c02e';x.shadowColor='rgba(0,0,0,.35)';x.shadowBlur=14;x.shadowOffsetY=6;x.fillRect(-W/2+30,-50,W-60,96);x.shadowColor='transparent';
-  x.fillStyle='rgba(34,28,5,.9)';for(let i=-W/2+30;i<W/2-30;i+=W/60)x.fillRect(i,-50,2,(Math.round((i+W)/(W/60))%5===0)?18:10);
-  x.font=`600 22px ${mono}`;x.fillStyle='#221c05';x.textAlign='left';x.fillText(t({en:'MY RESULT',bn:'আমার ফলাফল'}),-W/2+60,-10);x.font=`900 46px ${disp}`;x.fillText(t(o.title),-W/2+60,34);x.restore();
+  /* masthead */
+  rule(70,3);x.font=`600 21px ${mono}`;x.fillStyle=INK;x.textAlign='left';x.fillText('GARMENT MALIK',M,108);x.font=`600 24px ${body}`;x.fillText('গার্মেন্ট মালিক',M+226,108);
+  x.font=`400 21px ${mono}`;x.fillStyle=QUIET;x.textAlign='right';x.fillText(t({en:'A GAME ABOUT ONE T-SHIRT',bn:'একটি টি-শার্টের খেলা'}),W-M,108);rule(126,1);
+  /* result title */
+  x.textAlign='left';x.font=`500 22px ${mono}`;x.fillStyle=QUIET;x.fillText(t({en:'MY RESULT',bn:'আমার ফলাফল'}),M,186);
+  x.font=`600 ${BN?52:56}px ${disp}`;x.fillStyle=INK;x.fillText(t(o.title),M,246);
   /* hero */
-  x.textAlign='left';let hx=52;if(C.ifw){x.font=`900 ${BN?120:130}px ${disp}`;x.fillStyle='#ff5a4a';x.fillText(t(C.ifw),56,425);hx=56+x.measureText(t(C.ifw)).width+28}x.font=`900 ${C.hero.length>6?160:190}px ${disp}`;x.fillStyle=C.heroCol;x.fillText(C.hero,hx,425);
-  let y=wrap(t(C.sub),`600 40px ${body}`,W-120,505,52,'#f4f0e3');
-  /* the country */
-  const gy=Math.max(y-6,545),gh=290;x.fillStyle='#17150f';x.fillRect(60,gy,W-120,gh+56);
-  x.save();x.translate(96,gy+46);grid.paint(x,W-192,C.grid.dead,undefined,.86);x.restore();
-  x.font=`600 20px ${mono}`;x.fillStyle='rgba(244,240,227,.7)';x.textAlign='left';x.fillText(t(C.grid.left),96,gy+30);
-  x.textAlign='right';x.fillStyle=C.grid.red?'#ff5a4a':'#fbf7ec';x.fillText(t(C.grid.right),W-96,gy+30);
-  /* stats */
-  const sy=gy+gh+108,cw=(W-120)/3;C.stats.forEach(([l0,v],i)=>{const l=t(l0),X=60+i*cw;
-    x.strokeStyle='rgba(244,240,227,.25)';x.lineWidth=2;if(i)x.beginPath(),x.moveTo(X,sy-30),x.lineTo(X,sy+60),x.stroke();
-    x.textAlign='left';x.font=`600 22px ${body}`;x.fillStyle='rgba(244,240,227,.7)';x.fillText(l,X+(i?24:0),sy-2);x.font=`600 50px ${mono}`;x.fillStyle=C.ifw?(i?'#ff5a4a':'#f1c02e'):'#fbf7ec';x.fillText(v,X+(i?24:0),sy+52)});
-  /* punch */
-  const lines=(f,mx)=>{x.font=f;let n=1,l='';for(const wd of t(C.punch).split(' ')){const tt=l?l+' '+wd:wd;if(x.measureText(tt).width>mx&&l){n++;l=wd}else l=tt}return n};let pf=36;while(pf>26&&lines(`600 ${pf}px ${BN?body:disp}`,W-150)>2)pf-=2;
-  const py=sy+138,pe=wrap(t(C.punch),`600 ${pf}px ${BN?body:disp}`,W-150,py,Math.round(pf*1.33),'#f4f0e3','left',84);x.fillStyle='#f1c02e';x.fillRect(60,py-36,6,pe-py+4);
-  if(pe<H-180){x.font=`400 26px ${BN?body:disp}`;x.fillStyle='rgba(244,240,227,.6)';x.textAlign='left';x.fillText(t({en:'Wage set in Dhaka. Price set in Stockholm, London, New York.',bn:'মজুরি ঠিক হয় ঢাকায়। দাম ঠিক হয় স্টকহোম, লন্ডন, নিউইয়র্কে।'}),60,H-150)}
+  const loss=o.k==='black'||o.k==='half';let hx=M-6;
+  if(C.ifw){x.font=`600 italic ${BN?110:130}px ${disp}`;x.fillStyle=RED;x.fillText(t(C.ifw),M-4,418);hx=M+x.measureText(t(C.ifw)).width+26}
+  x.font=`900 ${C.hero.length>6?168:196}px ${disp}`;x.fillStyle=loss?RED:INK;x.fillText(C.hero,hx,418);
+  let y=wrap(t(C.sub),`400 36px ${body}`,W-2*M,486,48,INK2);
+  /* the country at night */
+  const gy=Math.max(y+2,548),gw=W-2*M,gh=300;x.fillStyle=NIGHT;x.fillRect(M,gy,gw,gh);
+  x.save();x.translate(M+34,gy+58);grid.paint(x,gw-68,C.grid.dead,undefined,.75,LIT,'rgba(241,236,226,.075)');x.restore();
+  x.font=`500 19px ${mono}`;x.textAlign='left';x.fillStyle='rgba(241,236,226,.62)';x.fillText(t(C.grid.left),M+34,gy+38);
+  x.textAlign='right';x.fillStyle=C.grid.red?'#e8735f':'rgba(241,236,226,.85)';x.fillText(t(C.grid.right),W-M-34,gy+38);
+  /* figures */
+  const sy=gy+gh+34,cw=(W-2*M)/3;rule(sy,1,RULE);
+  C.stats.forEach(([l0,v],i)=>{const X=M+i*cw+(i?22:0);if(i){x.fillStyle=RULE;x.fillRect(M+i*cw,sy+18,1,96)}
+    x.textAlign='left';x.font=`500 19px ${BN?body:mono}`;x.fillStyle=QUIET;x.fillText(BN?t(l0):t(l0).toUpperCase(),X,sy+50);
+    x.font=`600 58px ${disp}`;x.fillStyle=C.ifw?(i?RED:INK):INK;x.fillText(v,X,sy+110)});
+  rule(sy+136,1,RULE);
+  /* the line */
+  const lines=(f,mx)=>{x.font=f;let n=1,l='';for(const wd of t(C.punch).split(' ')){const tt=l?l+' '+wd:wd;if(x.measureText(tt).width>mx&&l){n++;l=wd}else l=tt}return n};
+  const pfam=BN?body:disp,pst=BN?'500':'italic 500';let pf=38;while(pf>28&&lines(`${pst} ${pf}px ${pfam}`,W-2*M-30)>2)pf-=2;
+  const py=sy+188,pe=wrap(t(C.punch),`${pst} ${pf}px ${pfam}`,W-2*M-30,py,Math.round(pf*1.32),INK,M+30);x.fillStyle=RED;x.fillRect(M,py-pf+4,4,pe-py+pf*0.25);
   /* footer */
-  x.fillStyle='#f1c02e';x.fillRect(0,H-118,W,118);x.fillStyle='#221c05';x.textAlign='right';x.font=`600 32px ${mono}`;x.fillText('garmentmalik.com →',W-60,H-46);const uw=x.measureText('garmentmalik.com →').width;let fs=38;x.textAlign='left';do{x.font=`700 ${fs}px ${body}`;fs-=2}while(x.measureText(t(C.ask)).width>W-170-uw&&fs>22);x.fillText(t(C.ask),60,H-46);
+  x.fillStyle=INK;x.fillRect(0,H-112,W,112);x.textAlign='right';x.font=`500 26px ${mono}`;x.fillStyle='rgba(241,236,226,.75)';x.fillText('garmentmalik.com',W-M,H-46);
+  const uw=x.measureText('garmentmalik.com').width;let fs=36;x.textAlign='left';x.fillStyle=PAPER;do{x.font=`600 ${fs}px ${body}`;fs-=2}while(x.measureText(t(C.ask)).width>W-2*M-uw-40&&fs>22);x.fillText(t(C.ask),M,H-46);
   return{cv,o,C}}
 function caption(o,C){return t({en:`I played Garment Malik and got: ${o.title.en}. ${C.ifw?'IF ':''}${C.hero} ${C.sub.en} ${C.punch.en} ${C.ask.en} garmentmalik.com #GarmentMalik`,bn:`গার্মেন্ট মালিক খেললাম। আমার ফলাফল: ${o.title.bn}। ${C.ifw?C.ifw.bn+' ':''}${C.hero} ${C.sub.bn} ${C.punch.bn} ${C.ask.bn} garmentmalik.com #GarmentMalik`})}
 let cardBlob=null,cardCap='';
