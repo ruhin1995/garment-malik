@@ -2,6 +2,8 @@
 <html lang="bn">
 <head>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NL4K5NZP');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZD0BPYZ1TF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZD0BPYZ1TF');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Garment Malik · গার্মেন্ট মালিক</title>
@@ -934,7 +936,7 @@ $('#l-en').onclick=()=>setLang('en');
 const setTheme=(m,save)=>{document.documentElement.dataset.theme=m;$('#th-btn').setAttribute('aria-pressed',m==='dark');$('#th-btn').setAttribute('aria-label',m==='dark'?'Light mode':'Dark mode');if(save)try{localStorage.setItem('gm-theme',m)}catch(e){};if(step==='nation')grid.mount($('#n-cv'))};
 {let m='';try{m=localStorage.getItem('gm-theme')||''}catch(e){}setTheme(m||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))}
 $('#th-btn').onclick=()=>{setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark',1);track('theme',{m:document.documentElement.dataset.theme})};$('#l-bn').onclick=()=>setLang('bn');
-function track(name,props){try{(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:'gm_'+name,gm_lang:lang},props||{}))}catch(e){}}
+function track(name,props){try{const d=Object.assign({gm_lang:lang},props||{});(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:'gm_'+name},d));if(typeof window.gtag==='function')gtag('event','gm_'+name,d)}catch(e){}}
 {let r='';try{r=new URLSearchParams(location.search).get('r')||''}catch(e){}track('arrive',{ref:r||'direct'})}
 function fit(){const a=$('#app'),W=innerWidth,H=innerHeight;let z=1;
   if(W>=860&&H>=700)z=Math.min(1.55,Math.max(1,Math.min(W/640,H/685)));
