@@ -814,24 +814,27 @@ function outcome(){const w=nw||S.wage,P=np||B.price,I=ind2(w,P),sv=saveAll(w),c=
   const TT={black:{en:'The Blackout Malik',bn:'ব্ল্যাকআউট মালিক'},half:{en:'The Half-Dark Malik',bn:'আধা-অন্ধকার মালিক'},still:{en:'The Status-Quo Malik',bn:'স্থিতাবস্থার মালিক'},deal:{en:'The Dealmaker Malik',bn:'দর-কষাকষির মালিক'},dream:{en:'The Dreaming Malik',bn:'স্বপ্ন দেখা মালিক'}};
   return{w,P,I,R:ind2(w,B.price),sv,c,bm,yd,k,title:TT[k],add:P-B.price,need:sv-B.price,rise:Math.round((P/B.price-1)*100)}}
 const cents=v=>Math.round(v*100)+'¢';
-function cardCopy(o){const F=n0(o.I.factories),J=n0(o.I.jobs),gridNow={dead:o.I.dead,left:{en:'3,000 FACTORIES · ONE SQUARE EACH',bn:'৩,০০০ কারখানা · প্রতিটি একটি বর্গ'},right:{en:`MINE (${o.bm}%): ${o.yd?'SHUT':'OPEN'}`,bn:`আমারটি (${o.bm}%): ${o.yd?'বন্ধ':'চালু'}`},red:o.yd},
-    stats=[[{en:'Minimum wage',bn:'ন্যূনতম মজুরি'},'Tk '+n0(o.w)],[{en:'Living wage covered',bn:'জীবনধারণ মজুরির'},pct(o.c)],[{en:'Brand pays a shirt',bn:'ব্র্যান্ড দেয় শার্টপ্রতি'},usd(o.P)]];
-  if(o.k==='dream'){const R=o.R,r=o.rise;return{ifw:{en:'IF',bn:'যদি'},hero:'+'+r+'%',heroCol:'#f1c02e',
-    sub:{en:`brands paid ${r}% more, all 3,000 factories would stay open and Shathi would earn Tk ${n0(o.w)}.`,bn:`ব্র্যান্ড ${r}% বেশি দিলে ৩,০০০ কারখানাই চালু থাকত, সাথী পেতেন ${n0(o.w)} টাকা।`},
-    grid:{dead:R.dead,left:{en:'TODAY, AT $3.00',bn:'আজ, $3.00 দামে'},right:R.factories?{en:`${n0(R.factories)} SHUT · ${n0(R.jobs)} LAKH JOBS`,bn:`${n0(R.factories)}টি বন্ধ · ${n0(R.jobs)} লাখ চাকরি`}:{en:'ALL OPEN, SHATHI SHORT',bn:'সব চালু, সাথীর ঘাটতি'},red:R.factories>0},
+function cardCopy(o){const F=n0(o.I.factories),J=n0(o.I.jobs),W=n0(o.w),LW=n0(B.living);
+  const kick={en:`MY CALL: WAGE TK ${W} · BUYER PAYS ${usd(o.P)} A SHIRT`,bn:`আমার সিদ্ধান্ত: মজুরি Tk ${W} · ক্রেতা দেয় শার্টপ্রতি ${usd(o.P)}`};
+  const gridNow={dead:o.I.dead,left:{en:'3,000 GARMENT FACTORIES · ONE SQUARE EACH',bn:'৩,০০০ পোশাক কারখানা · প্রতিটি একটি বর্গ'},right:o.I.factories?{en:`${F} SHUT`,bn:`${F}টি বন্ধ`}:{en:'ALL OPEN',bn:'সব চালু'},red:o.I.factories>0};
+  const stats=[[{en:'Worker’s monthly wage',bn:'শ্রমিকের মাসিক মজুরি'},'Tk '+W],[{en:'Living wage, Dhaka',bn:'বাঁচার মতো মজুরি, ঢাকা'},'Tk '+LW],[{en:'Buyer pays a shirt',bn:'ক্রেতা দেয় শার্টপ্রতি'},usd(o.P)]];
+  if(o.k==='dream'){const R=o.R,r=o.rise;return{kick,ifw:{en:'IF',bn:'যদি'},hero:'+'+r+'%',heroCol:'#f1c02e',
+    sub:{en:`brands paid ${r}% more for each shirt, all 3,000 factories would stay open and garment workers would earn Tk ${W}.`,bn:`ব্র্যান্ড শার্টপ্রতি ${r}% বেশি দিলে ৩,০০০ কারখানাই চালু থাকত, পোশাকশ্রমিক পেতেন Tk ${W}।`},
+    grid:{dead:R.dead,left:{en:'TODAY, AT $3.00 A SHIRT',bn:'আজ, শার্টপ্রতি $3.00 দামে'},right:R.factories?{en:`${n0(R.factories)} SHUT · ${n0(R.jobs)} LAKH JOBS`,bn:`${n0(R.factories)}টি বন্ধ · ${n0(R.jobs)} লাখ চাকরি`}:{en:'ALL OPEN, WORKERS UNDERPAID',bn:'সব চালু, শ্রমিক কম পান'},red:R.factories>0},
     stats:[[{en:'Needed now',bn:'এখন দরকার'},'+'+r+'%'],[{en:'US buyers paid, 10 yrs',bn:'মার্কিন ক্রেতা, ১০ বছরে'},'+6.4%'],[{en:'US prices, same 10 yrs',bn:'মার্কিন দাম, একই ১০ বছরে'},'+36%']],
     punch:{en:`In ten years US buyers paid 6.4% more for Bangladeshi clothes. US prices rose 36%. ${r}% is a dream.`,bn:`দশ বছরে বাংলাদেশি পোশাকে মার্কিন ক্রেতাদের দেওয়া দাম বেড়েছে ৬.৪%, অথচ মার্কিন বাজারে দাম বেড়েছে ৩৬%। ${r}% এক স্বপ্ন।`},
     ask:{en:'Will the brands pay? Ask them.',bn:'ব্র্যান্ড কি দেবে? ওদের জিজ্ঞেস করুন।'}}}
-  const hero={black:'3,000',half:F,still:pct(o.c),deal:'+'+cents(o.add)}[o.k];
-  const heroCol={black:'#ff5a4a',half:'#ff5a4a',still:'#fbf7ec',deal:'#f1c02e'}[o.k];
-  const sub={black:{en:`factories shut. ${J} lakh jobs gone.`,bn:`কারখানা বন্ধ। ${J} লাখ চাকরি শেষ।`},half:{en:`of 3,000 factories shut. ${J} lakh jobs gone.`,bn:`কারখানা বন্ধ, ৩,০০০-এর মধ্যে। ${J} লাখ চাকরি শেষ।`},
-    still:{en:'of a living wage. Every factory survives. Shathi doesn’t.',bn:'জীবনধারণ মজুরির। সব কারখানা টেকে। সাথী টেকেন না।'},
-    deal:{en:`a shirt, and all 3,000 factories pay Tk ${n0(o.w)}. Shathi still gets ${pct(o.c)} of a living wage.`,bn:`শার্টপ্রতি, তাতেই ৩,০০০ কারখানা দেয় ${n0(o.w)} টাকা। তবু সাথী পান জীবনধারণ মজুরির ${pct(o.c)}।`}}[o.k];
-  const punch=o.I.factories?{en:`${cents(o.need)} more on a $3 shirt would have kept every one open. The same tee sells for €29 in Europe.`,bn:`$3-এর শার্টে আর ${cents(o.need)} দিলেই সব কারখানা চালু থাকত। ইউরোপে সেই টি-শার্টের দাম €29।`}
-    :o.w<=B.wage?{en:'Nobody pays more. Shathi pays the difference, every month.',bn:'কেউ বেশি দেয় না। ঘাটতিটা প্রতি মাসে মেটান সাথী।'}
-    :{en:'Nobody pays more, so nobody earns more. The argument is in the wrong city.',bn:'কেউ বেশি দেয় না, তাই কেউ বেশি পায় না। তর্কটা চলছে ভুল শহরে।'};
-  const ask={en:'Can you keep all 3,000 open?',bn:'আপনি কি ৩,০০০ কারখানাই বাঁচাতে পারবেন?'};
-  return{hero,heroCol,sub,punch,ask,grid:gridNow,stats}}
+  const needLine={en:`${cents(o.need)} more a shirt from the buyer would have kept every factory open.`,bn:`ক্রেতা শার্টপ্রতি আর ${cents(o.need)} দিলেই সব কারখানা চালু থাকত।`};
+  const C={
+    black:{hero:'3,000',heroCol:'#ff5a4a',sub:{en:`garment factories shut. ${J} lakh workers lose their jobs.`,bn:`পোশাক কারখানা বন্ধ। ${J} লাখ শ্রমিক চাকরি হারান।`},
+      punch:{en:`The wage went up; the price did not. ${needLine.en}`,bn:`মজুরি বাড়ল, দাম বাড়ল না। ${needLine.bn}`}},
+    half:{hero:F,heroCol:'#ff5a4a',sub:{en:`of Bangladesh’s 3,000 garment factories shut. ${J} lakh workers lose their jobs.`,bn:`পোশাক কারখানা বন্ধ, দেশের ৩,০০০টির মধ্যে। ${J} লাখ শ্রমিক চাকরি হারান।`},
+      punch:{en:`The wage went up; the price barely moved. ${needLine.en}`,bn:`মজুরি বাড়ল, দাম প্রায় একই। ${needLine.bn}`}},
+    still:{hero:'Tk 12,500',heroCol:'#fbf7ec',sub:{en:`a month: what a garment worker in Bangladesh earns. A living wage in Dhaka is Tk ${LW}.`,bn:`মাসে: বাংলাদেশের একজন পোশাকশ্রমিকের মজুরি। ঢাকায় বাঁচার মতো মজুরি Tk ${LW}।`},
+      punch:{en:'Every factory stays open because workers are paid half of what it costs to live. The buyer pays not a cent more.',bn:'সব কারখানা চালু, কারণ শ্রমিক পান বাঁচার খরচের অর্ধেক। ক্রেতা এক সেন্টও বেশি দেয় না।'}},
+    deal:{hero:'Tk '+W,heroCol:'#fbf7ec',sub:{en:`a month for a garment worker, and every factory can still pay it at $3.00 a shirt.`,bn:`মাসে একজন পোশাকশ্রমিকের মজুরি; শার্টপ্রতি $3.00 দামেও সব কারখানা তা দিতে পারে।`},
+      punch:{en:`That is still ${pct(o.c)} of a living wage. Anything more needs the buyer to pay more.`,bn:`তবু এটা বাঁচার মতো মজুরির ${pct(o.c)}। এর বেশি দিতে হলে ক্রেতাকে বেশি দিতে হবে।`}}}[o.k];
+  return Object.assign({kick,grid:gridNow,stats,ask:{en:'What would you do? Play it.',bn:'আপনি হলে কী করতেন? খেলে দেখুন।'}},C)}
 async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
   const BN=lang==='bn',body=`"IBM Plex Sans","Hind Siliguri",sans-serif`,disp=`"Fraunces","Hind Siliguri",serif`,mono=`"IBM Plex Mono","Hind Siliguri",monospace`;
   const PAPER='#f1ece2',INK='#1b1a17',INK2='#4a463d',QUIET='#857f71',RULE='#cfc7b6',RED='#b8321f',NIGHT='#191813',LIT='#f2dca4';
@@ -846,7 +849,7 @@ async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=docum
   rule(70,3);x.font=`600 21px ${mono}`;x.fillStyle=INK;x.textAlign='left';x.fillText('GARMENT MALIK',M,108);x.font=`600 24px ${body}`;x.fillText('গার্মেন্ট মালিক',M+226,108);
   x.font=`400 21px ${mono}`;x.fillStyle=QUIET;x.textAlign='right';x.fillText(t({en:'A GAME ABOUT ONE T-SHIRT',bn:'একটি টি-শার্টের খেলা'}),W-M,108);rule(126,1);
   /* result title */
-  x.textAlign='left';x.font=`500 22px ${mono}`;x.fillStyle=QUIET;x.fillText(t({en:'MY RESULT',bn:'আমার ফলাফল'}),M,186);
+  x.textAlign='left';x.font=`500 ${BN?22:20}px ${BN?body:mono}`;x.fillStyle=QUIET;x.fillText(t(C.kick),M,186);
   x.font=`600 ${BN?52:56}px ${disp}`;x.fillStyle=INK;x.fillText(t(o.title),M,246);
   /* hero */
   const loss=o.k==='black'||o.k==='half';let hx=M-6;
@@ -872,13 +875,13 @@ async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=docum
   x.fillStyle=INK;x.fillRect(0,H-112,W,112);x.textAlign='right';x.font=`500 26px ${mono}`;x.fillStyle='rgba(241,236,226,.75)';x.fillText('garmentmalik.com',W-M,H-46);
   const uw=x.measureText('garmentmalik.com').width;let fs=36;x.textAlign='left';x.fillStyle=PAPER;do{x.font=`600 ${fs}px ${body}`;fs-=2}while(x.measureText(t(C.ask)).width>W-2*M-uw-40&&fs>22);x.fillText(t(C.ask),M,H-46);
   return{cv,o,C}}
-function caption(o,C){return t({en:`I played Garment Malik and got: ${o.title.en}. ${C.ifw?'IF ':''}${C.hero} ${C.sub.en} ${C.punch.en} ${C.ask.en} garmentmalik.com #GarmentMalik`,bn:`গার্মেন্ট মালিক খেললাম। আমার ফলাফল: ${o.title.bn}। ${C.ifw?C.ifw.bn+' ':''}${C.hero} ${C.sub.bn} ${C.punch.bn} ${C.ask.bn} garmentmalik.com #GarmentMalik`})}
+function caption(o,C){return t({en:`I played Garment Malik and got: ${o.title.en}. My call: wage Tk ${n0(o.w)}, buyer pays ${usd(o.P)} a shirt. ${C.ifw?'IF ':''}${C.hero} ${C.sub.en} ${C.punch.en} ${C.ask.en} garmentmalik.com #GarmentMalik`,bn:`গার্মেন্ট মালিক খেললাম। আমার ফলাফল: ${o.title.bn}। আমার সিদ্ধান্ত: মজুরি Tk ${n0(o.w)}, ক্রেতা দেয় শার্টপ্রতি ${usd(o.P)}। ${C.ifw?C.ifw.bn+' ':''}${C.hero} ${C.sub.bn} ${C.punch.bn} ${C.ask.bn} garmentmalik.com #GarmentMalik`})}
 let cardBlob=null,cardCap='';
 function vResult(){chrome(false);
   desk.innerHTML=`<div class="res"><div class="res-c"><img id="r-img" alt=""><div class="res-load">${t({en:'Printing your result…',bn:'ফলাফল ছাপা হচ্ছে…'})}</div></div>
    <div class="soc"><a data-s="wa" href="#">WhatsApp</a><a data-s="fb" href="#">Facebook</a><a data-s="x" href="#">X</a><a data-s="copy" href="#">${t({en:'Copy text',bn:'লেখা কপি'})}</a></div></div>`;
   setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+btn('share',t({en:'Share my result',bn:'ফলাফল শেয়ার করুন'}),'go'));
-  makeCard().then(({cv,o,C})=>{cardCap=caption(o,C);const im=$('#r-img');if(!im)return;im.alt=cardCap;cv.toBlob(b=>{cardBlob=b;im.src=URL.createObjectURL(b);im.onload=()=>{im.parentElement.classList.add('in')}},'image/png')});
+  makeCard().then(({cv,o,C})=>{cardCap=caption(o,C);const im=$('#r-img');if(!im)return;im.alt=cardCap;cv.toBlob(b=>{cardBlob=b;im.src=URL.createObjectURL(b);im.onload=()=>{im.parentElement.classList.add('in')}},'image/png')}).catch(e=>{console.error('card',e&&e.stack||e)});
   desk.querySelectorAll('.soc a').forEach(a=>a.onclick=e=>{e.preventDefault();const s=a.dataset.s,u=encodeURIComponent('https://garmentmalik.com/?r=fb'),tx=encodeURIComponent(cardCap.replace('garmentmalik.com','garmentmalik.com/?r='+s));track('share_'+s);
     if(s==='copy'){(navigator.clipboard?.writeText(cardCap.replace('garmentmalik.com','garmentmalik.com/?r=copy'))||Promise.reject()).then(()=>toast(t({en:'Copied',bn:'কপি হয়েছে'}))).catch(()=>{});return}
     open(s==='wa'?`https://wa.me/?text=${tx}`:s==='fb'?`https://www.facebook.com/sharer/sharer.php?u=${u}`:`https://twitter.com/intent/tweet?text=${tx}`,'_blank','noopener')});
