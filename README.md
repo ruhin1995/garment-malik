@@ -4,4 +4,4 @@ A one-screen game. You own a T-shirt factory in Gazipur for twelve months, set t
 
 - `index.html` is the whole site: one self-contained file, fonts included, no build step and no backend.
 - Sources for every figure and the rules of the game are inside the game under **SRC**.
-- Prototype by R.Hossain.
+- Made by someone who ran out of dinner-table ways to explain it.
