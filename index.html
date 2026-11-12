@@ -814,67 +814,67 @@ function outcome(){const w=nw||S.wage,P=np||B.price,I=ind2(w,P),sv=saveAll(w),c=
   const TT={black:{en:'The Blackout Malik',bn:'ব্ল্যাকআউট মালিক'},half:{en:'The Half-Dark Malik',bn:'আধা-অন্ধকার মালিক'},still:{en:'The Status-Quo Malik',bn:'স্থিতাবস্থার মালিক'},deal:{en:'The Dealmaker Malik',bn:'দর-কষাকষির মালিক'},dream:{en:'The Dreaming Malik',bn:'স্বপ্ন দেখা মালিক'}};
   return{w,P,I,R:ind2(w,B.price),sv,c,bm,yd,k,title:TT[k],add:P-B.price,need:sv-B.price,rise:Math.round((P/B.price-1)*100)}}
 const cents=v=>Math.round(v*100)+'¢';
-function cardCopy(o){const F=o.I.factories,J=n0(o.I.jobs),W=n0(o.w),LW=n0(B.living),need=Math.round(o.need*100),add=Math.round(o.add*100),r=o.rise;
-  const open={en:'I ran a garment factory in Bangladesh for a day.',bn:'একদিনের জন্য বাংলাদেশের একটি পোশাক কারখানার মালিক হয়েছিলাম।'};
-  const wageBars={type:'bars',rows:[[{en:'What a worker is paid a month',bn:'একজন শ্রমিক মাসে পান'},`Tk ${W}`,o.w,1],[{en:'What it costs to live, a month',bn:'মাসে বেঁচে থাকতে লাগে'},`Tk ${LW}`,B.living,0]]};
-  const tee={en:'Foreign brands pay the factory $3 for a T-shirt. A tee like it sells for €29 in Europe.',bn:'বিদেশি ব্র্যান্ড একটা টি-শার্টের জন্য কারখানাকে দেয় $3। ইউরোপের দোকানে এমন টি-শার্টের দাম €29।'};
-  const ask={en:'What would you do? Play:',bn:'আপনি হলে কী করতেন? খেলুন:'};
-  if(o.k==='still')return{open,ask,h1:{en:'I did not raise my workers’ pay.',bn:'শ্রমিকের বেতন বাড়াইনি।'},h2:{en:'They live on half of what it costs to live.',bn:'ওঁরা চলেন বাঁচার খরচের অর্ধেক টাকায়।'},pic:wageBars,
-    why:{en:`Raise it and the factory goes under. ${tee.en}`,bn:`বাড়ালে কারখানা টেকে না। ${tee.bn}`}};
-  if(o.k==='deal')return{open,ask,h1:{en:`I raised my workers’ pay to Tk ${W}.`,bn:`শ্রমিকের বেতন করলাম ${W} টাকা।`},h2:{en:'The factory survived. They still get about half of what it costs to live.',bn:'কারখানা টিকল। তবু ওঁরা পান বাঁচার খরচের প্রায় অর্ধেক।'},pic:wageBars,
-    why:{en:`Raise it further and the factory goes under. ${tee.en}`,bn:`আরও বাড়ালে কারখানা টেকে না। ${tee.bn}`}};
-  if(o.k==='black'||o.k==='half'){const shut=F>=3000?10:Math.max(1,Math.min(9,Math.round(F/300)));
-    return{open,ask,h1:{en:`I raised my workers’ pay to Tk ${W}.`,bn:`শ্রমিকের বেতন করলাম ${W} টাকা।`},
-      h2:F>=3000?{en:'Every garment factory in the country shut down.',bn:'দেশের সব পোশাক কারখানা বন্ধ হয়ে গেল।'}:{en:`${n0(F)} of the country’s 3,000 garment factories shut down.`,bn:`দেশের 3,000 পোশাক কারখানার ${n0(F)}টি বন্ধ হয়ে গেল।`},
-      pic:{type:'fac',shut,cap:{en:`${J} lakh people lost their jobs`,bn:`${J} লাখ মানুষ চাকরি হারালেন`}},
-      why:{en:`Because the brands did not pay more. ${need} cents more a shirt would have kept every factory open.`,bn:`কারণ ব্র্যান্ড দাম বাড়ায়নি। শার্টপ্রতি আর ${need} সেন্ট দিলেই সব কারখানা চালু থাকত।`}}}
-  /* dream: price went up in the game */
-  return{open,ask:{en:'Will the brands pay? Play:',bn:'ব্র্যান্ড কি দেবে? খেলুন:'},h1:{en:`I raised pay to Tk ${W} and made the brands pay ${add} cents more a shirt.`,bn:`বেতন করলাম ${W} টাকা, আর ব্র্যান্ডকে দিয়ে শার্টপ্রতি ${add} সেন্ট বেশি দেওয়ালাম।`},
-    h2:{en:'Every factory stayed open. But only in the game.',bn:'সব কারখানা চালু থাকল। কিন্তু শুধু খেলায়।'},
-    pic:{type:'bars',rows:[[{en:'The price rise this needs',bn:'এর জন্য দাম বাড়াতে হয়'},`+${r}%`,Math.max(r,6.4),1],[{en:'What buyers actually added in 10 years',bn:'ক্রেতারা 10 বছরে আসলে বাড়িয়েছে'},'+6.4%',6.4,2]]},
-    why:{en:'In real life, the price brands pay has barely moved in ten years, while everything else got dearer.',bn:'বাস্তবে দশ বছরে ব্র্যান্ডের দেওয়া দাম প্রায় বাড়েনি, অথচ বাকি সবকিছুর দাম বেড়েছে।'}}}
+function cardCopy(o){const F=n0(o.I.factories),J=n0(o.I.jobs),W=n0(o.w),add=Math.round(o.add*100),am=add>=100?'$'+(add/100).toFixed(2):add+'¢',P=usd(o.P),k=o.k;
+  const l3={still:{en:'0% BRAND’S PROBLEM',bn:'0% ব্র্যান্ডের দায়'},deal:{en:'0% BRAND’S PROBLEM',bn:'0% ব্র্যান্ডের দায়'},black:{en:'0 FACTORIES LEFT',bn:'0টি কারখানা বাকি'},half:{en:`${F} FACTORIES SHUT`,bn:`${F}টি কারখানা বন্ধ`},dream:{en:'100% FACTORIES OPEN*',bn:'100% কারখানা চালু*'}}[k];
+  const c3={still:{en:'ANY SHORTFALL IS ABSORBED BY THE WORKER.',bn:'ঘাটতি যা থাকে, শুষে নেন শ্রমিক।'},
+    black:{en:`WAGE RAISED WITHOUT THE BRAND. FACTORIES DID NOT SURVIVE. ${J} LAKH JOBS LOST.`,bn:`ব্র্যান্ড ছাড়াই বেতন বাড়ানো হয়েছে। কারখানা টেকেনি। ${J} লাখ চাকরি গেছে।`},
+    dream:{en:`BEST RESULTS WHEN THE BRAND PAYS ${am} MORE A SHIRT. BRAND NOT INCLUDED.`,bn:`ব্র্যান্ড শার্টপ্রতি ${am} বেশি দিলে সেরা ফল। ব্র্যান্ড প্যাকেটে নেই।`}};
+  return{k,lines:[{en:'100% COTTON',bn:'100% সুতি'},{en:`${pct(o.c)} LIVING WAGE`,bn:`${pct(o.c)} বাঁচার মতো মজুরি`},l3],
+    price:{en:`FACTORY GETS ${P} · SHOP PRICE €29`,bn:`কারখানা পায় ${P} · দোকানে দাম €29`},
+    care:[{en:'HANDS ALREADY WASHED BY THE BRAND.',bn:'ব্র্যান্ড আগেই হাত ধুয়ে ফেলেছে।'},{en:'PRICE DOES NOT STRETCH. +6.4% IN TEN YEARS.',bn:'দাম টানলেও বাড়ে না। দশ বছরে +6.4%।'},c3[k==='deal'?'still':k==='half'?'black':k]],
+    stamp:k==='dream'?{en:'* NOT AVAILABLE IN REAL LIFE',bn:'* বাস্তবে পাওয়া যায় না'}:null,
+    lot:{en:`LOT: WAGE TK ${W} · PRICE ${P} · MADE BY ME, MALIK FOR A DAY`,bn:`লট: মজুরি Tk ${W} · দাম ${P} · বানিয়েছি আমি, একদিনের মালিক`},
+    ask:{en:'Run the factory yourself:',bn:'নিজে কারখানা চালিয়ে দেখুন:'}}}
 async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
-  const BN=lang==='bn',body=`"IBM Plex Sans","Hind Siliguri",sans-serif`,disp=`"Fraunces","Hind Siliguri",serif`,mono=`"IBM Plex Mono","Hind Siliguri",monospace`;
-  const PAPER='#f1ece2',INK='#1b1a17',INK2='#4a463d',QUIET='#857f71',RULE='#cfc7b6',RED='#b8321f';
-  try{await Promise.all(['900 60px Fraunces','600 60px Fraunces','600 30px "IBM Plex Mono"','600 30px "IBM Plex Sans"','400 30px "IBM Plex Sans"','700 30px "Hind Siliguri"','600 30px "Hind Siliguri"','400 30px "Hind Siliguri"'].map(f=>document.fonts.load(f,'Aঅ0')))}catch(e){}
-  x.fillStyle=PAPER;x.fillRect(0,0,W,H);
-  for(let n=0;n<9000;n++){const gx=(n*7919)%W,gy=(n*104729)%H;x.fillStyle=n%3?'rgba(60,50,30,.035)':'rgba(255,255,255,.25)';x.fillRect(gx,gy,1.4,1.4)}
-  const M=76,TW=W-2*M;x.textBaseline='alphabetic';
-  const split=(s,f,max)=>{x.font=f;const out=[];let line='';for(const wd of s.split(' ')){const tt=line?line+' '+wd:wd;if(x.measureText(tt).width>max&&line){out.push(line);line=wd}else line=tt}out.push(line);return out};
-  /* fit a block of text: largest size from `sizes` that stays within maxLines */
-  const fit=(s,mk,sizes,maxLines)=>{for(const fs of sizes){const L=split(s,mk(fs),TW);if(L.length<=maxLines)return{fs,L}}const fs=sizes.at(-1);return{fs,L:split(s,mk(fs),TW)}};
-  const put=(blk,mk,y,col,lh)=>{x.font=mk(blk.fs);x.fillStyle=col;x.textAlign='left';for(const l of blk.L){x.fillText(l,M,y);y+=Math.round(blk.fs*lh)}return y};
-  const hf=fs=>`700 ${fs}px ${BN?body:disp}`,hf2=fs=>`${BN?700:900} ${fs}px ${BN?body:disp}`,bf=fs=>`400 ${fs}px ${body}`;
-  /* masthead */
-  x.fillStyle=INK;x.fillRect(M,70,TW,3);x.font=`600 24px ${BN?body:mono}`;x.fillStyle=INK;x.textAlign='left';x.fillText(t({en:'GARMENT MALIK · A GAME',bn:'গার্মেন্ট মালিক · একটি খেলা'}),M,112);
-  x.textAlign='right';x.font=`500 22px ${mono}`;x.fillStyle=QUIET;x.fillText('garmentmalik.com',W-M,112);
-  /* story */
-  /* why + footer are measured first; the headings step down a size until the picture has the room it needs */
-  const bw=fit(t(C.why),bf,[36,32,30],4),whyH=bw.L.length*Math.round(bw.fs*1.36),footY=H-124,whyY=footY-34-whyH,picBot=whyY-40,need=C.pic.type==='bars'?250:210;
-  const S1=[62,54,48,42,38],S2=[88,78,68,60,52];let y=0,b1,b2,y1,y2;
-  for(let k=0;k<4;k++){b1=fit(t(C.h1),hf,S1.slice(k),3);b2=fit(t(C.h2),hf2,S2.slice(k),3);y1=262+b1.fs*.55;y2=y1+b1.L.length*Math.round(b1.fs*1.18)+6+b2.fs*.72;y=y2+b2.L.length*Math.round(b2.fs*1.14);if(picBot-(y-10)>=need)break}
-  put(fit(t(C.open),bf,[32,28],2),bf,188,QUIET,1.35);put(b1,hf,y1,INK,1.18);put(b2,hf2,y2,RED,1.14);
-  const picTop=y-10,ph=picBot-picTop;
-  /* the one picture */
-  if(C.pic.type==='bars'){const rows=C.pic.rows,max=Math.max(...rows.map(r=>r[2])),bh=Math.min(64,Math.max(48,(ph-150)/2)),gap=Math.max(14,Math.min(46,(ph-2*(bh+44))/3));let by=picTop+Math.max(gap,(ph-2*(bh+44)-gap)/2);
-    rows.forEach(([lab,val,v,st])=>{x.textAlign='left';x.font=`500 30px ${body}`;x.fillStyle=INK2;x.fillText(t(lab),M,by+26);const wv=Math.max(70,TW*v/max);
-      x.fillStyle=st===1?INK:st===2?RED:PAPER;x.fillRect(M,by+44,wv,bh);if(st===0){x.strokeStyle=INK;x.lineWidth=3;x.setLineDash([10,7]);x.strokeRect(M+1.5,by+45.5,wv-3,bh-3);x.setLineDash([])}
-      x.font=`700 ${Math.round(bh*.6)}px ${BN?body:disp}`;const tw=x.measureText(val).width;if(tw+36<wv){x.fillStyle=st===0?INK:PAPER;x.fillText(val,M+18,by+44+bh*.7)}else{x.fillStyle=st===2?RED:INK;x.fillText(val,M+wv+16,by+44+bh*.7)}
-      by+=bh+44+gap})}
-  else{const n=10,g=14,iw=(TW-g*(n-1))/n,ih=iw*1.05,capH=54,iy=picTop+Math.max(10,(ph-ih-capH)/2);
-    for(let k=0;k<n;k++){const dead=k>=n-C.pic.shut,X=M+k*(iw+g),Y=iy,c=dead?'#c9c1b0':INK;
-      x.fillStyle=c;x.beginPath();x.moveTo(X,Y+ih);x.lineTo(X,Y+ih*.42);x.lineTo(X+iw*.33,Y+ih*.6);x.lineTo(X+iw*.33,Y+ih*.42);x.lineTo(X+iw*.66,Y+ih*.6);x.lineTo(X+iw*.66,Y+ih*.42);x.lineTo(X+iw,Y+ih*.6);x.lineTo(X+iw,Y+ih);x.closePath();x.fill();
-      x.fillRect(X+iw*.1,Y,iw*.16,ih*.5);
-      if(dead){x.strokeStyle=RED;x.lineWidth=7;x.lineCap='round';x.beginPath();x.moveTo(X+iw*.2,Y+ih*.3);x.lineTo(X+iw*.8,Y+ih*.94);x.moveTo(X+iw*.8,Y+ih*.3);x.lineTo(X+iw*.2,Y+ih*.94);x.stroke()}
-      else{x.fillStyle='#f2dca4';for(let q=0;q<3;q++)x.fillRect(X+iw*(.14+q*.27),Y+ih*.72,iw*.16,ih*.14)}}
-    x.textAlign='left';x.font=`600 34px ${body}`;x.fillStyle=RED;x.fillText(t(C.pic.cap),M,iy+ih+capH-6)}
-  /* why */
-  x.fillStyle=RULE;x.fillRect(M,whyY-22,TW,1.5);put(bw,bf,whyY+bw.fs*.9,INK2,1.36);
-  /* footer */
-  x.fillStyle=INK;x.fillRect(0,footY,W,H-footY);x.textAlign='left';x.font=`600 36px ${body}`;x.fillStyle=PAPER;const a=t(C.ask);x.fillText(a,M,footY+76);
-  x.font=`600 36px ${mono}`;x.fillStyle='#f2dca4';x.fillText('garmentmalik.com',M+x.measureText('').width+(()=>{x.font=`600 36px ${body}`;const w=x.measureText(a).width;x.font=`600 36px ${mono}`;return w+18})(),footY+76);
+  const BN=lang==='bn',body=`"IBM Plex Sans","Hind Siliguri",sans-serif`,mono=`"IBM Plex Mono","Hind Siliguri",monospace`;
+  const INK='#17171a',RED='#c2301c',LAB='#f6f2e7',QUIET='#7d786c';
+  try{await Promise.all(['700 60px "IBM Plex Sans"','600 30px "IBM Plex Sans"','600 30px "IBM Plex Mono"','700 30px "Hind Siliguri"','600 30px "Hind Siliguri"'].map(f=>document.fonts.load(f,'Aঅ0')))}catch(e){}
+  const sp=v=>{try{x.letterSpacing=v}catch(e){}};
+  /* the inside of a T-shirt: knit fabric */
+  x.fillStyle='#2b3038';x.fillRect(0,0,W,H);
+  for(let gx=0;gx<W;gx+=7){x.fillStyle=gx%14?'rgba(255,255,255,.028)':'rgba(0,0,0,.10)';x.fillRect(gx,0,2.5,H)}
+  for(let gy=0;gy<H;gy+=9){x.fillStyle='rgba(0,0,0,.07)';x.fillRect(0,gy,W,1.5)}
+  const vg=x.createRadialGradient(W/2,H/2,300,W/2,H/2,900);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.42)');x.fillStyle=vg;x.fillRect(0,0,W,H);
+  /* the label */
+  const LW=830,LH=1085,lx=-LW/2,ly=-LH/2,pad=66,iw=LW-2*pad;
+  x.save();x.translate(W/2+6,96+LH/2);x.rotate(-.014);
+  x.shadowColor='rgba(0,0,0,.55)';x.shadowBlur=36;x.shadowOffsetY=16;x.fillStyle=LAB;x.fillRect(lx,ly,LW,LH);x.shadowColor='transparent';
+  for(let gy=0;gy<LH;gy+=4){x.fillStyle='rgba(90,80,50,.045)';x.fillRect(lx,ly+gy,LW,1.2)}
+  for(let gx=0;gx<LW;gx+=4){x.fillStyle='rgba(90,80,50,.025)';x.fillRect(lx+gx,ly,1.2,LH)}
+  x.strokeStyle='rgba(60,55,40,.35)';x.lineWidth=2.5;x.setLineDash([12,9]);x.strokeRect(lx+16,ly+16,LW-32,LH-32);x.setLineDash([]);
+  const X0=lx+pad;let y=ly+150;x.textBaseline='alphabetic';
+  const fitFont=(txt,w,max,min,wt=700)=>{let fs=max;do{x.font=`${wt} ${fs}px ${body}`;if(x.measureText(txt).width<=w)break;fs-=2}while(fs>min);return fs};
+  const rule=(yy,h=3)=>{x.fillStyle=INK;x.fillRect(X0,yy,iw,h)};
+  /* brand row */
+  sp('5px');x.font=`600 25px ${mono}`;x.fillStyle=INK;x.textAlign='left';x.fillText('GARMENT MALIK',X0,y);sp('0px');
+  x.beginPath();x.arc(X0+iw-26,y-9,26,0,7);x.lineWidth=3;x.strokeStyle=INK;x.stroke();x.font=`700 26px ${body}`;x.textAlign='center';x.fillText('M',X0+iw-26,y);x.textAlign='left';
+  y+=26;rule(y);y+=74;
+  sp('7px');let fs=fitFont('MADE IN BANGLADESH',iw,54,36);x.fillStyle=INK;x.fillText('MADE IN BANGLADESH',X0,y);sp('0px');y+=40;
+  /* composition: the joke */
+  C.lines.forEach((ln,n)=>{const tx=t(ln);fs=fitFont(tx,iw,BN?80:84,40);y+=Math.round(fs*1.02)+(n?14:6);x.fillStyle=n===2&&!C.stamp?RED:INK;x.fillText(tx,X0,y)});
+  if(C.stamp){const st=t(C.stamp);sp('2px');let sf=44;do{x.font=`700 ${sf}px ${body}`;sf-=2}while(x.measureText(st).width>iw-50);const sw=x.measureText(st).width+44;x.save();x.translate(X0+sw/2,y+62);x.rotate(-.035);x.strokeStyle=RED;x.lineWidth=6;x.strokeRect(-sw/2,-40,sw,70);x.fillStyle=RED;x.textAlign='center';x.fillText(st,0,10);x.restore();sp('0px');x.textAlign='left';y+=92}
+  y+=34;rule(y,2);
+  if(!C.stamp){y+=54;sp('1.5px');fs=fitFont(t(C.price),iw,34,24,600);x.fillStyle=INK;x.fillText(t(C.price),X0,y);sp('0px');y+=24;rule(y,2)}
+  /* care symbols */
+  const icon=(k,cx,cy)=>{x.save();x.translate(cx,cy);x.strokeStyle=INK;x.fillStyle=INK;x.lineWidth=4.5;x.lineJoin='round';x.lineCap='round';
+    if(k===0){x.beginPath();x.moveTo(-30,-12);x.lineTo(-22,24);x.lineTo(22,24);x.lineTo(30,-12);x.stroke();x.beginPath();x.moveTo(-26,-2);x.quadraticCurveTo(-13,-10,0,-2);x.quadraticCurveTo(13,6,26,-2);x.stroke();x.beginPath();for(const hx of[-9,-1,7])x.moveTo(hx,-30),x.lineTo(hx,-8);x.moveTo(15,-22);x.lineTo(15,-8);x.stroke()}
+    else if(k===1){x.strokeRect(-26,-26,52,52);x.beginPath();x.arc(0,0,17,0,7);x.stroke();x.strokeStyle=RED;x.lineWidth=5.5;x.beginPath();x.moveTo(-32,-32);x.lineTo(32,32);x.moveTo(32,-32);x.lineTo(-32,32);x.stroke()}
+    else{x.beginPath();x.moveTo(-30,22);x.lineTo(30,22);x.lineTo(30,6);x.quadraticCurveTo(28,-14,4,-14);x.lineTo(-12,-14);x.moveTo(30,6);x.lineTo(-22,6);x.quadraticCurveTo(-30,12,-30,22);x.stroke();x.beginPath();x.arc(2,14,2.6,0,7);x.arc(14,14,2.6,0,7);x.fill()}
+    x.restore()};
+  const wrapL=(s,f,max)=>{x.font=f;const out=[];let line='';for(const wd of s.split(' ')){const tt=line?line+' '+wd:wd;if(x.measureText(tt).width>max&&line){out.push(line);line=wd}else line=tt}out.push(line);return out};
+  const lotY=ly+LH-58,avail=lotY-44-(y+26);let cs=BN?31:27,cf,clh,rows,tot,minH=70;do{cf=`600 ${cs}px ${body}`;clh=Math.round(cs*1.36);rows=C.care.map(c=>wrapL(t(c),cf,iw-104));minH=Math.min(70,clh*2);tot=rows.reduce((a,r)=>a+Math.max(minH,r.length*clh),0);cs-=1}while(tot+24>avail&&cs>23);const gap=Math.max(8,Math.min(34,(avail-tot)/3));
+  y+=26+gap;rows.forEach((L,n)=>{const h=Math.max(minH,L.length*clh);icon(n,X0+34,y+h/2);x.font=cf;x.fillStyle=n===2?RED:INK;x.textAlign='left';L.forEach((l,q)=>x.fillText(l,X0+104,y+h/2-(L.length*clh)/2+clh*(q+.78)));y+=h+gap});
+  sp('1px');fs=20;do{x.font=`500 ${fs}px ${BN?body:mono}`;fs-=1}while(x.measureText(t(C.lot)).width>iw&&fs>13);x.fillStyle=QUIET;x.fillText(t(C.lot),X0,lotY);sp('0px');
+  x.restore();
+  /* collar seam over the top of the label */
+  x.fillStyle='#343a43';x.fillRect(0,0,W,150);for(let gx=0;gx<W;gx+=7){x.fillStyle='rgba(0,0,0,.12)';x.fillRect(gx,0,2.5,150)}
+  x.fillStyle='rgba(0,0,0,.35)';x.fillRect(0,150,W,10);
+  x.strokeStyle='#aeb4bd';x.lineWidth=3;x.setLineDash([16,11]);for(const sy of[112,130]){x.beginPath();x.moveTo(0,sy);x.lineTo(W,sy);x.stroke()}x.setLineDash([]);
+  /* footer on the fabric */
+  x.textAlign='left';x.font=`600 35px ${body}`;x.fillStyle='#f6f2e7';const a=t(C.ask);x.fillText(a,76,H-56);const aw=x.measureText(a).width;x.font=`600 35px ${mono}`;x.fillStyle='#f1c02e';x.fillText('garmentmalik.com',76+aw+16,H-56);
   return{cv,o,C}}
-function caption(o,C){return t({en:`${C.open.en} ${C.h1.en} ${C.h2.en} ${C.why.en} ${C.ask.en} garmentmalik.com #GarmentMalik`,bn:`${C.open.bn} ${C.h1.bn} ${C.h2.bn} ${C.why.bn} ${C.ask.bn} garmentmalik.com #GarmentMalik`})}
+function caption(o,C){const L=C.lines.map(l=>t(l)).join(BNsep());return t({en:`MADE IN BANGLADESH. ${L}. ${C.care.map(c=>c.en).join(' ')} I ran a garment factory for a day. Your turn: garmentmalik.com #GarmentMalik`,bn:`MADE IN BANGLADESH। ${L}। ${C.care.map(c=>c.bn).join(' ')} একদিন পোশাক কারখানা চালিয়েছি। এবার আপনার পালা: garmentmalik.com #GarmentMalik`})}
+const BNsep=()=>lang==='bn'?'। ':'. ';
 let cardBlob=null,cardCap='';
 function vResult(){chrome(false);
   desk.innerHTML=`<div class="res"><div class="res-c"><img id="r-img" alt=""><div class="res-load">${t({en:'Printing your result…',bn:'ফলাফল ছাপা হচ্ছে…'})}</div></div>
