@@ -306,7 +306,18 @@ input[type=range]::-moz-range-thumb{width:28px;height:38px;border-radius:3px;bac
 .res-c.in img{opacity:1;transform:rotate(-.8deg)}
 .res-load{position:absolute;font:600 12px/1 var(--f-mono);letter-spacing:.08em;color:var(--chalk-dim)}.res-c.in .res-load{display:none}
 .soc{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;flex:none}
-.soc a{font:600 11.5px/1 var(--f-mono);color:var(--chalk);text-decoration:none;border:1px solid var(--chalk-dim);border-radius:20px;padding:8px 12px}
+.soc a{font:600 12.5px/1 var(--f-mono);color:var(--chalk);text-decoration:none;border:1px solid var(--chalk-dim);border-radius:22px;padding:11px 14px;min-height:36px}
+.soc a.fb{background:#1877f2;border-color:#1877f2;color:#fff}.soc a.wa{background:#25d366;border-color:#25d366;color:#062c16}
+.shot{position:fixed;inset:0;z-index:40;background:rgba(10,10,8,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:max(14px,env(safe-area-inset-top,0px)) 14px max(14px,env(safe-area-inset-bottom,0px))}
+.shot p{margin:0;color:#fff;font:600 16px/1.4 var(--f-body);text-align:center;max-width:420px}
+.shot p small{display:block;font:400 13px/1.4 var(--f-body);color:rgba(255,255,255,.72);margin-top:2px}
+.shot img{max-width:100%;max-height:62%;min-height:0;border-radius:3px;-webkit-touch-callout:default;user-select:auto;-webkit-user-select:auto;pointer-events:auto}
+.shot div{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.shot button{font:600 14px/1 var(--f-body);padding:13px 18px;border-radius:24px;border:1.5px solid rgba(255,255,255,.6);background:none;color:#fff}
+.shot button.y{background:var(--tape);border-color:var(--tape);color:var(--tape-ink)}
+.drag{position:absolute;z-index:2;pointer-events:none;background:var(--ink);color:var(--paper);font:600 11px/1 var(--f-body);padding:5px 9px;border-radius:12px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.35);animation:dragp 1.1s ease-in-out infinite}
+@keyframes dragp{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.drag{animation:none}}
 .ibtn svg{display:block;margin:auto}.ibtn .sun{display:none}:root[data-theme=dark] .ibtn .sun{display:inline}:root[data-theme=dark] .ibtn .moon{display:none}
 :root[data-theme=dark]{--mat:#101715;--mat-deep:#090d0c;--mat-line:rgba(255,255,255,.03);--mat-line-2:rgba(255,255,255,.065);--paper:#1d1b16;--newsprint:#23201a;--ink:#ece6d6;--ink-2:#a8a190;--rule:#3c382e;--c-trims:#7b8597}
 :root[data-theme=dark] .doc{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 10px 28px rgba(0,0,0,.7)}
@@ -403,7 +414,7 @@ input[type=range]::-moz-range-thumb{width:28px;height:38px;border-radius:3px;bac
 <script>
 (()=>{
 'use strict';
-const $=s=>document.querySelector(s),VER='20261113-075447';
+const $=s=>document.querySelector(s),VER='20261113-081108';
 /* ---------- numbers: every constant the game uses ---------- */
 const B={fabric:1.35,trims:.30,freight:.27,labour:.45,ovh:.48,price:3.00,shirts:200000,rate:123,wage:12500,living:25166,ask:32000,cash:300,workers:1000};
 const VAR=B.fabric+B.trims+B.freight;
@@ -651,7 +662,7 @@ const desk=$('#desk'),act=$('#actions');
 const setAct=(h,one)=>{act.innerHTML=h;act.classList.toggle('one',!!one)};
 const btn=(a,l,cls='',sm='')=>`<button class="rs ${cls}" data-a="${a}">${sm?`<small>${sm}</small>`:''}${l}</button>`;
 function chrome(on){$('#tape').hidden=!on;$('#hud').hidden=!on;if(on)hud()}
-function render(){
+function render(){stopHints();
   document.documentElement.lang=lang;document.body.classList.toggle('bn',lang==='bn');
   $('#brand').textContent=t(T.brand);$('#l-en').setAttribute('aria-pressed',lang==='en');$('#l-bn').setAttribute('aria-pressed',lang==='bn');
   ({title:vTitle,her:vHer,result:vResult,slip:vSlip,doc:vDoc,ledger:vLedger,end:vEnd,nation:vNation,result:vResult})[step]();
@@ -714,6 +725,20 @@ function vDoc(){chrome(true);const d=DOCS[di];
     setAct(btn('next',di===DOCS.length-1?t({en:'Run the rest of the year',bn:'বছরের বাকিটা চালান'}):t(T.next),'go'),1);
   }
 }
+/* a slider that has not been touched yet nudges itself and wears a "drag" chip, so nobody mistakes it for a picture */
+const hinted={};let hints=[];
+const stopHints=keep=>{hints.forEach(h=>h(keep));hints=[]};
+function hintSlider(inp,delay=700,wiggle=true){if(!inp||hinted[inp.id])return;const sl=inp.closest('.sl');if(!sl)return;
+  const v0=+inp.value,min=+inp.min,max=+inp.max,st=inp.step,span=(max-min)*.14,dir=v0+span<=max?1:-1,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const chip=document.createElement('span');chip.className='drag';chip.textContent=t({en:'↔ Drag me',bn:'↔ টেনে দেখুন'});sl.style.position='relative';sl.append(chip);
+  const place=()=>{chip.style.top=(inp.offsetTop+inp.offsetHeight/2-11)+'px';chip.style.left=((v0-min)/(max-min)>.45?'14%':'54%')};place();
+  let raf=0,tm=0,done=false,t0=0,n=0;
+  const stop=()=>{if(done)return;done=true;cancelAnimationFrame(raf);clearTimeout(tm);inp.step=st;inp.value=v0;chip.remove();hinted[inp.id]=1};
+  const frame=now=>{if(done)return;if(!t0)t0=now;const x=(now-t0)/1000;if(x>=1){inp.value=v0;t0=0;if(++n>=5){inp.step=st;return}tm=setTimeout(()=>{raf=requestAnimationFrame(frame)},1100);return}
+    inp.value=v0+dir*span*Math.pow(Math.sin(Math.PI*x),2);raf=requestAnimationFrame(frame)};
+  if(wiggle&&!still)tm=setTimeout(()=>{if(done)return;inp.step='any';raf=requestAnimationFrame(frame)},delay);
+  hints.push(stop)}
+['pointerdown','touchstart','keydown'].forEach(ev=>document.addEventListener(ev,e=>{if(hints.length&&(e.type!=='keydown'||e.target.type==='range'))stopHints()},{capture:true,passive:true}));
 let wv=0;
 function vWage(d){
   if(picked===null){
@@ -734,7 +759,7 @@ function vWage(d){
         :e.margin>=0?t({en:`Each shirt still covers its cost, but with orders at ${pct(S.vol*100)} the factory loses ${lk(-e.lakh)} a month. The cash lasts ${dg(Math.max(1,Math.floor(mo)))} months.`,bn:`প্রতি শার্টে খরচ উঠছে, কিন্তু অর্ডার ${pct(S.vol*100)}-এ থাকায় কারখানার মাসে লোকসান ${lk(-e.lakh)}। তহবিল চলবে ${dg(Math.max(1,Math.floor(mo)))} মাস।`})
         :t({en:`Each shirt now costs more than the buyer pays: ${lk(-e.lakh)} lost a month, cash for ${dg(Math.max(1,Math.floor(mo)))} months.`,bn:`প্রতি শার্টের খরচ এখন ক্রেতার দামের চেয়ে বেশি: মাসে লোকসান ${lk(-e.lakh)}, তহবিল চলবে ${dg(Math.max(1,Math.floor(mo)))} মাস।`})};
     inp.addEventListener('input',up);up();
-    inp.addEventListener('input',()=>{const I=industry(wv);$('#w-ind').innerHTML=I.factories?t({en:`Industry: <b>${n0(I.factories)}/3,000</b> factories in loss · <b>${n0(I.jobs)} lakh</b> jobs at risk`,bn:`শিল্পে: <b>${n0(I.factories)}/৩,০০০</b> কারখানা লোকসানে · <b>${n0(I.jobs)} লাখ</b> চাকরি ঝুঁকিতে`}):t({en:'Industry: all 3,000 factories still in profit',bn:'শিল্পে: ৩,০০০ কারখানাই এখনো মুনাফায়'})});inp.dispatchEvent(new Event('input'));
+    inp.addEventListener('input',()=>{const I=industry(wv);$('#w-ind').innerHTML=I.factories?t({en:`Industry: <b>${n0(I.factories)}/3,000</b> factories in loss · <b>${n0(I.jobs)} lakh</b> jobs at risk`,bn:`শিল্পে: <b>${n0(I.factories)}/৩,০০০</b> কারখানা লোকসানে · <b>${n0(I.jobs)} লাখ</b> চাকরি ঝুঁকিতে`}):t({en:'Industry: all 3,000 factories still in profit',bn:'শিল্পে: ৩,০০০ কারখানাই এখনো মুনাফায়'})});inp.dispatchEvent(new Event('input'));hintSlider(inp);
     setAct(btn('gazette',t({en:'Gazette it',bn:'গেজেট করুন'}),'go',t({en:'All grades move with the minimum',bn:'সব গ্রেড একই হারে বাড়বে'})),1);
   }else{
     const e=eco(),last=S.hist.at(-1);
@@ -806,6 +831,7 @@ function vNation(){chrome(false);
   grid.mount($('#n-cv'));grid.set(BANDS.map(()=>false));
   const onIn=()=>{clearTimeout(grid.hold);up()};iw.addEventListener('input',onIn);ip.addEventListener('input',onIn);
   up();if(!grid.seen){grid.seen=1;const dead=ind2(nw,np).dead;grid.set(BANDS.map(()=>false),1);clearTimeout(grid.hold);grid.hold=setTimeout(()=>grid.set(dead),900)}
+  hintSlider(iw,2400);hintSlider(ip,0,false);
   setAct(btn('whole',t({en:'See my result',bn:'আমার ফলাফল দেখুন'}),'go'),1);
 }
 /* the country: 100 x 30 lit windows, one per factory, grouped by margin band. Blackouts roll across a band like a failing grid. */
@@ -906,20 +932,41 @@ async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=docum
   return{cv,o,C}}
 function caption(o,C){const w=l=>C.strike?(l==='bn'?`দায়ী: মালিক? না। আসল কারণ: ${C.fix.bn}।`:`Blamed: the owner? No. The real cause: ${C.fix.en}.`):(l==='bn'?`দায়ী: কেউ না। কিন্তু ${C.fix.bn}।`:`Blamed: no one. But ${C.fix.en}.`);
   return t({en:`${C.kick.en} “${C.head.en}.” ${w('en')} ${C.deck.en} ${C.foot.en} ${C.ask.en} garmentmalik.com #GarmentMalik`,bn:`${C.kick.bn} “${C.head.bn}।” ${w('bn')} ${C.deck.bn} ${C.foot.bn} ${C.ask.bn} garmentmalik.com #GarmentMalik`})}
-let cardBlob=null,cardCap='';
-function vResult(){chrome(false);
+let cardBlob=null,cardCap='',cardData='';
+/* in-app browsers (Facebook, Instagram, Messenger, TikTok…) have no share sheet and no downloads; they get plain links and a hold-to-save picture */
+const UA=navigator.userAgent||'',INAPP=/FBAN|FBAV|FB_IAB|FB4A|FBIOS|Instagram|Messenger|Line\/|TikTok|musical_ly|Bytedance|Snapchat|; wv\)/i.test(UA),IOS=/iPhone|iPad|iPod/i.test(UA);
+const canFiles=()=>{try{return !INAPP&&!!cardBlob&&!!navigator.canShare&&navigator.canShare({files:[new File([cardBlob],'garment-malik.png',{type:'image/png'})]})}catch(e){return false}};
+const capFor=s=>cardCap.replace('garmentmalik.com','garmentmalik.com/?r='+s);
+async function copyText(tx){try{await navigator.clipboard.writeText(tx);return true}catch(e){}
+  try{const ta=document.createElement('textarea');ta.value=tx;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;left:0;top:0;opacity:0;user-select:text;-webkit-user-select:text';document.body.append(ta);ta.select();ta.setSelectionRange(0,tx.length);const ok=document.execCommand('copy');ta.remove();return ok}catch(e){return false}}
+function shareBtns(){const sh=canFiles();
+  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+(sh?btn('share',t({en:'Share with picture',bn:'ছবিসহ শেয়ার করুন'}),'go'):btn('save',t({en:'Save the picture',bn:'ছবি সেভ করুন'}),'go')));const sv=desk.querySelector('.soc a[data-s="save"]');if(sv)sv.hidden=!sh}
+function vResult(){chrome(false);cardBlob=null;cardData='';cardCap='';
+  const fbU=encodeURIComponent('https://garmentmalik.com/s/?r=fb'),base=encodeURIComponent('garmentmalik.com/?r=');
   desk.innerHTML=`<div class="res"><div class="res-c"><img id="r-img" alt=""><div class="res-load">${t({en:'Printing your result…',bn:'ফলাফল ছাপা হচ্ছে…'})}</div></div>
-   <div class="soc"><a data-s="wa" href="#">WhatsApp</a><a data-s="fb" href="#">Facebook</a><a data-s="x" href="#">X</a><a data-s="copy" href="#">${t({en:'Copy text',bn:'লেখা কপি'})}</a></div></div>`;
-  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+btn('share',t({en:'Share my result',bn:'ফলাফল শেয়ার করুন'}),'go'));
-  makeCard().then(({cv,o,C})=>{cardCap=caption(o,C);const im=$('#r-img');if(!im)return;im.alt=cardCap;cv.toBlob(b=>{cardBlob=b;im.src=URL.createObjectURL(b);im.onload=()=>{im.parentElement.classList.add('in')}},'image/png')}).catch(e=>{console.error('card',e&&e.stack||e)});
-  desk.querySelectorAll('.soc a').forEach(a=>a.onclick=e=>{e.preventDefault();const s=a.dataset.s,u=encodeURIComponent('https://garmentmalik.com/?r=fb'),tx=encodeURIComponent(cardCap.replace('garmentmalik.com','garmentmalik.com/?r='+s));track('share_'+s);
-    if(s==='copy'){(navigator.clipboard?.writeText(cardCap.replace('garmentmalik.com','garmentmalik.com/?r=copy'))||Promise.reject()).then(()=>toast(t({en:'Copied',bn:'কপি হয়েছে'}))).catch(()=>{});return}
-    open(s==='wa'?`https://wa.me/?text=${tx}`:s==='fb'?`https://www.facebook.com/sharer/sharer.php?u=${u}`:`https://twitter.com/intent/tweet?text=${tx}`,'_blank','noopener')});
+   <div class="soc"><a class="fb" data-s="fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${fbU}">Facebook</a><a class="wa" data-s="wa" target="_blank" rel="noopener" href="https://wa.me/?text=${base}wa">WhatsApp</a><a data-s="x" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=${base}x">X</a><a data-s="copy" href="#">${t({en:'Copy text',bn:'লেখা কপি'})}</a><a data-s="save" href="#">${t({en:'Save picture',bn:'ছবি সেভ'})}</a></div></div>`;
+  shareBtns();
+  const A=k=>desk.querySelector(`.soc a[data-s="${k}"]`);
+  makeCard().then(({cv,o,C})=>{cardCap=caption(o,C);const im=$('#r-img');if(!im)return;im.alt=cardCap;
+    A('wa').href='https://wa.me/?text='+encodeURIComponent(capFor('wa'));A('x').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(capFor('x').slice(0,270));
+    try{cardData=cv.toDataURL('image/jpeg',.9)}catch(e){}
+    cv.toBlob(b=>{cardBlob=b;im.src=b?URL.createObjectURL(b):cardData;im.onload=()=>{im.parentElement.classList.add('in')};shareBtns()},'image/png')}).catch(e=>{console.error('card',e&&e.stack||e);logErr('card: '+(e&&e.message||e))});
+  desk.querySelectorAll('.soc a').forEach(a=>a.onclick=e=>{const k=a.dataset.s;
+    if(k==='copy'){e.preventDefault();track('share_copy');copyText(capFor('copy')).then(ok=>ok?toast(t({en:'Copied',bn:'কপি হয়েছে'})):openShot());return}
+    if(k==='save'){e.preventDefault();saveCard();return}
+    track('share_'+k);if(k==='fb')copyText(capFor('fb')).then(ok=>{if(ok)toast(t({en:'Caption copied. Paste it in your post.',bn:'লেখা কপি হয়েছে। পোস্টে পেস্ট করুন।'}))})});
 }
-async function shareCard(){if(!cardBlob)return;track('share_image');const f=new File([cardBlob],'garment-malik.png',{type:'image/png'});
-  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:cardCap.replace('garmentmalik.com','garmentmalik.com/?r=img')});return}}catch(e){if(e&&e.name==='AbortError')return}
+function openShot(){if(!cardData&&!cardBlob)return;document.querySelector('.shot')?.remove();const d=document.createElement('div');d.className='shot';d.setAttribute('role','dialog');
+  d.innerHTML=`<p>${t({en:'Press and hold the picture, then tap “Save”.',bn:'ছবিটা চেপে ধরে রাখুন, তারপর “সেভ” চাপুন।'})}<small>${t({en:'Then post it from your gallery to Facebook, Instagram or anywhere.',bn:'তারপর গ্যালারি থেকে ফেসবুক, ইনস্টাগ্রাম বা যেকোনো জায়গায় পোস্ট করুন।'})}</small></p><img alt="" src="${cardData||URL.createObjectURL(cardBlob)}"><div><button class="y" data-a="shot-copy">${t({en:'Copy the caption',bn:'লেখা কপি করুন'})}</button><button data-a="shot-x">${t({en:'Close',bn:'বন্ধ'})}</button></div>`;
+  document.body.append(d);track('share_hold')}
+function saveCard(){if(!cardBlob&&!cardData)return;track('share_save',{inapp:INAPP?1:0});
+  if(INAPP||IOS||!cardBlob||!('download' in document.createElement('a'))){openShot();return}
   const a=document.createElement('a');a.href=URL.createObjectURL(cardBlob);a.download='garment-malik.png';document.body.append(a);a.click();a.remove();
-  try{await navigator.clipboard.writeText(cardCap.replace('garmentmalik.com','garmentmalik.com/?r=img'))}catch(e){}toast(t({en:'Image saved, caption copied',bn:'ছবি সেভ হয়েছে, লেখা কপি হয়েছে'}))}
+  copyText(capFor('img')).then(ok=>toast(ok?t({en:'Picture saved, caption copied',bn:'ছবি সেভ হয়েছে, লেখা কপি হয়েছে'}):t({en:'Picture saved',bn:'ছবি সেভ হয়েছে'})))}
+async function shareCard(){if(!cardBlob){saveCard();return}track('share_image');
+  try{const f=new File([cardBlob],'garment-malik.png',{type:'image/png'});
+    if(canFiles()){copyText(capFor('img'));await navigator.share({files:[f],text:capFor('img')});return}}catch(e){if(e&&e.name==='AbortError')return}
+  saveCard()}
 
 /* ---------- sources sheet ---------- */
 function sheet(){
@@ -971,6 +1018,9 @@ function go(a){
   else if(a==='own'){step='slip';track('chair_owner')}
   else if(a==='whole'){step='result';track('result',{wage:nw||S.wage,price:np||B.price,k:outcome().k})}
   else if(a==='share'){shareCard();return}
+  else if(a==='save'){saveCard();return}
+  else if(a==='shot-x'){document.querySelector('.shot')?.remove();return}
+  else if(a==='shot-copy'){copyText(capFor('img')).then(ok=>toast(ok?t({en:'Copied',bn:'কপি হয়েছে'}):t({en:'Could not copy here',bn:'এখানে কপি করা গেল না'})));return}
   else if(a==='mail'){step='doc';di=0;picked=null}
   else if(a.startsWith('pick')){picked=+a.slice(4);const o=DOCS[di].opts[picked];o.fx(S);closeMonth(o.day||1);render();hud(o.bump);navigator.vibrate?.(12);return}
   else if(a==='gazette'){S.wage=wv;track('wage_set',{wage:wv});S.cashAtWage=S.cash;picked=0;closeMonth();render();hud(['w','m','c']);navigator.vibrate?.(12);return}

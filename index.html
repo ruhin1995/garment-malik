@@ -14,18 +14,18 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Garment Malik">
 <meta property="og:url" content="https://garmentmalik.com/">
-<meta property="og:title" content="Garment Malik · গার্মেন্ট মালিক">
-<meta property="og:description" content="One T-shirt. Three people. Sit in every chair before you decide.">
-<meta property="og:image" content="https://garmentmalik.com/og.jpg">
+<meta property="og:title" content="দায়ী: মালিক? খরচ বেড়েছে 25–30%, দাম কমেছে 2.56% · Garment Malik">
+<meta property="og:description" content="গ্যাস, বিদ্যুৎ, ব্যাংকের সুদ বেড়েছে। বিদেশি ক্রেতার দাম কমেছে। ৫ মিনিট নিজে কারখানা চালিয়ে দেখুন, তারপর রায় দিন।">
+<meta property="og:image" content="https://garmentmalik.com/og2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Garment Malik: newspaper headlines about garment factory owners beside a $3.00 price tag">
+<meta property="og:image:alt" content="দৈনিক মালিক: দায়ী মালিক নন; খরচ বাড়ছে, দাম কমছে">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="bn_BD">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Garment Malik · গার্মেন্ট মালিক">
-<meta name="twitter:description" content="One T-shirt. Three people. Sit in every chair before you decide.">
-<meta name="twitter:image" content="https://garmentmalik.com/og.jpg">
+<meta name="twitter:title" content="দায়ী: মালিক? খরচ বেড়েছে 25–30%, দাম কমেছে 2.56% · Garment Malik">
+<meta name="twitter:description" content="গ্যাস, বিদ্যুৎ, ব্যাংকের সুদ বেড়েছে। বিদেশি ক্রেতার দাম কমেছে। ৫ মিনিট নিজে কারখানা চালিয়ে দেখুন, তারপর রায় দিন।">
+<meta name="twitter:image" content="https://garmentmalik.com/og2.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Garment Malik","alternateName":"গার্মেন্ট মালিক","url":"https://garmentmalik.com/","description":"One T-shirt from Gazipur, three people with a stake in it. Run a garment worker’s month, own the factory for a year, set the minimum wage, then zoom out to 3,000 factories and set the price the brands pay. Every figure is sourced.","inLanguage":["en","bn"],"genre":"Educational simulation","gamePlatform":"Web browser","isAccessibleForFree":true}</script>
 <style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style>
 </head>
@@ -108,6 +108,23 @@ body.bn .lab b,body.bn .doc-h,body.bn .fact b,body.bn .rs small{font-size:10.5px
 .lab i{display:block;font:400 9.5px/1.2 var(--f-body);font-style:normal;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lab.bad span{color:var(--bad)}.lab.good span{color:var(--good)}.lab.warn span{color:var(--warn)}
 .lab.bump{animation:bump .45s}
+.sq{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:9px;align-items:center;background:var(--paper);color:var(--ink);padding:5px 8px;border-radius:2px;font:600 10.5px/1.1 var(--f-mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sq u{display:block;height:8px;background:rgba(28,26,21,.1);position:relative;text-decoration:none;border-radius:1px}
+.sq u i{position:absolute;left:0;top:0;bottom:0;background:var(--c-fabric);border-radius:1px;transition:width .6s cubic-bezier(.3,1.2,.5,1)}
+.sq u s{position:absolute;top:-4px;bottom:-4px;width:3px;margin-left:-1.5px;background:var(--good);transition:left .6s cubic-bezier(.3,1.2,.5,1)}
+.sq .p{color:var(--good)}.sq.over u i{background:var(--bad)}.sq.over .c{color:var(--bad)}
+:root[data-theme=dark] .sq{background:#1d1b16}:root[data-theme=dark] .sq u{background:rgba(236,230,214,.14)}:root[data-theme=dark] .sq u i{background:#7aa7c7}:root[data-theme=dark] .sq.over u i{background:var(--bad)}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.grades div{border:1px solid var(--rule);padding:4px 5px 3px;font:400 10.5px/1.3 var(--f-mono);min-width:0;font-variant-numeric:tabular-nums}
+.grades div.me{border:1.5px solid var(--ink);background:#fff7da}
+.grades b{display:block;font-weight:600;font-size:8.5px;color:var(--ink-2);white-space:nowrap}
+.grades em{display:block;font-style:normal;font-weight:600;font-size:12px}
+.gnote{font:400 10px/1.3 var(--f-body);color:var(--ink-2);margin-top:-4px}
+:root[data-theme=dark] .grades div.me{background:#3a3120}
+.sqz{font:600 14px/1.4 var(--f-body);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:8px 0}
+.sqz b{color:var(--bad)}
+.pre{font:600 11.5px/1.3 var(--f-body);color:var(--bad)}
+@media (max-height:700px){.gnote{display:none}.sqz{font-size:13px;padding:6px 0}.hud .lab i{display:none}.hud{gap:4px}.lab{padding:5px 8px 4px}.sq{padding:4px 8px}.t-khata .fact,.t-bill .fact{font-size:10.5px;line-height:1.3}.t-gaz .shirtrow{grid-template-columns:96px 1fr}.t-gaz .shirtrow svg{width:96px}.pre{font-size:11px}}
 @keyframes bump{30%{transform:translateY(-3px) rotate(-1deg)}100%{transform:none}}
 
 /* desk + documents */
@@ -289,7 +306,18 @@ input[type=range]::-moz-range-thumb{width:28px;height:38px;border-radius:3px;bac
 .res-c.in img{opacity:1;transform:rotate(-.8deg)}
 .res-load{position:absolute;font:600 12px/1 var(--f-mono);letter-spacing:.08em;color:var(--chalk-dim)}.res-c.in .res-load{display:none}
 .soc{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;flex:none}
-.soc a{font:600 11.5px/1 var(--f-mono);color:var(--chalk);text-decoration:none;border:1px solid var(--chalk-dim);border-radius:20px;padding:8px 12px}
+.soc a{font:600 12.5px/1 var(--f-mono);color:var(--chalk);text-decoration:none;border:1px solid var(--chalk-dim);border-radius:22px;padding:11px 14px;min-height:36px}
+.soc a.fb{background:#1877f2;border-color:#1877f2;color:#fff}.soc a.wa{background:#25d366;border-color:#25d366;color:#062c16}
+.shot{position:fixed;inset:0;z-index:40;background:rgba(10,10,8,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:max(14px,env(safe-area-inset-top,0px)) 14px max(14px,env(safe-area-inset-bottom,0px))}
+.shot p{margin:0;color:#fff;font:600 16px/1.4 var(--f-body);text-align:center;max-width:420px}
+.shot p small{display:block;font:400 13px/1.4 var(--f-body);color:rgba(255,255,255,.72);margin-top:2px}
+.shot img{max-width:100%;max-height:62%;min-height:0;border-radius:3px;-webkit-touch-callout:default;user-select:auto;-webkit-user-select:auto;pointer-events:auto}
+.shot div{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.shot button{font:600 14px/1 var(--f-body);padding:13px 18px;border-radius:24px;border:1.5px solid rgba(255,255,255,.6);background:none;color:#fff}
+.shot button.y{background:var(--tape);border-color:var(--tape);color:var(--tape-ink)}
+.drag{position:absolute;z-index:2;pointer-events:none;background:var(--ink);color:var(--paper);font:600 11px/1 var(--f-body);padding:5px 9px;border-radius:12px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.35);animation:dragp 1.1s ease-in-out infinite}
+@keyframes dragp{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.drag{animation:none}}
 .ibtn svg{display:block;margin:auto}.ibtn .sun{display:none}:root[data-theme=dark] .ibtn .sun{display:inline}:root[data-theme=dark] .ibtn .moon{display:none}
 :root[data-theme=dark]{--mat:#101715;--mat-deep:#090d0c;--mat-line:rgba(255,255,255,.03);--mat-line-2:rgba(255,255,255,.065);--paper:#1d1b16;--newsprint:#23201a;--ink:#ece6d6;--ink-2:#a8a190;--rule:#3c382e;--c-trims:#7b8597}
 :root[data-theme=dark] .doc{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 10px 28px rgba(0,0,0,.7)}
@@ -386,7 +414,7 @@ input[type=range]::-moz-range-thumb{width:28px;height:38px;border-radius:3px;bac
 <script>
 (()=>{
 'use strict';
-const $=s=>document.querySelector(s);
+const $=s=>document.querySelector(s),VER='20261113-081108';
 /* ---------- numbers: every constant the game uses ---------- */
 const B={fabric:1.35,trims:.30,freight:.27,labour:.45,ovh:.48,price:3.00,shirts:200000,rate:123,wage:12500,living:25166,ask:32000,cash:300,workers:1000};
 const VAR=B.fabric+B.trims+B.freight;
@@ -405,7 +433,7 @@ const pct=n=>dg(Math.round(n)+'%');
 /* ---------- state + model ---------- */
 let S,step='title',picked=null;
 const pickBand=()=>{let q=NaN;try{q=+new URLSearchParams(location.search).get('band')}catch(e){}let i=BANDS.findIndex(b=>b[1]===q);if(i<0){let r=Math.random()*3000;i=0;while(r>=BANDS[i][0]){r-=BANDS[i][0];i++}}return i};
-const reset=()=>{const bi=pickBand(),bm=BANDS[bi][1];S={month:1,wage:B.wage,price:B.price,vol:1,ovh:+(B.price-VAR-B.labour-bm*.03).toFixed(4),cash:B.cash,closedAt:0,hist:[],picks:[],cashAtWage:B.cash,bi,dot:{r:Math.floor(Math.random()*BANDS[bi][0]/100),c:Math.floor(Math.random()*100)}}};
+const reset=()=>{const bi=pickBand(),bm=BANDS[bi][1];S={month:1,wage:B.wage,price:B.price,vol:1,ovh:+(B.price-VAR-B.labour-bm*.03).toFixed(4),cash:B.cash,closedAt:0,hist:[],picks:[],cashAtWage:B.cash,bi,dot:{r:Math.floor(Math.random()*BANDS[bi][0]/100),c:Math.floor(Math.random()*100)}};S.cost0=eco(S).cost};
 function eco(s=S,dayF=1){
   const labour=B.labour*s.wage/B.wage,ovh=s.ovh,cost=VAR+labour+ovh;
   const profit=(s.price-VAR)*B.shirts*s.vol*dayF-B.shirts*(labour+ovh);
@@ -440,7 +468,8 @@ const SRC={
  ank25:['Anker Research Institute, 2025 update for Dhaka and satellite cities','https://www.globallivingwage.org/living-wage-benchmarks/urban-bangladesh-surrounding-dhaka/'],
  palo:['Helal Mohiuddin, Prothom Alo, 3 Nov 2026','https://en.prothomalo.com/opinion/2nuq171a7l'],
  bgw:['BGMEA wage-impact analysis, Nov 2026',''],
- bgth:['BGMEA take-home calculation for the 2023 structure',''],
+ bgth:['BGMEA position paper on the RMG sector, Nov 2026',''],
+ bgp:['BGMEA position paper on the RMG sector, Nov 2026',''],
  ppe:['Public Eye and Clean Clothes Campaign, May 2026, via ESG Dive','https://www.esgdive.com/news/brands-low-t-shirt-pricing-impacts-supplier-labor-conditions-clean-clothes-campaign-fast-fashion/823285/'],
  ccc:['Clean Clothes Campaign estimate, via Voronoi, 24 May 2025','https://www.voronoiapp.com/business/Workers-Receive-Less-Than-1-of-the-Price-of-a-T-Shirt-5182'],
  unions:['The Financial Express, 23 Aug 2026','https://thefinancialexpress.com.bd/trade/garment-unions-push-for-urgent-minimum-wage-revision'],
@@ -537,14 +566,17 @@ const PATTERN=`<svg class="pat" viewBox="0 0 250 330" aria-hidden="true" fill="n
 </svg>`;
 
 /* ---------- HUD ---------- */
+const sqP=v=>+Math.max(4,Math.min(100,(v-2.4)/1.2*100)).toFixed(1),sqA=d=>Math.abs(d)<.05?'':` ${d>0?'▲':'▼'}${Math.abs(d).toFixed(Math.abs(d)<10?1:0)}%`,sqW={c:sqP(2.85),p:sqP(3)};
 function hud(bump){
-  const e=eco(),c=cover(S.wage),last=S.hist.at(-1);
+  const e=eco(),c=cover(S.wage),last=S.hist.at(-1),dc=(e.cost/(S.cost0||e.cost)-1)*100,dp=(S.price/B.price-1)*100;
   const cl=c<60?'bad':c<100?'warn':'good',ml=e.margin<0?'bad':e.margin<.1?'warn':'good',cc=S.cash<=0?'bad':S.cash<120?'warn':'';
   $('#hud').innerHTML=
    `<div class="lab ${cl}" data-k="w"><b>${t(T.wageL)}</b><span>${n0(S.wage)}</span><i>${pct(c)} ${t(T.oflv)}</i></div>
     <div class="lab ${cc}" data-k="c"><b>${t(T.cashL)}</b><span>${n0(Math.max(S.cash,0))}</span><i>${last?t(T.lastmo)+' '+(last.d>=0?'+':'−')+n0(Math.abs(last.d)):'&nbsp;'}</i></div>
     <div class="lab ${ml}" data-k="m"><b>${t(T.per)}</b><span>${ct(e.margin)}</span><i>${t(T.at)} ${usd(S.price)}</i></div>
-    <div class="lab ${S.vol<1?'warn':''}" data-k="o"><b>${t(T.orders)}</b><span>${pct(S.vol*100)}</span><i>&nbsp;</i></div>`;
+    <div class="lab ${S.vol<1?'warn':''}" data-k="o"><b>${t(T.orders)}</b><span>${pct(S.vol*100)}</span><i>&nbsp;</i></div>
+    <div class="sq ${e.margin<0?'over':''}"><span class="c">${t({en:'Cost',bn:'খরচ'})} ${usd(e.cost)}${sqA(dc)}</span><u><i id="sq-c" style="width:${sqW.c}%"></i><s id="sq-p" style="left:${sqW.p}%"></s></u><span class="p">${t({en:'Buyer pays',bn:'ক্রেতার দাম'})} ${usd(S.price)}${sqA(dp)}</span></div>`;
+  sqW.c=sqP(e.cost);sqW.p=sqP(S.price);requestAnimationFrame(()=>{const a=$('#sq-c'),b=$('#sq-p');if(a)a.style.width=sqW.c+'%';if(b)b.style.left=sqW.p+'%'});
   (bump||[]).forEach(k=>$(`#hud [data-k="${k}"]`)?.classList.add('bump'));
   const m=Math.min(S.month,12);
   $('#months').innerHTML=MN.map((x,i)=>`<li class="${i<m?'done':''}">${mn(i+1)}</li>`).join('');
@@ -563,8 +595,8 @@ const DOCS=[
     out:()=>[[{en:'Overhead, each shirt',bn:'পরিচালন ব্যয়, প্রতি শার্টে'},ct(.05).replace('+','+')]]},
    {l:{en:'Run only when the gas flows.',bn:'গ্যাস থাকলে তবেই চালান।'},st:{en:'Run short',bn:'কম উৎপাদন'},blue:1,fx:s=>{s.vol*=.85},bump:['o','m'],
     out:()=>[[{en:'Output for the year',bn:'বছরের উৎপাদন'},dg('−15%')]]}],
-  fact:()=>t({en:`Gas for industry rose by up to 179% in February 2023, then 33% for new load in April 2025. BGMEA says most factories now run below half capacity for want of gas. ${cite('gas')}; ${cite('bgmea')}.`,
-   bn:`শিল্পে গ্যাসের দাম ফেব্রুয়ারি ২০২৩-এ ১৭৯% পর্যন্ত বাড়ে, এপ্রিল ২০২৫-এ নতুন লোডে আরও ৩৩%। বিজিএমইএ বলছে, গ্যাসের অভাবে বেশির ভাগ কারখানা অর্ধেকের কম সক্ষমতায় চলছে। ${cite('gas')}; ${cite('bgmea')}।`})},
+  fact:()=>t({en:`Gas for industry rose by up to 179% in February 2023, then 33% for new load in April 2025. Electricity is up 43% and diesel 24% (${cite('bgp')}). BGMEA says most factories now run below half capacity for want of gas. ${cite('gas')}; ${cite('bgmea')}.`,
+   bn:`শিল্পে গ্যাসের দাম ফেব্রুয়ারি ২০২৩-এ ১৭৯% পর্যন্ত বাড়ে, এপ্রিল ২০২৫-এ নতুন লোডে আরও ৩৩%। বিদ্যুৎ বেড়েছে ৪৩%, ডিজেল ২৪% (${cite('bgp')})। বিজিএমইএ বলছে, গ্যাসের অভাবে বেশির ভাগ কারখানা অর্ধেকের কম সক্ষমতায় চলছে। ${cite('gas')}; ${cite('bgmea')}।`})},
  {id:'visit',type:'t-visit',
   head:()=>[{en:'Left at the gate',bn:'গেটে রেখে গেছে'},mn(S.month)],
   body:()=>`<h2>${t({en:'A well-wisher from the local committee dropped by.',bn:'স্থানীয় কমিটির এক শুভাকাঙ্ক্ষী এসেছিলেন।'})}</h2>
@@ -586,8 +618,20 @@ const DOCS=[
     out:()=>[[{en:'Price, each shirt',bn:'দাম, প্রতি শার্টে'},dg('−15¢')]]},
    {l:{en:'Hold at $3.00.',bn:'$৩.০০-এ অনড় থাকুন।'},st:{en:'Held',bn:'অনড়'},blue:1,fx:s=>{s.vol*=.75},bump:['o','m'],
     out:()=>[[{en:'Buyer moves part of the order',bn:'ক্রেতা অর্ডারের একাংশ সরায়'},dg('−25%')]]}],
-  fact:()=>t({en:`From 2015 to 2025 the average price of Bangladeshi apparel entering the US rose 6.4%. US prices rose 35.8%. In real terms the factory price fell about 22%. ${cite('unit')}. The buyer in this game is invented.`,
-   bn:`২০১৫ থেকে ২০২৫-এ যুক্তরাষ্ট্রে বাংলাদেশি পোশাকের গড় দাম বেড়েছে ৬.৪%। একই সময়ে সেখানে মূল্যস্ফীতি ৩৫.৮%। প্রকৃত হিসাবে কারখানার দাম কমেছে প্রায় ২২%। ${cite('unit')}। এই খেলার ক্রেতা কাল্পনিক।`})},
+  fact:()=>t({en:`From 2015 to 2025 the average price of Bangladeshi apparel entering the US rose 6.4%. US prices rose 35.8%. In real terms the factory price fell about 22%. ${cite('unit')}. In the last three years alone the export price fell 2.56% while production costs rose 25–30%. ${cite('bgp')}. The buyer in this game is invented.`,
+   bn:`২০১৫ থেকে ২০২৫-এ যুক্তরাষ্ট্রে বাংলাদেশি পোশাকের গড় দাম বেড়েছে ৬.৪%। একই সময়ে সেখানে মূল্যস্ফীতি ৩৫.৮%। প্রকৃত হিসাবে কারখানার দাম কমেছে প্রায় ২২%। ${cite('unit')}। শুধু গত তিন বছরেই রপ্তানি দাম কমেছে ২.৫৬%, অথচ উৎপাদন খরচ বেড়েছে ২৫–৩০%। ${cite('bgp')}। এই খেলার ক্রেতা কাল্পনিক।`})},
+ {id:'bank',type:'t-bill',
+  head:()=>[{en:'Letter from the bank',bn:'ব্যাংকের চিঠি'},mn(S.month)],
+  body:()=>`<h2>${t({en:'Your working-capital loan now costs 14% a year.',bn:'আপনার চলতি মূলধন ঋণের সুদ এখন বছরে ১৪%।'})}</h2>
+   <div class="grid2"><div>${t({en:'Loan interest, before',bn:'ঋণের সুদ, আগে'})}</div><div>9%</div><div>${t({en:'Loan interest, now',bn:'ঋণের সুদ, এখন'})}</div><div>14%</div><div>${t({en:'Port charges',bn:'বন্দরের মাশুল'})}</div><div>+41%</div><div>${t({en:'Export cash incentive',bn:'রপ্তানি প্রণোদনা'})}</div><div>−70%</div></div>
+   ${picked===null?`<p>${t({en:'You buy fabric on credit. The buyer pays months after the shipment sails.',bn:'কাপড় কিনতে হয় ঋণের টাকায়। ক্রেতা দাম মেটায় চালান যাওয়ার কয়েক মাস পর।'})}</p>`:''}`,
+  opts:[
+   {l:{en:'Keep borrowing at the higher rate.',bn:'বেশি সুদেই ঋণ চালিয়ে যান।'},st:{en:'Paid',bn:'পরিশোধ'},fx:s=>{s.ovh+=.04},bump:['m'],
+    out:()=>[[{en:'Interest and port, each shirt',bn:'সুদ ও বন্দর, প্রতি শার্টে'},ct(.04)]]},
+   {l:{en:'Borrow less. Buy less fabric.',bn:'ঋণ কমান। কাপড় কম কিনুন।'},st:{en:'Run short',bn:'কম উৎপাদন'},blue:1,fx:s=>{s.vol*=.9},bump:['o','m'],
+    out:()=>[[{en:'Output for the year',bn:'বছরের উৎপাদন'},dg('−10%')]]}],
+  fact:()=>t({en:`Bank interest 12–16%, port charges +41% (Oct 2025), export incentive cut 70%. ${cite('bgp')}. 9% was the lending cap that ended in 2023.`,
+   bn:`ব্যাংকের সুদ ১২–১৬%, বন্দরের মাশুল +৪১% (অক্টোবর ২০২৫), রপ্তানি প্রণোদনা কমেছে ৭০%। ${cite('bgp')}। ৯% ছিল সুদের সীমা, যা ২০২৩-এ উঠে যায়।`})},
  {id:'gate',type:'t-news',
   head:()=>[{en:'The Morning Edition',bn:'প্রভাতী সংস্করণ'}],
   body:()=>`<div class="dl">${t({en:'Gazipur · 2 November',bn:'গাজীপুর · ২ নভেম্বর'})}</div><h2>${t({en:'Production halts at 690 factories as wage protest spreads',bn:'মজুরি আন্দোলন ছড়াল, ৬৯০ কারখানায় উৎপাদন বন্ধ'})}</h2>
@@ -618,7 +662,7 @@ const desk=$('#desk'),act=$('#actions');
 const setAct=(h,one)=>{act.innerHTML=h;act.classList.toggle('one',!!one)};
 const btn=(a,l,cls='',sm='')=>`<button class="rs ${cls}" data-a="${a}">${sm?`<small>${sm}</small>`:''}${l}</button>`;
 function chrome(on){$('#tape').hidden=!on;$('#hud').hidden=!on;if(on)hud()}
-function render(){
+function render(){stopHints();
   document.documentElement.lang=lang;document.body.classList.toggle('bn',lang==='bn');
   $('#brand').textContent=t(T.brand);$('#l-en').setAttribute('aria-pressed',lang==='en');$('#l-bn').setAttribute('aria-pressed',lang==='bn');
   ({title:vTitle,her:vHer,result:vResult,slip:vSlip,doc:vDoc,ledger:vLedger,end:vEnd,nation:vNation,result:vResult})[step]();
@@ -634,19 +678,22 @@ function vTitle(){chrome(false);
 }
 let her={ot:false,two:false};
 function vHer(){chrome(false);
-  const NEED=39762,base=B.wage,ot=her.ot?5244:0,sp=her.two?17744:0,tot=base+ot+sp,pc=tot/NEED*100,w=v=>(v/NEED*100).toFixed(1)+'%';
+  const NEED=39762,base=B.wage,OT=7019,TH=19519,ot=her.ot?OT:0,sp=her.two?TH:0,tot=base+ot+sp,pc=tot/NEED*100,w=v=>(v/NEED*100).toFixed(1)+'%';
+  const G=[[4,14,12500,19519],[3,26,13550,21234],[2,32,14273,22415],[1,28,15035,23660]];
   desk.innerHTML=`<article class="doc t-khata" style="--tilt:-.5deg"><div class="doc-h"><span class="chair" style="color:#22384d">${t({en:'1 of 3 · Her month',bn:'৩-এর ১ · তাঁর মাস'})}</span><span>${t({en:'Ashulia',bn:'আশুলিয়া'})}</span></div><div class="doc-b">
    <h2>${t({en:'Shathi sews sleeves. Make her family’s month add up.',bn:'সাথী হাতা সেলাই করেন। তাঁর পরিবারের মাসের হিসাব মেলান।'})}</h2>
    <div class="meter"><div class="mlab"><span>${t({en:'Family of four, a basic but decent month',bn:'চারজনের পরিবার, সাধারণ কিন্তু মর্যাদাপূর্ণ এক মাস'})}</span><b>${tk(NEED)}</b></div>
     <div class="mbar" role="img" aria-label="${pct(pc)}"><i class="a" style="width:${w(base)}"></i><i class="b" style="width:${w(ot)}"></i><i class="c" style="width:${w(sp)}"></i></div>
     <div class="mlab"><span>${t({en:'Coming in',bn:'আয়'})} <b>${tk(tot)}</b></span><b class="${pc<100?'neg':'pos'}">${pct(pc)}</b></div></div>
    <div class="tog">
-    <button data-a="h-ot" aria-pressed="${her.ot}"><span>${t({en:'Overtime and bonuses',bn:'ওভারটাইম ও বোনাস'})}<small>+${tk(5244)}</small></span></button>
-    <button data-a="h-two" aria-pressed="${her.two}"><span>${t({en:'Her husband works the line too',bn:'স্বামীও লাইনে কাজ করেন'})}<small>+${tk(17744)}</small></span></button></div>
-   <p>${!her.ot&&!her.two?t({en:`Her minimum wage is ${tk(B.wage)}. On its own it covers ${pct(pc)} of the month. Try everything the family can do.`,bn:`তাঁর ন্যূনতম মজুরি ${tk(B.wage)}। একা এতে মাসের ${pct(pc)} মেটে। পরিবার যা যা পারে, চেষ্টা করুন।`})
-     :her.ot&&her.two?t({en:`Two jobs, two hours’ overtime a day each and every bonus still leave ${tk(NEED-tot)} short. The gap is filled with debt, skipped meals or a child sent to the village.`,bn:`দুজনের চাকরি, প্রত্যেকের দিনে দুই ঘণ্টা ওভারটাইম আর সব বোনাসের পরও ঘাটতি ${tk(NEED-tot)}। সেই ফাঁক ভরে ঋণে, কম খেয়ে বা সন্তানকে গ্রামে পাঠিয়ে।`})
+    <button data-a="h-ot" aria-pressed="${her.ot}"><span>${t({en:'Overtime and bonuses',bn:'ওভারটাইম ও বোনাস'})}<small>+${tk(OT)}</small></span></button>
+    <button data-a="h-two" aria-pressed="${her.two}"><span>${t({en:'Her husband works the line too',bn:'স্বামীও লাইনে কাজ করেন'})}<small>+${tk(TH)}</small></span></button></div>
+   <p>${!her.ot&&!her.two?t({en:`Shathi is new: Grade 4, the lowest, where 14% of workers are. Her base pay is ${tk(B.wage)}, ${pct(pc)} of the month. Try everything the family can do.`,bn:`সাথী নতুন: গ্রেড ৪, সবচেয়ে নিচের ধাপ; ১৪% শ্রমিক এই গ্রেডে। তাঁর মূল মজুরি ${tk(B.wage)}, মাসের ${pct(pc)}। পরিবার যা যা পারে, চেষ্টা করুন।`})
+     :her.ot&&her.two?t({en:`Two jobs, 78 hours of overtime a month each and every bonus: still ${tk(NEED-tot)} short. And prices have risen 29.5% since this wage was set.`,bn:`দুজনের চাকরি, প্রত্যেকের মাসে ৭৮ ঘণ্টা ওভারটাইম আর সব বোনাস: তবু ঘাটতি ${tk(NEED-tot)}। আর এই মজুরি ঠিক হওয়ার পর জিনিসের দাম বেড়েছে ২৯.৫%।`})
      :t({en:`Still ${tk(NEED-tot)} short.`,bn:`এখনো ঘাটতি ${tk(NEED-tot)}।`})}</p>
-   <div class="fact"><b>${t(T.fact)}</b>${t({en:`A basic but decent life for a family of four costs Tk 39,762 a month around Dhaka (June 2025). ${cite('ank25')}. Take-home of Tk 17,744 includes two hours’ overtime a day at twice the basic rate, festival bonuses, leave pay and attendance bonus. ${cite('bgth')}. Shathi is a composite.`,bn:`ঢাকার আশপাশে চারজনের পরিবারের সাধারণ মর্যাদাপূর্ণ জীবনের খরচ মাসে ৩৯,৭৬২ টাকা (জুন ২০২৫)। ${cite('ank25')}। ১৭,৭৪৪ টাকা হাতে পাওয়ার হিসাবে আছে দিনে দুই ঘণ্টা ওভারটাইম (মূল মজুরির দ্বিগুণ হারে), উৎসব বোনাস, ছুটির টাকা ও হাজিরা বোনাস। ${cite('bgth')}। সাথী একটি সম্মিলিত চরিত্র।`})}</div></div></article>`;
+   <div class="grades">${G.map(([g,sh,b,th],k)=>`<div class="${k?'':'me'}"><b>${t({en:'Grade',bn:'গ্রেড'})} ${g} · ${sh}%</b>${n0(b)}<em>${n0(th)}</em></div>`).join('')}</div>
+   <div class="gnote">${t({en:'Each box: share of workers, base pay, and take-home with overtime and bonuses (bold). Average take-home: Tk 22,051.',bn:'প্রতি ঘরে: শ্রমিকের ভাগ, মূল মজুরি, আর ওভারটাইম-বোনাসসহ হাতে পাওয়া (মোটা হরফে)। গড়ে হাতে পাওয়া: ২২,০৫১ টাকা।'})}</div>
+   <div class="fact"><b>${t(T.fact)}</b>${t({en:`Decent month for four: ${cite('ank25')}. Take-home, with 78 hours of overtime a month and all bonuses, and 29.5% inflation since Dec 2023: ${cite('bgth')}. Shathi is a composite.`,bn:`পরিবারের মাসের খরচ: ${cite('ank25')}। হাতে পাওয়া (মাসে ৭৮ ঘণ্টা ওভারটাইম ও সব বোনাসসহ) এবং ডিসেম্বর ২০২৩ থেকে ২৯.৫% মূল্যস্ফীতি: ${cite('bgth')}। সাথী একটি সম্মিলিত চরিত্র।`})}</div></div></article>`;
   setAct(btn('own',t({en:'Now own the factory',bn:'এবার কারখানার মালিক হন'}),'go',t({en:'Chair 2 of 3',bn:'চেয়ার ৩-এর ২'})),1);
 }
 function vSlip(){chrome(true);
@@ -655,14 +702,14 @@ function vSlip(){chrome(true);
    <h2>${t({en:'Shathi works for you. So do 999 others.',bn:'সাথী আপনার কারখানায় কাজ করেন। আরও ৯৯৯ জনও।'})}</h2>
    <div class="shirtrow">${shirt(e,B.price)}${legend(e,B.price)}</div>
    <p>${(()=>{const [n,m]=BANDS[S.bi];return t({en:`Your buyer pays $3.00 a shirt. You make 200,000 a month. After every cost, ${m*3} cents a shirt is yours: a ${m}% margin, like ${n0(n)} of 3,000 factories. The bank expects its loan back from that.`,bn:`ক্রেতা প্রতি শার্টে দেন $3.00। মাসে বানান ২ লাখ শার্ট। সব খরচের পর প্রতি শার্টে আপনার থাকে ${m*3} সেন্ট: ${m}% মুনাফা, ৩,০০০ কারখানার ${n0(n)}টির মতো। ব্যাংকের ঋণও শোধ করতে হয় সেখান থেকেই।`})})()}</p>
-   <div class="fact"><b>${t(T.fact)}</b>${t({en:`Wages are 15% of export earnings and factories net 2% to 8%. ${cite('bgw')}. The split of the remaining cost follows a published buyer guide: ${cite('fob')}.`,bn:`রপ্তানি আয়ের ১৫% মজুরি, কারখানার নিট মুনাফা ২% থেকে ৮%। ${cite('bgw')}। বাকি খরচের ভাগ একটি প্রকাশিত ক্রেতা-নির্দেশিকা অনুযায়ী: ${cite('fob')}।`})}</div></div></article>`;
+   <div class="fact"><b>${t(T.fact)}</b>${t({en:`Wages 15% of export earnings, net margins 2–8%: ${cite('bgw')}. Other costs: ${cite('fob')}.`,bn:`রপ্তানি আয়ের ১৫% মজুরি, নিট মুনাফা ২–৮%: ${cite('bgw')}। বাকি খরচ: ${cite('fob')}।`})}</div></div></article>`;
   setAct(btn('mail',t({en:'Open the mail',bn:'চিঠিগুলো খুলুন'}),'go'),1);
 }
 let di=0;
 function docShell(d,inner){
   const h=d.mail?`<div class="doc-h"><span>${t({en:'From',bn:'প্রেরক'})}: <strong>${t(d.mail.from)}</strong></span><span>${t({en:'Subject',bn:'বিষয়'})}: <strong>${t(d.mail.sub)}</strong></span></div>`
    :(()=>{const x=d.head();return `<div class="doc-h"><span>${t(x[0])}</span>${x[1]?`<span>${x[1]}</span>`:''}</div>`})();
-  return `<article class="doc ${d.type}${picked!==null?' st':''}" style="--tilt:${[-.7,1.1,.6,-1,.4,-.5][di]}deg">${h}<div class="doc-b">${inner}</div></article>`;
+  return `<article class="doc ${d.type}${picked!==null?' st':''}" style="--tilt:${[-.7,1.1,.6,-.8,-1,.4,-.5][di]}deg">${h}<div class="doc-b">${inner}</div></article>`;
 }
 function vDoc(){chrome(true);const d=DOCS[di];
   if(d.custom==='wage')return vWage(d);
@@ -678,6 +725,20 @@ function vDoc(){chrome(true);const d=DOCS[di];
     setAct(btn('next',di===DOCS.length-1?t({en:'Run the rest of the year',bn:'বছরের বাকিটা চালান'}):t(T.next),'go'),1);
   }
 }
+/* a slider that has not been touched yet nudges itself and wears a "drag" chip, so nobody mistakes it for a picture */
+const hinted={};let hints=[];
+const stopHints=keep=>{hints.forEach(h=>h(keep));hints=[]};
+function hintSlider(inp,delay=700,wiggle=true){if(!inp||hinted[inp.id])return;const sl=inp.closest('.sl');if(!sl)return;
+  const v0=+inp.value,min=+inp.min,max=+inp.max,st=inp.step,span=(max-min)*.14,dir=v0+span<=max?1:-1,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const chip=document.createElement('span');chip.className='drag';chip.textContent=t({en:'↔ Drag me',bn:'↔ টেনে দেখুন'});sl.style.position='relative';sl.append(chip);
+  const place=()=>{chip.style.top=(inp.offsetTop+inp.offsetHeight/2-11)+'px';chip.style.left=((v0-min)/(max-min)>.45?'14%':'54%')};place();
+  let raf=0,tm=0,done=false,t0=0,n=0;
+  const stop=()=>{if(done)return;done=true;cancelAnimationFrame(raf);clearTimeout(tm);inp.step=st;inp.value=v0;chip.remove();hinted[inp.id]=1};
+  const frame=now=>{if(done)return;if(!t0)t0=now;const x=(now-t0)/1000;if(x>=1){inp.value=v0;t0=0;if(++n>=5){inp.step=st;return}tm=setTimeout(()=>{raf=requestAnimationFrame(frame)},1100);return}
+    inp.value=v0+dir*span*Math.pow(Math.sin(Math.PI*x),2);raf=requestAnimationFrame(frame)};
+  if(wiggle&&!still)tm=setTimeout(()=>{if(done)return;inp.step='any';raf=requestAnimationFrame(frame)},delay);
+  hints.push(stop)}
+['pointerdown','touchstart','keydown'].forEach(ev=>document.addEventListener(ev,e=>{if(hints.length&&(e.type!=='keydown'||e.target.type==='range'))stopHints()},{capture:true,passive:true}));
 let wv=0;
 function vWage(d){
   if(picked===null){
@@ -698,7 +759,7 @@ function vWage(d){
         :e.margin>=0?t({en:`Each shirt still covers its cost, but with orders at ${pct(S.vol*100)} the factory loses ${lk(-e.lakh)} a month. The cash lasts ${dg(Math.max(1,Math.floor(mo)))} months.`,bn:`প্রতি শার্টে খরচ উঠছে, কিন্তু অর্ডার ${pct(S.vol*100)}-এ থাকায় কারখানার মাসে লোকসান ${lk(-e.lakh)}। তহবিল চলবে ${dg(Math.max(1,Math.floor(mo)))} মাস।`})
         :t({en:`Each shirt now costs more than the buyer pays: ${lk(-e.lakh)} lost a month, cash for ${dg(Math.max(1,Math.floor(mo)))} months.`,bn:`প্রতি শার্টের খরচ এখন ক্রেতার দামের চেয়ে বেশি: মাসে লোকসান ${lk(-e.lakh)}, তহবিল চলবে ${dg(Math.max(1,Math.floor(mo)))} মাস।`})};
     inp.addEventListener('input',up);up();
-    inp.addEventListener('input',()=>{const I=industry(wv);$('#w-ind').innerHTML=I.factories?t({en:`Industry: <b>${n0(I.factories)}/3,000</b> factories in loss · <b>${n0(I.jobs)} lakh</b> jobs at risk`,bn:`শিল্পে: <b>${n0(I.factories)}/৩,০০০</b> কারখানা লোকসানে · <b>${n0(I.jobs)} লাখ</b> চাকরি ঝুঁকিতে`}):t({en:'Industry: all 3,000 factories still in profit',bn:'শিল্পে: ৩,০০০ কারখানাই এখনো মুনাফায়'})});inp.dispatchEvent(new Event('input'));
+    inp.addEventListener('input',()=>{const I=industry(wv);$('#w-ind').innerHTML=I.factories?t({en:`Industry: <b>${n0(I.factories)}/3,000</b> factories in loss · <b>${n0(I.jobs)} lakh</b> jobs at risk`,bn:`শিল্পে: <b>${n0(I.factories)}/৩,০০০</b> কারখানা লোকসানে · <b>${n0(I.jobs)} লাখ</b> চাকরি ঝুঁকিতে`}):t({en:'Industry: all 3,000 factories still in profit',bn:'শিল্পে: ৩,০০০ কারখানাই এখনো মুনাফায়'})});inp.dispatchEvent(new Event('input'));hintSlider(inp);
     setAct(btn('gazette',t({en:'Gazette it',bn:'গেজেট করুন'}),'go',t({en:'All grades move with the minimum',bn:'সব গ্রেড একই হারে বাড়বে'})),1);
   }else{
     const e=eco(),last=S.hist.at(-1);
@@ -729,12 +790,14 @@ function vEnd(){chrome(true);
     h=`<article class="doc t-note"><div class="doc-h"><span>${t({en:'Notice',bn:'নোটিশ'})}</span></div><div class="doc-b">
      <h2>${t({en:`The factory closed in ${mf(S.closedAt)}.`,bn:`${mf(S.closedAt)} মাসে কারখানা বন্ধ হয়ে গেল।`})}</h2>
      <p>${t({en:`The cash ran out and the bank classified the loan. A thousand people are out of work. ${S.wage>B.wage?`The ${tk(S.wage)} wage was paid for ${dg(paid)} months.`:''}`,bn:`তহবিল ফুরিয়েছে, ব্যাংক ঋণ খেলাপি করেছে। এক হাজার মানুষ কাজ হারালেন। ${S.wage>B.wage?`${tk(S.wage)} মজুরি দেওয়া গেছে ${dg(paid)} মাস।`:''}`})}</p>
-     <div class="fact"><b>${t(T.fact)}</b>${t({en:`BGMEA says nearly 400 garment factories have closed in three years and that production costs rose nearly 40% over the same period. ${cite('bgmea')}.`,bn:`বিজিএমইএ বলছে, তিন বছরে প্রায় ৪০০ পোশাক কারখানা বন্ধ হয়েছে, একই সময়ে উৎপাদন খরচ বেড়েছে প্রায় ৪০%। ${cite('bgmea')}।`})}</div></div></article>`}
+     <div class="sqz">${t({en:'Since 2023, costs are up <b>25–30%</b>. The price buyers pay is down <b>2.56%</b>. You are in the middle.',bn:'২০২৩ থেকে খরচ বেড়েছে <b>২৫–৩০%</b>। ক্রেতার দাম কমেছে <b>২.৫৬%</b>। মাঝখানে আপনি।'})}</div>
+     <div class="fact"><b>${t(T.fact)}</b>${t({en:`287 garment factories have closed since January 2023, and about 175,000 jobs went with them. ${cite('bgp')}.`,bn:`জানুয়ারি ২০২৩ থেকে ২৮৭টি পোশাক কারখানা বন্ধ হয়েছে, চাকরি গেছে প্রায় ১ লাখ ৭৫ হাজার। ${cite('bgp')}।`})}</div></div></article>`}
   else{
     h=`<article class="doc t-slip"><div class="doc-h"><span>${t({en:'Pay slip',bn:'বেতন রসিদ'})}</span><span>${t({en:'October, a year on',bn:'অক্টোবর, এক বছর পর'})}</span></div><div class="doc-b">
      <h2>${c>=100?t({en:'The factory is open and the wage is a living one.',bn:'কারখানা চালু, মজুরিও জীবনধারণের মতো।'}):t({en:'The factory is still open. Her slip still falls short.',bn:'কারখানা এখনো চালু। তাঁর রসিদে এখনো ঘাটতি।'})}</h2>
      <div class="grid2"><div>${t({en:'Gross minimum wage',bn:'মোট ন্যূনতম মজুরি'})}</div><div>${tk(S.wage)}</div><div>${t({en:'Living wage, towns around Dhaka',bn:'জীবনধারণ মজুরি'})}</div><div>${tk(B.living)}</div><div>${t({en:'The slip covers',bn:'রসিদে মেটে'})}</div><div>${pct(c)}</div><div>${t({en:'Cash left in the factory',bn:'কারখানার তহবিলে আছে'})}</div><div>${lk(S.cash)}</div></div>
-     <p>${e.lakh<0?t({en:`The factory is losing ${lk(-e.lakh)} a month. It will not last a second year.`,bn:`কারখানার মাসে লোকসান ${lk(-e.lakh)}। দ্বিতীয় বছর টিকবে না।`}):t({en:'You kept a thousand jobs by keeping the wage where the price allowed.',bn:'দাম যতটুকু দেয়, মজুরি ততটুকুতে রেখে আপনি এক হাজার চাকরি বাঁচিয়েছেন।'})}</p></div></article>`}
+     <p>${e.lakh<0?t({en:`The factory is losing ${lk(-e.lakh)} a month. It will not last a second year.`,bn:`কারখানার মাসে লোকসান ${lk(-e.lakh)}। দ্বিতীয় বছর টিকবে না।`}):t({en:'You kept a thousand jobs by keeping the wage where the price allowed.',bn:'দাম যতটুকু দেয়, মজুরি ততটুকুতে রেখে আপনি এক হাজার চাকরি বাঁচিয়েছেন।'})}</p>
+     <div class="sqz">${t({en:'Since 2023, costs are up <b>25–30%</b>. The price buyers pay is down <b>2.56%</b>. You are in the middle.',bn:'২০২৩ থেকে খরচ বেড়েছে <b>২৫–৩০%</b>। ক্রেতার দাম কমেছে <b>২.৫৬%</b>। মাঝখানে আপনি।'})}</div></div></article>`}
   desk.innerHTML=h;
   setAct(btn('nation',t({en:'Now zoom out to the country',bn:'এবার পুরো দেশ দেখুন'}),'go',t({en:'Chair 3 of 3',bn:'চেয়ার ৩-এর ৩'})),1);
 }
@@ -744,6 +807,7 @@ function vNation(){chrome(false);
   if(!nw)nw=S.wage;if(!np)np=B.price;
   const bm=BANDS[S.bi][1];
   desk.innerHTML=`<article class="doc nat" style="--tilt:.4deg"><div class="doc-h"><span>${t({en:'3 of 3 · Bangladesh',bn:'৩-এর ৩ · বাংলাদেশ'})}</span><span>${t({en:'Yours is one of 3,000',bn:'আপনারটি ৩,০০০-এর একটি'})}</span></div><div class="doc-b">
+   <div class="pre">${t({en:'Already shut since Jan 2023: 287 factories, 175,000 jobs.',bn:'২০২৩ থেকে ইতিমধ্যে বন্ধ: ২৮৭ কারখানা, ১.৭৫ লাখ চাকরি।'})}</div>
    <div class="ngrid"><canvas id="n-cv" role="img" aria-label="${t({en:'3,000 factories, one square each, grouped by profit margin',bn:'৩,০০০ কারখানা, প্রতিটি একটি বর্গ, মুনাফার হার অনুযায়ী সাজানো'})}"></canvas></div>
    <div class="nst"><div><b>${t({en:'Factories shut',bn:'বন্ধ কারখানা'})}</b><span id="n-f"></span></div><div><b>${t({en:'Jobs lost',bn:'চাকরি হারাবেন'})}</b><span id="n-j"></span></div><div><b>${t({en:`Yours (${bm}%)`,bn:`আপনার (${bm}%)`})}</b><span id="n-y"></span></div></div>
    <div class="sl c"><div class="sl-top"><span class="big" id="n-wv"></span><small id="n-wc"></small></div>
@@ -767,6 +831,7 @@ function vNation(){chrome(false);
   grid.mount($('#n-cv'));grid.set(BANDS.map(()=>false));
   const onIn=()=>{clearTimeout(grid.hold);up()};iw.addEventListener('input',onIn);ip.addEventListener('input',onIn);
   up();if(!grid.seen){grid.seen=1;const dead=ind2(nw,np).dead;grid.set(BANDS.map(()=>false),1);clearTimeout(grid.hold);grid.hold=setTimeout(()=>grid.set(dead),900)}
+  hintSlider(iw,2400);hintSlider(ip,0,false);
   setAct(btn('whole',t({en:'See my result',bn:'আমার ফলাফল দেখুন'}),'go'),1);
 }
 /* the country: 100 x 30 lit windows, one per factory, grouped by margin band. Blackouts roll across a band like a failing grid. */
@@ -815,19 +880,19 @@ function outcome(){const w=nw||S.wage,P=np||B.price,I=ind2(w,P),sv=saveAll(w),c=
   return{w,P,I,R:ind2(w,B.price),sv,c,bm,yd,k,title:TT[k],add:P-B.price,need:sv-B.price,rise:Math.round((P/B.price-1)*100)}}
 const cents=v=>Math.round(v*100)+'¢';
 function cardCopy(o){const F=n0(o.I.factories),J=n0(o.I.jobs),W=n0(o.w),add=Math.round(o.add*100),need=Math.round(o.need*100),m=o.bm*3,k=o.k;
-  const blame={en:'BLAMED:',bn:'দায়ী:'},who={en:'THE OWNER',bn:'মালিক'},fix={en:'the price brands pay',bn:'ব্র্যান্ডের দেওয়া দাম'};
+  const blame={en:'BLAMED:',bn:'দায়ী:'},who={en:'THE OWNER',bn:'মালিক'},fix={en:'costs up, price down',bn:'খরচ বাড়ছে, দাম কমছে'};
   const foot={en:'Blaming the owner won’t fix a problem the owner didn’t cause.',bn:'মালিককে দোষ দিয়ে সেই সমস্যা মেটে না, যা মালিক তৈরি করেননি।'},ask={en:'Run the factory yourself:',bn:'নিজে কারখানা চালিয়ে দেখুন:'};
   const base={blame,who,fix,foot,ask,strike:true};
-  const tee={en:`A foreign brand pays the factory $3 for a T-shirt. After fabric, power and bank interest, the owner keeps ${m} cents. Wages come out of that same $3.`,bn:`একটা টি-শার্টের জন্য বিদেশি ব্র্যান্ড কারখানাকে দেয় $3। কাপড়, বিদ্যুৎ আর ব্যাংকের সুদ মিটিয়ে মালিকের থাকে ${m} সেন্ট। বেতনও আসে ওই $3 থেকেই।`};
+  const tee={en:`Since 2023 a factory’s costs are up 25–30%: gas, power, bank interest. The price foreign brands pay is down 2.56%. From a $3 T-shirt the owner keeps ${m} cents, and wages come out of the same $3.`,bn:`২০২৩ থেকে কারখানার খরচ বেড়েছে ২৫–৩০%: গ্যাস, বিদ্যুৎ, ব্যাংকের সুদ। বিদেশি ব্র্যান্ডের দেওয়া দাম কমেছে ২.৫৬%। $3-এর টি-শার্টে মালিকের থাকে ${m} সেন্ট, বেতনও আসে ওই $3 থেকেই।`};
   if(k==='still')return Object.assign(base,{kick:{en:'I ran a garment factory for a day. I did not raise wages. Next morning:',bn:'একদিন পোশাক কারখানা চালালাম। বেতন বাড়াইনি। পরদিন সকালে:'},head:{en:'Workers live on half a living wage',bn:'শ্রমিক চলেন অর্ধেক মজুরিতে'},deck:tee});
   if(k==='deal')return Object.assign(base,{kick:{en:`I ran a garment factory for a day. I raised wages to Tk ${W}. Next morning:`,bn:`একদিন পোশাক কারখানা চালালাম। বেতন করলাম ${W} টাকা। পরদিন সকালে:`},head:{en:'Workers still earn half a living wage',bn:'শ্রমিক এখনো পান অর্ধেক মজুরি'},deck:tee});
   if(k==='black'||k==='half')return Object.assign(base,{kick:{en:`I ran a garment factory for a day. I raised wages to Tk ${W}. Next morning:`,bn:`একদিন পোশাক কারখানা চালালাম। বেতন করলাম ${W} টাকা। পরদিন সকালে:`},
     head:k==='black'?{en:`Every garment factory shuts, ${J} lakh jobless`,bn:`সব পোশাক কারখানা বন্ধ, ${J} লাখ বেকার`}:{en:`${F} garment factories shut, ${J} lakh jobless`,bn:`${F}টি পোশাক কারখানা বন্ধ, ${J} লাখ বেকার`},
-    deck:{en:`Wages went up, but the brand still paid $3 a T-shirt. ${need} cents more a shirt and not one factory would have closed.`,bn:`বেতন বাড়ল, কিন্তু ব্র্যান্ড একটা টি-শার্টে দিল সেই $3-ই। শার্টপ্রতি আর ${need} সেন্ট দিলে একটা কারখানাও বন্ধ হতো না।`}});
+    deck:{en:`Costs were already up 25–30% since 2023, and the price brands pay was down 2.56%. Wages went up; the brand still paid $3 a T-shirt. ${need} cents more a shirt and not one factory would have closed.`,bn:`২০২৩ থেকে খরচ আগেই বেড়েছে ২৫–৩০%, ব্র্যান্ডের দেওয়া দাম কমেছে ২.৫৬%। বেতন বাড়ল, ব্র্যান্ড টি-শার্টে দিল সেই $3-ই। শার্টপ্রতি আর ${need} সেন্ট দিলে একটা কারখানাও বন্ধ হতো না।`}});
   return Object.assign(base,{strike:false,who:{en:'NO ONE',bn:'কেউ না'},fix:{en:'only in the game',bn:'শুধু খেলায়'},
     kick:{en:`I ran a garment factory for a day. I raised wages to Tk ${W}, and the brand paid ${add} cents more a shirt. Next morning:`,bn:`একদিন পোশাক কারখানা চালালাম। বেতন করলাম ${W} টাকা, ব্র্যান্ড শার্টপ্রতি ${add} সেন্ট বেশি দিল। পরদিন সকালে:`},
     head:{en:'Every factory open, wages up',bn:'সব কারখানা চালু, বেতন বেড়েছে'},
-    deck:{en:'In real life the price brands pay rose 6.4% in ten years. When the price does not rise, wages cannot, and the owner takes the blame.',bn:'বাস্তবে দশ বছরে ব্র্যান্ডের দেওয়া দাম বেড়েছে মাত্র 6.4%। দাম না বাড়লে বেতন বাড়ে না, আর দোষ হয় মালিকের।'}})}
+    deck:{en:'In real life, costs rose 25–30% in three years and the price brands pay fell 2.56%. When costs rise and the price falls, wages cannot rise, and the owner takes the blame.',bn:'বাস্তবে তিন বছরে খরচ বেড়েছে ২৫–৩০%, আর ব্র্যান্ডের দেওয়া দাম কমেছে ২.৫৬%। খরচ বাড়লে আর দাম কমলে বেতন বাড়ে না, দোষ হয় মালিকের।'}})}
 async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
   const BN=lang==='bn',body=`"IBM Plex Sans","Hind Siliguri",sans-serif`,disp=`"Fraunces","Hind Siliguri",serif`,mono=`"IBM Plex Mono","Hind Siliguri",monospace`;
   const PAPER='#ebe5d6',INK='#161513',INK2='#3f3b33',QUIET='#7b7567',RED='#c8281a';
@@ -865,34 +930,56 @@ async function makeCard(){const o=outcome(),C=cardCopy(o),W=1080,H=1350,cv=docum
   x.fillStyle=INK;x.fillRect(0,footY,W,footH);const ft=fit(t(C.foot),kf,[40,36,33,30],2);put(ft,kf,footY+54+(ft.L.length===1?14:0),PAPER,1.26);
   x.textAlign='left';x.font=`500 30px ${body}`;x.fillStyle='rgba(235,229,214,.8)';const a=t(C.ask);x.fillText(a,M,footY+footH-34);const aw=x.measureText(a).width;x.font=`600 30px ${mono}`;x.fillStyle='#f1c02e';x.fillText('garmentmalik.com',M+aw+14,footY+footH-34);
   return{cv,o,C}}
-function caption(o,C){const w=l=>C.strike?(l==='bn'?`দায়ী: মালিক? না। দায়ী: ${C.fix.bn}।`:`Blamed: the owner? No. Blame ${C.fix.en}.`):(l==='bn'?`দায়ী: কেউ না। কিন্তু ${C.fix.bn}।`:`Blamed: no one. But ${C.fix.en}.`);
+function caption(o,C){const w=l=>C.strike?(l==='bn'?`দায়ী: মালিক? না। আসল কারণ: ${C.fix.bn}।`:`Blamed: the owner? No. The real cause: ${C.fix.en}.`):(l==='bn'?`দায়ী: কেউ না। কিন্তু ${C.fix.bn}।`:`Blamed: no one. But ${C.fix.en}.`);
   return t({en:`${C.kick.en} “${C.head.en}.” ${w('en')} ${C.deck.en} ${C.foot.en} ${C.ask.en} garmentmalik.com #GarmentMalik`,bn:`${C.kick.bn} “${C.head.bn}।” ${w('bn')} ${C.deck.bn} ${C.foot.bn} ${C.ask.bn} garmentmalik.com #GarmentMalik`})}
-let cardBlob=null,cardCap='';
-function vResult(){chrome(false);
+let cardBlob=null,cardCap='',cardData='';
+/* in-app browsers (Facebook, Instagram, Messenger, TikTok…) have no share sheet and no downloads; they get plain links and a hold-to-save picture */
+const UA=navigator.userAgent||'',INAPP=/FBAN|FBAV|FB_IAB|FB4A|FBIOS|Instagram|Messenger|Line\/|TikTok|musical_ly|Bytedance|Snapchat|; wv\)/i.test(UA),IOS=/iPhone|iPad|iPod/i.test(UA);
+const canFiles=()=>{try{return !INAPP&&!!cardBlob&&!!navigator.canShare&&navigator.canShare({files:[new File([cardBlob],'garment-malik.png',{type:'image/png'})]})}catch(e){return false}};
+const capFor=s=>cardCap.replace('garmentmalik.com','garmentmalik.com/?r='+s);
+async function copyText(tx){try{await navigator.clipboard.writeText(tx);return true}catch(e){}
+  try{const ta=document.createElement('textarea');ta.value=tx;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;left:0;top:0;opacity:0;user-select:text;-webkit-user-select:text';document.body.append(ta);ta.select();ta.setSelectionRange(0,tx.length);const ok=document.execCommand('copy');ta.remove();return ok}catch(e){return false}}
+function shareBtns(){const sh=canFiles();
+  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+(sh?btn('share',t({en:'Share with picture',bn:'ছবিসহ শেয়ার করুন'}),'go'):btn('save',t({en:'Save the picture',bn:'ছবি সেভ করুন'}),'go')));const sv=desk.querySelector('.soc a[data-s="save"]');if(sv)sv.hidden=!sh}
+function vResult(){chrome(false);cardBlob=null;cardData='';cardCap='';
+  const fbU=encodeURIComponent('https://garmentmalik.com/s/?r=fb'),base=encodeURIComponent('garmentmalik.com/?r=');
   desk.innerHTML=`<div class="res"><div class="res-c"><img id="r-img" alt=""><div class="res-load">${t({en:'Printing your result…',bn:'ফলাফল ছাপা হচ্ছে…'})}</div></div>
-   <div class="soc"><a data-s="wa" href="#">WhatsApp</a><a data-s="fb" href="#">Facebook</a><a data-s="x" href="#">X</a><a data-s="copy" href="#">${t({en:'Copy text',bn:'লেখা কপি'})}</a></div></div>`;
-  setAct(btn('again',t({en:'Play again',bn:'আবার খেলুন'}),'ghost')+btn('share',t({en:'Share my result',bn:'ফলাফল শেয়ার করুন'}),'go'));
-  makeCard().then(({cv,o,C})=>{cardCap=caption(o,C);const im=$('#r-img');if(!im)return;im.alt=cardCap;cv.toBlob(b=>{cardBlob=b;im.src=URL.createObjectURL(b);im.onload=()=>{im.parentElement.classList.add('in')}},'image/png')}).catch(e=>{console.error('card',e&&e.stack||e)});
-  desk.querySelectorAll('.soc a').forEach(a=>a.onclick=e=>{e.preventDefault();const s=a.dataset.s,u=encodeURIComponent('https://garmentmalik.com/?r=fb'),tx=encodeURIComponent(cardCap.replace('garmentmalik.com','garmentmalik.com/?r='+s));track('share_'+s);
-    if(s==='copy'){(navigator.clipboard?.writeText(cardCap.replace('garmentmalik.com','garmentmalik.com/?r=copy'))||Promise.reject()).then(()=>toast(t({en:'Copied',bn:'কপি হয়েছে'}))).catch(()=>{});return}
-    open(s==='wa'?`https://wa.me/?text=${tx}`:s==='fb'?`https://www.facebook.com/sharer/sharer.php?u=${u}`:`https://twitter.com/intent/tweet?text=${tx}`,'_blank','noopener')});
+   <div class="soc"><a class="fb" data-s="fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${fbU}">Facebook</a><a class="wa" data-s="wa" target="_blank" rel="noopener" href="https://wa.me/?text=${base}wa">WhatsApp</a><a data-s="x" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=${base}x">X</a><a data-s="copy" href="#">${t({en:'Copy text',bn:'লেখা কপি'})}</a><a data-s="save" href="#">${t({en:'Save picture',bn:'ছবি সেভ'})}</a></div></div>`;
+  shareBtns();
+  const A=k=>desk.querySelector(`.soc a[data-s="${k}"]`);
+  makeCard().then(({cv,o,C})=>{cardCap=caption(o,C);const im=$('#r-img');if(!im)return;im.alt=cardCap;
+    A('wa').href='https://wa.me/?text='+encodeURIComponent(capFor('wa'));A('x').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(capFor('x').slice(0,270));
+    try{cardData=cv.toDataURL('image/jpeg',.9)}catch(e){}
+    cv.toBlob(b=>{cardBlob=b;im.src=b?URL.createObjectURL(b):cardData;im.onload=()=>{im.parentElement.classList.add('in')};shareBtns()},'image/png')}).catch(e=>{console.error('card',e&&e.stack||e);logErr('card: '+(e&&e.message||e))});
+  desk.querySelectorAll('.soc a').forEach(a=>a.onclick=e=>{const k=a.dataset.s;
+    if(k==='copy'){e.preventDefault();track('share_copy');copyText(capFor('copy')).then(ok=>ok?toast(t({en:'Copied',bn:'কপি হয়েছে'})):openShot());return}
+    if(k==='save'){e.preventDefault();saveCard();return}
+    track('share_'+k);if(k==='fb')copyText(capFor('fb')).then(ok=>{if(ok)toast(t({en:'Caption copied. Paste it in your post.',bn:'লেখা কপি হয়েছে। পোস্টে পেস্ট করুন।'}))})});
 }
-async function shareCard(){if(!cardBlob)return;track('share_image');const f=new File([cardBlob],'garment-malik.png',{type:'image/png'});
-  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:cardCap.replace('garmentmalik.com','garmentmalik.com/?r=img')});return}}catch(e){if(e&&e.name==='AbortError')return}
+function openShot(){if(!cardData&&!cardBlob)return;document.querySelector('.shot')?.remove();const d=document.createElement('div');d.className='shot';d.setAttribute('role','dialog');
+  d.innerHTML=`<p>${t({en:'Press and hold the picture, then tap “Save”.',bn:'ছবিটা চেপে ধরে রাখুন, তারপর “সেভ” চাপুন।'})}<small>${t({en:'Then post it from your gallery to Facebook, Instagram or anywhere.',bn:'তারপর গ্যালারি থেকে ফেসবুক, ইনস্টাগ্রাম বা যেকোনো জায়গায় পোস্ট করুন।'})}</small></p><img alt="" src="${cardData||URL.createObjectURL(cardBlob)}"><div><button class="y" data-a="shot-copy">${t({en:'Copy the caption',bn:'লেখা কপি করুন'})}</button><button data-a="shot-x">${t({en:'Close',bn:'বন্ধ'})}</button></div>`;
+  document.body.append(d);track('share_hold')}
+function saveCard(){if(!cardBlob&&!cardData)return;track('share_save',{inapp:INAPP?1:0});
+  if(INAPP||IOS||!cardBlob||!('download' in document.createElement('a'))){openShot();return}
   const a=document.createElement('a');a.href=URL.createObjectURL(cardBlob);a.download='garment-malik.png';document.body.append(a);a.click();a.remove();
-  try{await navigator.clipboard.writeText(cardCap.replace('garmentmalik.com','garmentmalik.com/?r=img'))}catch(e){}toast(t({en:'Image saved, caption copied',bn:'ছবি সেভ হয়েছে, লেখা কপি হয়েছে'}))}
+  copyText(capFor('img')).then(ok=>toast(ok?t({en:'Picture saved, caption copied',bn:'ছবি সেভ হয়েছে, লেখা কপি হয়েছে'}):t({en:'Picture saved',bn:'ছবি সেভ হয়েছে'})))}
+async function shareCard(){if(!cardBlob){saveCard();return}track('share_image');
+  try{const f=new File([cardBlob],'garment-malik.png',{type:'image/png'});
+    if(canFiles()){copyText(capFor('img'));await navigator.share({files:[f],text:capFor('img')});return}}catch(e){if(e&&e.name==='AbortError')return}
+  saveCard()}
 
 /* ---------- sources sheet ---------- */
 function sheet(){
   const li=(k,en,bn)=>`<li>${t({en,bn})} ${cite(k)}.</li>`;
-  $('#sheet-in').innerHTML=`<button class="x" data-a="close">${t({en:'Close',bn:'বন্ধ'})}</button><h3>${t({en:'Sources and method',bn:'সূত্র ও পদ্ধতি'})}</h3>
+  $('#sheet-in').innerHTML=`<button class="x" data-a="close">${t({en:'Close',bn:'বন্ধ'})}</button><h3>${t({en:'Sources and method',bn:'সূত্র ও পদ্ধতি'})}</h3><p><a href="https://garmentmalik.com/facts/" target="_blank" rel="noopener">${t({en:'Every figure on one page: garmentmalik.com/facts',bn:'সব সংখ্যা এক পাতায়: garmentmalik.com/facts'})}</a></p>
   <p>${t({en:'Two kinds of number are in this game. Facts are quoted from published sources. Rules are choices made to turn those facts into a playable year, and they are listed so you can argue with them.',bn:'এই খেলায় দুই ধরনের সংখ্যা আছে। তথ্য নেওয়া হয়েছে প্রকাশিত সূত্র থেকে। নিয়ম হলো সেই তথ্যকে এক বছরের খেলায় রূপ দিতে নেওয়া সিদ্ধান্ত; সেগুলোও নিচে দেওয়া হলো, যাতে প্রশ্ন তোলা যায়।'})}</p>
   <h4>${t({en:'Facts',bn:'তথ্য'})}</h4><ul>
   ${li('strike','Minimum wage Tk 12,500 since 1 Dec 2023. 690 factories halted on 2 Nov 2026. Workers proposed Tk 32,000 on 9 Nov 2026.','ন্যূনতম মজুরি ১ ডিসেম্বর ২০২৩ থেকে ১২,৫০০ টাকা। ২ নভেম্বর ২০২৬-এ ৬৯০ কারখানা বন্ধ। ৯ নভেম্বর শ্রমিকপক্ষের প্রস্তাব ৩২,০০০ টাকা।')}
   ${li('anker','Living wage Tk 25,166 a month in the industrial towns around Dhaka, Tk 30,459 in Dhaka city (2025).','জীবনধারণ মজুরি: ঢাকার আশপাশের শিল্পাঞ্চলে মাসে ২৫,১৬৬ টাকা, ঢাকা শহরে ৩০,৪৫৯ টাকা (২০২৫)।')}
   ${li('ank25','Cost of a basic but decent living for a family of four: Tk 39,762 a month in the satellite cities, Tk 48,022 in Dhaka city (June 2025).','চারজনের পরিবারের সাধারণ মর্যাদাপূর্ণ জীবনের খরচ: শিল্পাঞ্চলে মাসে ৩৯,৭৬২ টাকা, ঢাকা শহরে ৪৮,০২২ টাকা (জুন ২০২৫)।')}
   ${li('bgw','Industry model: 3,000 factories, 4 million workers, wages 15% of export earnings, net profit from 8% (500 factories) down to 2% (400). A wage rise of x% adds 0.15x% to costs; a factory is at risk when its margin falls below zero. The taka rate that would offset it is 124 × (1 + x/2).','শিল্প মডেল: ৩,০০০ কারখানা, ৪০ লাখ শ্রমিক, রপ্তানি আয়ের ১৫% মজুরি, নিট মুনাফা ৮% (৫০০ কারখানা) থেকে ২% (৪০০)। মজুরি x% বাড়লে খরচ বাড়ে ০.১৫x%; মুনাফা শূন্যের নিচে নামলে কারখানা ঝুঁকিতে। তা পোষাতে টাকার দর লাগে ১২৪ × (১ + x/২)।')}
-  ${li('bgth','Take-home on the Tk 12,500 minimum: basic Tk 6,700; overtime 2 hours a day at Tk 64.42 an hour = Tk 3,350; festival bonuses Tk 1,117 a month; leave pay Tk 278; attendance bonus Tk 500; total Tk 17,744.','১২,৫০০ টাকা ন্যূনতম মজুরিতে হাতে পাওয়া: মূল মজুরি ৬,৭০০; দিনে দুই ঘণ্টা ওভারটাইম, ঘণ্টায় ৬৪.৪২ টাকা = ৩,৩৫০; উৎসব বোনাস মাসে ১,১১৭; ছুটির টাকা ২৭৮; হাজিরা বোনাস ৫০০; মোট ১৭,৭৪৪ টাকা।')}
+  ${li('bgth','Grades and take-home: Grade 4 Tk 12,500 gross (14% of workers), Grade 3 Tk 13,550 (26%), Grade 2 Tk 14,273 (32%), Grade 1 Tk 15,035 (28%). Grade 4 take-home Tk 19,519: gross 12,500, overtime 5,025 for 78 hours a month, festival bonus 1,117, leave pay 278, attendance bonus 600. Average take-home Tk 22,051. A 9% annual increment applies from December 2024.','গ্রেড ও হাতে পাওয়া: গ্রেড ৪ মোট ১২,৫০০ টাকা (১৪% শ্রমিক), গ্রেড ৩ ১৩,৫৫০ (২৬%), গ্রেড ২ ১৪,২৭৩ (৩২%), গ্রেড ১ ১৫,০৩৫ (২৮%)। গ্রেড ৪-এ হাতে পাওয়া ১৯,৫১৯ টাকা: মোট ১২,৫০০, মাসে ৭৮ ঘণ্টা ওভারটাইম ৫,০২৫, উৎসব বোনাস ১,১১৭, ছুটির টাকা ২৭৮, হাজিরা বোনাস ৬০০। গড়ে হাতে পাওয়া ২২,০৫১ টাকা। ডিসেম্বর ২০২৪ থেকে বছরে ৯% ইনক্রিমেন্ট।')}
+  ${li('bgp','The squeeze, 2023 to 2026: production costs up 25–30%; export (FOB) price down 2.56% in three years; gas +33.33%, electricity +43%, diesel +23.85%, port charges +41%, bank interest 12–16%, overhead and transport +15%, export incentive cut 70%. Inflation 29.5% from Dec 2023 to Sep 2026. 287 factories closed since January 2023, about 175,000 jobs. The country screen uses the 3,000-factory model above; the 287 are closures that have already happened.','চাপ, ২০২৩ থেকে ২০২৬: উৎপাদন খরচ বেড়েছে ২৫–৩০%; তিন বছরে রপ্তানি (এফওবি) দাম কমেছে ২.৫৬%; গ্যাস +৩৩.৩৩%, বিদ্যুৎ +৪৩%, ডিজেল +২৩.৮৫%, বন্দরের মাশুল +৪১%, ব্যাংকের সুদ ১২–১৬%, পরিচালন ও পরিবহন +১৫%, রপ্তানি প্রণোদনা কমেছে ৭০%। ডিসেম্বর ২০২৩ থেকে সেপ্টেম্বর ২০২৬-এ মূল্যস্ফীতি ২৯.৫%। জানুয়ারি ২০২৩ থেকে ২৮৭ কারখানা বন্ধ, চাকরি গেছে প্রায় ১ লাখ ৭৫ হাজার। দেশের পর্দায় ওপরের ৩,০০০ কারখানার মডেল ব্যবহার করা হয়েছে; ২৮৭ হলো যেগুলো ইতিমধ্যে বন্ধ হয়েছে।')}
   ${li('ppe','Wages are about 12% of a Bangladeshi T-shirt’s export price; EU import prices for cotton T-shirts roughly halved in real terms since 2001; production targets rose from 200 to 250 pieces an hour. Brands other than Fast Retailing contested the figures.','বাংলাদেশি টি-শার্টের রপ্তানি দামের প্রায় ১২% মজুরি; ২০০১ থেকে ইউরোপে সুতি টি-শার্টের প্রকৃত আমদানি দাম প্রায় অর্ধেক; উৎপাদন লক্ষ্য ঘণ্টায় ২০০ থেকে ২৫০ পিস। ফাস্ট রিটেইলিং ছাড়া বাকি ব্র্যান্ডগুলো এই হিসাবে আপত্তি জানিয়েছে।')}
   ${li('ccc','Workers receive under 1% of the price of a €29 T-shirt sold in Europe; the factory keeps about 4%.','ইউরোপে ২৯ ইউরোর টি-শার্টের দামের ১%-এরও কম পান শ্রমিক; কারখানার থাকে প্রায় ৪%।')}
   ${li('unions','Unions: the cost of energy mismanagement, corruption and inefficiency should not be passed on to workers.','শ্রমিক সংগঠন: জ্বালানি অব্যবস্থাপনা, দুর্নীতি ও অদক্ষতার দায় শ্রমিকের ঘাড়ে চাপানো যাবে না।')}
@@ -907,9 +994,9 @@ function sheet(){
   <h4>${t({en:'Rules of the game (not data)',bn:'খেলার নিয়ম (তথ্য নয়)'})}</h4><ul>
   <li>${t({en:'The shirt: wages $0.45 (15%) and margin $0.15 (5%, the industry average) follow the BGMEA model; fabric $1.35, trims $0.30, transport and papers $0.27 and overhead $0.48 are the game’s split of the rest.',bn:'শার্টের হিসাব: মজুরি $০.৪৫ (১৫%) ও মুনাফা $০.১৫ (৫%, শিল্পের গড়) বিজিএমইএ মডেল অনুযায়ী; বাকিটা খেলার ভাগ: কাপড় $১.৩৫, ট্রিমস $০.৩০, পরিবহন ও কাগজ $০.২৭, পরিচালন $০.৪৮।'})}</li>
   <li>${t({en:'When the minimum rises, every grade rises by the same proportion, so wages in each shirt rise in step.',bn:'ন্যূনতম মজুরি বাড়লে সব গ্রেড একই অনুপাতে বাড়ে; ফলে প্রতি শার্টে মজুরির অংশও সেই হারে বাড়ে।'})}</li>
-  <li>${t({en:'Shathi and her family are a composite. Her husband is assumed to take home the same Tk 17,744.',bn:'সাথী ও তাঁর পরিবার একটি সম্মিলিত চরিত্র। ধরা হয়েছে, স্বামীও একই ১৭,৭৪৪ টাকা পান।'})}</li>
+  <li>${t({en:'Shathi and her family are a composite. Her husband is assumed to be on the same grade and take home the same Tk 19,519.',bn:'সাথী ও তাঁর পরিবার একটি সম্মিলিত চরিত্র। ধরা হয়েছে, স্বামীও একই গ্রেডে, একই ১৯,৫১৯ টাকা হাতে পান।'})}</li>
   <li>${t({en:'The factory has 1,000 workers, makes 200,000 shirts a month and starts with Tk 300 lakh in cash. Wages and overhead are paid even when output falls.',bn:'কারখানায় ১,০০০ শ্রমিক, মাসে ২ লাখ শার্ট, শুরুতে তহবিল ৩০০ লাখ টাকা। উৎপাদন কমলেও মজুরি ও পরিচালন ব্যয় দিতে হয়।'})}</li>
-  <li>${t({en:'The size of each consequence (5 cents for fuel, 15% lost output, a Tk 3,000 allowance, a buyer moving 25% or 40% of an order, a $2.85 target price) is a rule. The buyer and both of its letters are invented.',bn:'প্রতিটি পরিণতির মাপ (জ্বালানিতে ৫ সেন্ট, ১৫% কম উৎপাদন, ৩,০০০ টাকা ভাতা, অর্ডারের ২৫% বা ৪০% সরে যাওয়া, $২.৮৫ লক্ষ্য দর) খেলার নিয়ম। ক্রেতা ও তার দুটি চিঠিই কাল্পনিক।'})}</li>
+  <li>${t({en:'The size of each consequence (5 cents for fuel, 4 cents for interest and port, 10% or 15% lost output, a Tk 3,000 allowance, a buyer moving 25% or 40% of an order, a $2.85 target price) is a rule. The buyer and both of its letters are invented.',bn:'প্রতিটি পরিণতির মাপ (জ্বালানিতে ৫ সেন্ট, সুদ ও বন্দরে ৪ সেন্ট, ১০% বা ১৫% কম উৎপাদন, ৩,০০০ টাকা ভাতা, অর্ডারের ২৫% বা ৪০% সরে যাওয়া, $২.৮৫ লক্ষ্য দর) খেলার নিয়ম। ক্রেতা ও তার দুটি চিঠিই কাল্পনিক।'})}</li>
   <li>${t({en:'Your factory’s margin is drawn at random from the seven BGMEA bands, weighted by how many factories sit in each, so a 2% factory and an 8% one play differently.',bn:'আপনার কারখানার মুনাফার হার বিজিএমইএর সাতটি স্তর থেকে দৈবভাবে নেওয়া, প্রতিটি স্তরে কারখানার সংখ্যা অনুপাতে; তাই ২% আর ৮% কারখানার খেলা আলাদা।'})}</li>
   <li>${t({en:'The country view: each square is one factory. A price rise of p% adds p points to every margin; a factory shuts when its margin falls below zero. The price that keeps every factory open brings the 2% band back to zero: $3.21 (+7%) at Tk 20,000, $3.65 (+21.7%) at Tk 32,000. Jobs are 4 million spread evenly over 3,000 factories.',bn:'দেশের চিত্র: প্রতিটি বর্গ একটি কারখানা। দাম p% বাড়লে প্রতিটি কারখানার মুনাফা p পয়েন্ট বাড়ে; মুনাফা শূন্যের নিচে নামলে কারখানা বন্ধ। সব কারখানা চালু রাখার দাম ২% স্তরকে শূন্যে ফেরায়: ২০,০০০ টাকায় $৩.২১ (+৭%), ৩২,০০০ টাকায় $৩.৬৫ (+২১.৭%)। ৪০ লাখ চাকরি ৩,০০০ কারখানায় সমানভাবে ভাগ করা।'})}</li>
   <li>${t({en:'The game does not model shop prices, taxes, incentives or productivity gains.',bn:'দোকানের দাম, কর, প্রণোদনা বা উৎপাদনশীলতা বৃদ্ধি এই খেলায় ধরা হয়নি।'})}</li></ul>
@@ -931,6 +1018,9 @@ function go(a){
   else if(a==='own'){step='slip';track('chair_owner')}
   else if(a==='whole'){step='result';track('result',{wage:nw||S.wage,price:np||B.price,k:outcome().k})}
   else if(a==='share'){shareCard();return}
+  else if(a==='save'){saveCard();return}
+  else if(a==='shot-x'){document.querySelector('.shot')?.remove();return}
+  else if(a==='shot-copy'){copyText(capFor('img')).then(ok=>toast(ok?t({en:'Copied',bn:'কপি হয়েছে'}):t({en:'Could not copy here',bn:'এখানে কপি করা গেল না'})));return}
   else if(a==='mail'){step='doc';di=0;picked=null}
   else if(a.startsWith('pick')){picked=+a.slice(4);const o=DOCS[di].opts[picked];o.fx(S);closeMonth(o.day||1);render();hud(o.bump);navigator.vibrate?.(12);return}
   else if(a==='gazette'){S.wage=wv;track('wage_set',{wage:wv});S.cashAtWage=S.cash;picked=0;closeMonth();render();hud(['w','m','c']);navigator.vibrate?.(12);return}
@@ -942,7 +1032,9 @@ function go(a){
   else if(a==='intro-done'){introDone();track('intro_done');return}
   render();
 }
-document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)go(b.dataset.a);else if(e.target.id==='sheet')$('#sheet').hidden=true});
+let errN=0;const logErr=(m,ui)=>{if(errN++<5)track('error',{msg:String(m).slice(0,140),at:step,ver:VER});if(ui)try{chrome(false);desk.innerHTML=`<div class="title"><h1>${t({en:'Garment<br>Malik',bn:'গার্মেন্ট<br>মালিক'})}</h1><p>${t({en:'Something broke on our side. Reload and the game starts fresh.',bn:'আমাদের দিকে কিছু একটা গোলমাল হয়েছে। রিলোড করলে খেলা নতুন করে শুরু হবে।'})}</p></div>`;act.innerHTML=`<button class="rs go" id="rl">${t({en:'Reload',bn:'রিলোড করুন'})}</button>`;act.classList.add('one');$('#rl').onclick=()=>location.reload()}catch(_){}};
+addEventListener('error',e=>logErr(e.message||'error'));addEventListener('unhandledrejection',e=>logErr('promise: '+(e.reason&&e.reason.message||e.reason)));
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');try{if(b)go(b.dataset.a);else if(e.target.id==='sheet')$('#sheet').hidden=true}catch(x){console.error(x);logErr(x&&x.message||x,1)}});
 $('#src-btn').onclick=sheet;
 const setLang=l=>{lang=l;try{localStorage.setItem('gm-lang',l)}catch(e){}clearTimeout(ledTimer);const led=step==='ledger';render();if(!$('#sheet').hidden)sheet()};
 $('#l-en').onclick=()=>setLang('en');
@@ -952,11 +1044,13 @@ $('#th-btn').onclick=()=>{setTheme(document.documentElement.dataset.theme==='dar
 function track(name,props){try{const d=Object.assign({gm_lang:lang},props||{});(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:'gm_'+name},d));if(typeof window.gtag==='function')gtag('event','gm_'+name,d)}catch(e){}}
 {let r='';try{r=new URLSearchParams(location.search).get('r')||''}catch(e){}track('arrive',{ref:r||'direct'})}
 function fit(){const a=$('#app'),W=innerWidth,H=innerHeight;let z=1;
-  if(W>=860&&H>=700)z=Math.min(1.55,Math.max(1,Math.min(W/640,H/685)));
+  if(W>=860&&H>=700)z=Math.min(1.55,Math.max(1,Math.min(W/640,H/718)));
   a.style.zoom=z===1?'':String(z);a.style.height='';if(z===1)return;
   const h0=H/z;a.style.height=h0+'px';const r=a.getBoundingClientRect().height;if(r&&Math.abs(r-H)>2)a.style.height=(h0*H/r)+'px';}
 addEventListener('resize',fit);fit();
-reset();render();intro();
+try{reset();render();intro()}catch(x){console.error(x);logErr(x&&x.message||x,1)}
+/* a returning player on a cached page: if the server has a newer build, load it once, and only from the title screen */
+if(VER&&/^https?:$/.test(location.protocol))fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.text():'').then(v=>{v=v.trim();if(!/^[\w.-]{4,40}$/.test(v)||v===VER||step!=='title')return;try{if(sessionStorage.getItem('gm-rl')===v)return;sessionStorage.setItem('gm-rl',v)}catch(e){return}const u=new URL(location.href);u.searchParams.set('v',v);location.replace(u.href)}).catch(()=>{});
 window.__wd={get S(){return S},eco,go,get step(){return step}};
 })();
 </script>
